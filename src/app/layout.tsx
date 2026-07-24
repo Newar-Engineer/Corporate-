@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { prisma } from "@/lib/prisma";
-import Header from "@/components/Header";
+import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ToastProvider } from "@/components/ui/Toast";
 import "./globals.css";
@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-  let siteTitle = "Newa Enterprises — Trusted Business Partner in Baneshwor, Kathmandu";
+  let siteTitle = "Newa Enterprises — Building Nepal's Digital Future";
   let siteDescription = "Newa Enterprises is a trusted business partner based in Baneshwor, Kathmandu, Nepal. We provide quality services in trading, consultancy, supplies, and digital solutions.";
 
   try {
@@ -33,6 +33,13 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: siteTitle,
     description: siteDescription,
+    openGraph: {
+      title: siteTitle,
+      description: siteDescription,
+      type: "website",
+      locale: "en_US",
+      siteName: "Newa Enterprises",
+    },
   };
 }
 
@@ -46,9 +53,9 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col bg-slate-950 text-slate-200">
         <ToastProvider>
-          <Header />
+          <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
         </ToastProvider>
