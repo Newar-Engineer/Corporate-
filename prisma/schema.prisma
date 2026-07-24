@@ -17,16 +17,20 @@ model User {
 }
 
 model Service {
-  id          String   @id @default(cuid())
-  title       String
-  slug        String   @unique
-  description String
-  icon        String   @default("FiMonitor")
-  imageUrl    String?
-  order       Int      @default(0)
-  isActive    Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id           String   @id @default(cuid())
+  title        String
+  slug         String   @unique
+  description  String
+  icon         String   @default("FiMonitor")
+  imageUrl     String?
+  features     Json?    // Array of {title, description} capability sub-cards
+  techStack    Json?    // Array of {name, type} for tech badges
+  processSteps Json?    // Array of {title, description, duration} dev workflow
+  timeline     String?  // e.g., "2-4 weeks"
+  order        Int      @default(0)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }
 
 model TeamMember {
