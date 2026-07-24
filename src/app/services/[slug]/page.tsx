@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { Service } from "@/generated/prisma";
+import type { Service } from "@/generated/prisma/index";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import HeroSection from "@/components/HeroSection";

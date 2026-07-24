@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { PortfolioItem } from "@/generated/prisma";
+import type { PortfolioItem } from "@/generated/prisma/index";
 import { prisma } from "@/lib/prisma";
 import HeroSection from "@/components/HeroSection";
 import SectionHeading from "@/components/SectionHeading";

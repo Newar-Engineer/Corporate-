@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { Post } from "@/generated/prisma";
+import type { Post } from "@/generated/prisma/index";
 import { prisma } from "@/lib/prisma";
 import HeroSection from "@/components/HeroSection";
 import SectionHeading from "@/components/SectionHeading";

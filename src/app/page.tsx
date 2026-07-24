@@ -1,4 +1,4 @@
-import type { Service, Testimonial } from "@/generated/prisma";
+import type { Service, Testimonial } from "@/generated/prisma/index";
 import { prisma } from "@/lib/prisma";
 import HeroSection from "@/components/HeroSection";
 import SectionHeading from "@/components/SectionHeading";
