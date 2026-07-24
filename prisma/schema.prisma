@@ -93,8 +93,17 @@ model PortfolioItem {
   category    String
   imageUrl    String?
   client      String?
-  completionDate DateTime?
+  clientOverview String?
+  problem     String?
+  solution    String?
+  results     String?
+  metrics     Json?    // Array of {label, value} e.g., "+300% Engagement"
+  techStack   Json?    // Array of {name, type}
+  gallery     Json?    // Array of {url, caption}
   testimonial String?
+  testimonialAuthor String?
+  testimonialRole  String?
+  completionDate DateTime?
   isActive    Boolean  @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

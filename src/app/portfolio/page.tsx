@@ -1,98 +1,58 @@
 import type { Metadata } from "next";
-import type { PortfolioItem } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
-import HeroSection from "@/components/HeroSection";
-import SectionHeading from "@/components/SectionHeading";
-import PortfolioCard from "@/components/PortfolioCard";
+import PortfolioHubClient from "./PortfolioHubClient";
+import { FiGrid } from "react-icons/fi";
 
 export const metadata: Metadata = {
   title: "Portfolio — Newa Enterprises",
-  description: "Browse our portfolio of completed projects across trading, supply, consultancy, and digital services in Nepal.",
+  description:
+    "Browse our portfolio of completed projects across trading, supply, consultancy, and digital services in Nepal.",
 };
 
-interface PageProps {
-  searchParams: Promise<{ category?: string }>;
-}
-
-export default async function PortfolioPage({ searchParams }: PageProps) {
-  const { category } = await searchParams;
-
-  let allItems: PortfolioItem[] = [];
+export default async function PortfolioPage() {
+  let items: any[] = [];
   try {
-    allItems = await prisma.portfolioItem.findMany({
+    const raw = await prisma.portfolioItem.findMany({
       where: { isActive: true },
       orderBy: { createdAt: "desc" },
     });
+    items = raw.map((r) => ({
+      id: r.id,
+      title: r.title,
+      slug: r.slug,
+      description: r.description,
+      category: r.category,
+      client: r.client,
+      metrics: r.metrics,
+      techStack: r.techStack,
+      testimonial: r.testimonial,
+      testimonialAuthor: r.testimonialAuthor,
+    }));
   } catch (error) {
     console.error("Error fetching portfolio items:", error);
   }
 
-  const categories = [...new Set(allItems.map((item: PortfolioItem) => item.category))];
-
-  const items = category
-    ? allItems.filter((item: PortfolioItem) => item.category === category)
-    : allItems;
-
   return (
     <>
-      <HeroSection
-        title="Our Portfolio"
-        subtitle="Showcasing our best work across industries — from supply chain to digital transformation."
-      />
-
-      <section className="py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            title="Featured Projects"
-            subtitle="A glimpse of what we have delivered for our clients"
-            centered
-          />
-
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
-            <a
-              href="/portfolio"
-              className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                !category
-                  ? "bg-amber-600 text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
-            >
-              All
-            </a>
-            {categories.map((cat: string) => (
-              <a
-                key={cat}
-                href={`/portfolio?category=${encodeURIComponent(cat)}`}
-                className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  category === cat
-                    ? "bg-amber-600 text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-              >
-                {cat}
-              </a>
-            ))}
+      <section className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
+        <div className="absolute inset-0 hero-gradient" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(99,102,241,0.15),transparent_50%)]" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm text-primary mb-6">
+            <FiGrid size={14} />
+            Our Work
           </div>
-
-          {items.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {items.map((item: PortfolioItem) => (
-                <PortfolioCard
-                  key={item.id}
-                  title={item.title}
-                  category={item.category}
-                  imageUrl={item.imageUrl}
-                  slug={item.slug}
-                />
-              ))}
-            </div>
-          ) : (
-            <p className="text-center text-gray-500 py-12">
-              No projects found in this category.
-            </p>
-          )}
+          <h1 className="gradient-text text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+            Portfolio & Case Studies
+          </h1>
+          <p className="mx-auto max-w-2xl text-lg sm:text-xl text-slate-300 leading-relaxed">
+            Real projects, real results. Browse our work across industries and
+            see how we deliver measurable impact for our clients.
+          </p>
         </div>
       </section>
+
+      <PortfolioHubClient items={items} />
     </>
   );
 }
