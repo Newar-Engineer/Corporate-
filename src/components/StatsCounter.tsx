@@ -6,13 +6,10 @@ interface StatsCounterProps {
   value: number;
   label: string;
   suffix?: string;
+  icon?: string;
 }
 
-export default function StatsCounter({
-  value,
-  label,
-  suffix = "",
-}: StatsCounterProps) {
+export default function StatsCounter({ value, label, suffix = "" }: StatsCounterProps) {
   const [count, setCount] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -20,23 +17,18 @@ export default function StatsCounter({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-        }
+        if (entry.isIntersecting && !hasAnimated) setHasAnimated(true);
       },
       { threshold: 0.3 }
     );
-
     observer.observe(el);
     return () => observer.disconnect();
   }, [hasAnimated]);
 
   useEffect(() => {
     if (!hasAnimated) return;
-
     const duration = 2000;
     const steps = 60;
     const increment = value / steps;
@@ -50,19 +42,15 @@ export default function StatsCounter({
         setCount(Math.floor(current));
       }
     }, duration / steps);
-
     return () => clearInterval(timer);
   }, [hasAnimated, value]);
 
   return (
-    <div ref={ref} className="text-center">
-      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-amber-600">
-        {count}
-        {suffix}
+    <div ref={ref} className="glass-light rounded-2xl p-6 sm:p-8 text-center">
+      <div className="text-4xl sm:text-5xl lg:text-6xl font-bold gradient-text mb-1">
+        {count}{suffix}
       </div>
-      <p className="mt-2 text-sm sm:text-base text-gray-600 font-medium">
-        {label}
-      </p>
+      <p className="text-sm sm:text-base text-slate-400 font-medium">{label}</p>
     </div>
   );
 }
