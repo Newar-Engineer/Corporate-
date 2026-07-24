@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { Service } from "@/generated/prisma/index";
+import type { Service } from "@prisma/client";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import HeroSection from "@/components/HeroSection";
@@ -13,7 +13,12 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const service = await prisma.service.findUnique({ where: { slug } });
+  let service = null;
+  try {
+    service = await prisma.service.findUnique({ where: { slug } });
+  } catch (error) {
+    console.error("Error fetching service metadata:", error);
+  }
 
   if (!service) return { title: "Service Not Found — Newa Enterprises" };
 
@@ -25,16 +30,23 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ServiceDetailPage({ params }: PageProps) {
   const { slug } = await params;
+  let service = null;
+  let relatedServices: Service[] = [];
 
-  const service = await prisma.service.findUnique({ where: { slug } });
+  try {
+    service = await prisma.service.findUnique({ where: { slug } });
+    if (service) {
+      relatedServices = await prisma.service.findMany({
+        where: { isActive: true, id: { not: service.id } },
+        orderBy: { order: "asc" },
+        take: 3,
+      });
+    }
+  } catch (error) {
+    console.error("Error fetching service detail:", error);
+  }
 
   if (!service) notFound();
-
-  const relatedServices = await prisma.service.findMany({
-    where: { isActive: true, id: { not: service.id } },
-    orderBy: { order: "asc" },
-    take: 3,
-  });
 
   return (
     <>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { Service } from "@/generated/prisma/index";
+import type { Service } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import HeroSection from "@/components/HeroSection";
 import SectionHeading from "@/components/SectionHeading";
@@ -11,10 +11,15 @@ export const metadata: Metadata = {
 };
 
 export default async function ServicesPage() {
-  const services = await prisma.service.findMany({
-    where: { isActive: true },
-    orderBy: { order: "asc" },
-  });
+  let services: Service[] = [];
+  try {
+    services = await prisma.service.findMany({
+      where: { isActive: true },
+      orderBy: { order: "asc" },
+    });
+  } catch (error) {
+    console.error("Error fetching services:", error);
+  }
 
   return (
     <>

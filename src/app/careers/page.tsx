@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { Job } from "@/generated/prisma/index";
+import type { Job } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import HeroSection from "@/components/HeroSection";
 import SectionHeading from "@/components/SectionHeading";
@@ -11,10 +11,15 @@ export const metadata: Metadata = {
 };
 
 export default async function CareersPage() {
-  const jobs = await prisma.job.findMany({
-    where: { isActive: true },
-    orderBy: { createdAt: "desc" },
-  });
+  let jobs: Job[] = [];
+  try {
+    jobs = await prisma.job.findMany({
+      where: { isActive: true },
+      orderBy: { createdAt: "desc" },
+    });
+  } catch (error) {
+    console.error("Error fetching jobs:", error);
+  }
 
   return (
     <>

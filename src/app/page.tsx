@@ -1,4 +1,4 @@
-import type { Service, Testimonial } from "@/generated/prisma/index";
+import type { Service, Testimonial } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import HeroSection from "@/components/HeroSection";
 import SectionHeading from "@/components/SectionHeading";
@@ -9,10 +9,16 @@ import CTASection from "@/components/CTASection";
 import Link from "next/link";
 
 export default async function HomePage() {
-  const [services, testimonials] = await Promise.all([
-    prisma.service.findMany({ where: { isActive: true }, orderBy: { order: "asc" }, take: 6 }),
-    prisma.testimonial.findMany({ where: { approved: true }, orderBy: { createdAt: "desc" } }),
-  ]);
+  let services: Service[] = [];
+  let testimonials: Testimonial[] = [];
+  try {
+    [services, testimonials] = await Promise.all([
+      prisma.service.findMany({ where: { isActive: true }, orderBy: { order: "asc" }, take: 6 }),
+      prisma.testimonial.findMany({ where: { approved: true }, orderBy: { createdAt: "desc" } }),
+    ]);
+  } catch (error) {
+    console.error("Error fetching homepage data:", error);
+  }
 
   return (
     <>

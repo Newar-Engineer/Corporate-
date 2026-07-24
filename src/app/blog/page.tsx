@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { Post } from "@/generated/prisma/index";
+import type { Post } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import HeroSection from "@/components/HeroSection";
 import SectionHeading from "@/components/SectionHeading";
@@ -11,10 +11,15 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogPage() {
-  const posts = await prisma.post.findMany({
-    where: { status: "published" },
-    orderBy: { publishedAt: "desc" },
-  });
+  let posts: Post[] = [];
+  try {
+    posts = await prisma.post.findMany({
+      where: { status: "published" },
+      orderBy: { publishedAt: "desc" },
+    });
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+  }
 
   return (
     <>

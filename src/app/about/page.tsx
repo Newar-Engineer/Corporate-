@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { TeamMember } from "@/generated/prisma/index";
+import type { TeamMember } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import HeroSection from "@/components/HeroSection";
 import SectionHeading from "@/components/SectionHeading";
@@ -12,10 +12,15 @@ export const metadata: Metadata = {
 };
 
 export default async function AboutPage() {
-  const teamMembers = await prisma.teamMember.findMany({
-    where: { isActive: true },
-    orderBy: { order: "asc" },
-  });
+  let teamMembers: TeamMember[] = [];
+  try {
+    teamMembers = await prisma.teamMember.findMany({
+      where: { isActive: true },
+      orderBy: { order: "asc" },
+    });
+  } catch (error) {
+    console.error("Error fetching team members:", error);
+  }
 
   return (
     <>

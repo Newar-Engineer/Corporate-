@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { PortfolioItem } from "@/generated/prisma/index";
+import type { PortfolioItem } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import HeroSection from "@/components/HeroSection";
 import SectionHeading from "@/components/SectionHeading";
@@ -17,10 +17,15 @@ interface PageProps {
 export default async function PortfolioPage({ searchParams }: PageProps) {
   const { category } = await searchParams;
 
-  const allItems = await prisma.portfolioItem.findMany({
-    where: { isActive: true },
-    orderBy: { createdAt: "desc" },
-  });
+  let allItems: PortfolioItem[] = [];
+  try {
+    allItems = await prisma.portfolioItem.findMany({
+      where: { isActive: true },
+      orderBy: { createdAt: "desc" },
+    });
+  } catch (error) {
+    console.error("Error fetching portfolio items:", error);
+  }
 
   const categories = [...new Set(allItems.map((item: PortfolioItem) => item.category))];
 

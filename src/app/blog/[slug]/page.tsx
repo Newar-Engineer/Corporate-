@@ -13,7 +13,12 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = await prisma.post.findUnique({ where: { slug, status: "published" } });
+  let post = null;
+  try {
+    post = await prisma.post.findUnique({ where: { slug, status: "published" } });
+  } catch (error) {
+    console.error("Error fetching post metadata:", error);
+  }
 
   if (!post) return { title: "Post Not Found — Newa Enterprises" };
 
@@ -25,10 +30,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
-
-  const post = await prisma.post.findUnique({
-    where: { slug, status: "published" },
-  });
+  let post = null;
+  try {
+    post = await prisma.post.findUnique({
+      where: { slug, status: "published" },
+    });
+  } catch (error) {
+    console.error("Error fetching post:", error);
+  }
 
   if (!post) notFound();
 
