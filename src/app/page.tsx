@@ -127,6 +127,7 @@ export default async function HomePage() {
                   "Timely project completion",
                 ]}
                 gradient={i % 2 === 0 ? "from-primary to-accent" : "from-accent to-primary"}
+                index={i}
               />
             ))}
           </div>

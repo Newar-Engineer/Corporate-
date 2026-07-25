@@ -48,5 +48,3 @@ export default function ServiceDetailClient({ serviceTitle }: ServiceDetailClien
     </>
   );
 }
-
-ServiceDetailClient.InquiryForm = ServiceInquiryForm;

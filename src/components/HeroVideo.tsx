@@ -54,7 +54,7 @@ export default function HeroVideo({
           playsInline
           preload="auto"
           onError={() => setVideoFailed(true)}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover scale-[1.7] origin-bottom-right object-[80%_60%] transition-opacity duration-700"
           poster={fallbackImage || "/images/hero-poster.jpg"}
         >
           <source src={videoSrc} type="video/mp4" />

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import ServiceDetailClient from "./ServiceDetailClient";
+import ServiceInquiryForm from "@/components/ServiceInquiryForm";
 import SectionHeading from "@/components/SectionHeading";
 import { FiClock, FiArrowRight, FiCheckCircle, FiMonitor, FiSmartphone, FiCloud, FiCode, FiShoppingBag, FiTruck, FiTrendingUp, FiTool, FiUsers } from "react-icons/fi";
 
@@ -68,6 +69,19 @@ const typeColors: Record<string, string> = {
 
 function getTypeColor(type: string): string {
   return typeColors[type] || "border-slate-500/30 text-slate-400 bg-slate-500/10";
+}
+
+export async function generateStaticParams() {
+  try {
+    const services = await prisma.service.findMany({
+      where: { isActive: true },
+      select: { slug: true },
+    });
+    return services.map((s) => ({ slug: s.slug }));
+  } catch (error) {
+    console.error("Error in generateStaticParams:", error);
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -297,7 +311,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             centered
           />
           <div className="glass rounded-2xl p-6 sm:p-8">
-            <ServiceDetailClient.InquiryForm serviceTitle={service.title} />
+            <ServiceInquiryForm serviceTitle={service.title} />
           </div>
         </div>
       </section>
