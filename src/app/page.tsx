@@ -7,6 +7,7 @@ import TiltCard from "@/components/TiltCard";
 import PortfolioSlider from "@/components/PortfolioSlider";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import LeadBanner from "@/components/LeadBanner";
+import ScrollStorySection from "@/components/ScrollStorySection";
 import { FiMonitor, FiSmartphone, FiCloud, FiCode } from "react-icons/fi";
 
 const serviceIcons: Record<string, React.ReactNode> = {
@@ -160,6 +161,8 @@ export default async function HomePage() {
           </div>
         </section>
       )}
+
+      <ScrollStorySection />
 
       <LeadBanner />
     </>
