@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback, Suspense } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import HeroGlassRing from "@/components/three/HeroGlassRing";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -131,7 +132,11 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <div className="hidden lg:block" />
+          <div className="hidden lg:block relative h-[600px] w-full">
+            <Suspense fallback={null}>
+              <HeroGlassRing />
+            </Suspense>
+          </div>
         </div>
       </div>
     </section>
