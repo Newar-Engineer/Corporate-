@@ -12,19 +12,24 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <>
-      {/* ========================= HERO ========================= */}
-      <section className="relative overflow-hidden bg-slate-900 py-20 sm:py-28">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.15)_0%,transparent_60%)]" />
-        <div className="absolute left-1/2 top-0 h-px w-1/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+    <div className="bg-slate-950 min-h-screen text-slate-100 selection:bg-sky-500 selection:text-white">
+      {/* ========================= HERO - Deep Ocean Blue Theme ========================= */}
+      <section className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-24">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(14,165,233,0.18)_0%,transparent_65%)]" />
+        <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-sky-500/50 to-transparent" />
+        
         <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <h1 className="gradient-text text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
-            Let&rsquo;s Build Something Extraordinary Together
+          <span className="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-4 py-1.5 text-xs font-semibold text-sky-400 mb-6 backdrop-blur-md">
+            📍 Baneshwor, Kathmandu, Nepal
+          </span>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6">
+            <span className="bg-gradient-to-r from-sky-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
+              Let&rsquo;s Build Something Extraordinary Together
+            </span>
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-slate-400 sm:text-base">
-            Have a project idea, question, or need a custom enterprise solution?{" "}
-            <br className="hidden sm:block" />
-            Talk directly with our engineering team.
+          <p className="mx-auto max-w-2xl text-base sm:text-lg text-slate-300 leading-relaxed">
+            Have a project idea, inquiry, or need a custom corporate solution?
+            Connect directly with our team in Baneshwor.
           </p>
         </div>
       </section>
@@ -33,15 +38,14 @@ export default function ContactPage() {
       <ContactInfoCards />
 
       {/* ========================= FORM + FAQ ========================= */}
-      <section className="border-t border-slate-800/50 bg-slate-900 pb-20 pt-16 sm:pb-24 sm:pt-20">
+      <section className="relative border-t border-sky-500/10 bg-slate-950 pb-20 pt-16 sm:pb-24 sm:pt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-5">
             {/* Form */}
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-3 bg-slate-900/60 backdrop-blur-md p-8 rounded-3xl border border-sky-500/20 shadow-2xl">
               <SectionHeading title="Get a Project Quote" />
               <p className="mb-6 mt-2 text-sm text-slate-400">
-                Fill in the details below and our team will respond within 24 hours with a tailored
-                proposal.
+                Fill in the details below and our team will respond within 24 hours with a tailored proposal.
               </p>
               <ContactFormAdvanced />
             </div>
@@ -59,13 +63,13 @@ export default function ContactPage() {
       </section>
 
       {/* ========================= MAP ========================= */}
-      <section className="border-t border-slate-800/50 bg-slate-900 pb-20 sm:pb-24">
+      <section className="border-t border-sky-500/10 bg-slate-950 pb-20 sm:pb-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="overflow-hidden rounded-xl border border-slate-700/50">
+          <div className="overflow-hidden rounded-3xl border border-sky-500/20 shadow-2xl">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.0300186772647!2d85.3236!3d27.7026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb190000000001%3A0x1b2b7b1b3b3b3b3b!2sBaneshwor%2C%20Kathmandu%2044600%2C%20Nepal!5e0!3m2!1sen!2snp!4v1"
               width="100%"
-              height="380"
+              height="400"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
@@ -75,6 +79,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

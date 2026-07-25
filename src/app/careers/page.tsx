@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import CareersFilterClient from "@/components/CareersFilterClient";
 import {
-  FiUsers, FiHeart, FiAward, FiCalendar,
-  FiDollarSign, FiShield, FiBookOpen, FiSmile,
+  FiUsers, FiDollarSign, FiShield, FiBookOpen, FiSmile,
 } from "react-icons/fi";
 
 export const metadata: Metadata = {
@@ -57,18 +56,19 @@ export default async function CareersPage() {
   }
 
   return (
-    <>
-      {/* Hero */}
+    <div className="bg-slate-950 min-h-screen text-slate-100 selection:bg-rose-500 selection:text-white">
+      {/* Hero - Vibrant Coral Theme */}
       <section className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
-        <div className="absolute inset-0 hero-gradient" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(99,102,241,0.15),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(244,63,94,0.18),transparent_60%)]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm text-primary mb-6">
+          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-rose-500/30 bg-rose-500/10 px-4 py-1.5 text-xs font-semibold text-rose-400 mb-6 backdrop-blur-md">
             <FiUsers size={14} />
-            Join the Team
+            Join Our Team in Kathmandu
           </div>
-          <h1 className="gradient-text text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
-            Build the Future of Digital Solutions With Us
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+            <span className="bg-gradient-to-r from-rose-400 via-red-400 to-amber-400 bg-clip-text text-transparent">
+              Build the Future of Digital Solutions With Us
+            </span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg sm:text-xl text-slate-300 leading-relaxed mb-8">
             Join a passionate, innovative team in Baneshwor, Kathmandu pushing
@@ -82,7 +82,7 @@ export default async function CareersPage() {
             ].map((badge) => (
               <span
                 key={badge.label}
-                className="inline-flex items-center gap-1.5 rounded-full border border-slate-600/30 bg-slate-800/60 px-4 py-1.5 text-sm text-slate-300"
+                className="inline-flex items-center gap-1.5 rounded-full border border-rose-500/20 bg-rose-950/40 px-4 py-1.5 text-sm text-rose-200"
               >
                 <span className="text-base">{badge.icon}</span>
                 {badge.label}
@@ -93,11 +93,11 @@ export default async function CareersPage() {
       </section>
 
       {/* Life at Newa Enterprises — Culture Grid */}
-      <section className="section-gradient py-16 sm:py-20">
+      <section className="relative py-16 sm:py-20 border-t border-rose-500/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 sm:mb-12 text-center">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3">
-              Life at <span className="gradient-text">Newa Enterprises</span>
+              Life at <span className="bg-gradient-to-r from-rose-400 to-amber-400 bg-clip-text text-transparent">Newa Enterprises</span>
             </h2>
             <p className="text-slate-400 max-w-xl mx-auto">
               We believe great work happens when people are supported, challenged,
@@ -108,18 +108,15 @@ export default async function CareersPage() {
             {perks.map((perk, i) => (
               <div
                 key={i}
-                className="glass-light rounded-xl p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_0_20px_rgba(99,102,241,0.08)]"
-                style={{
-                  animation: `fadeInUp 0.4s ease-out ${i * 0.1}s both`,
-                }}
+                className="rounded-2xl border border-rose-500/20 bg-slate-900/60 p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-rose-500/50 hover:shadow-lg hover:shadow-rose-950/40"
               >
-                <div className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-rose-500/10 text-rose-400 border border-rose-500/20">
                   {perk.icon}
                 </div>
-                <h3 className="text-sm font-semibold text-white mb-1.5">
+                <h3 className="text-base font-bold text-white mb-2">
                   {perk.title}
                 </h3>
-                <p className="text-xs text-slate-400 leading-relaxed">
+                <p className="text-xs text-slate-300 leading-relaxed">
                   {perk.desc}
                 </p>
               </div>
@@ -130,13 +127,6 @@ export default async function CareersPage() {
 
       {/* Open Positions */}
       <CareersFilterClient jobs={jobs} />
-
-      <style>{`
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(16px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
-    </>
+    </div>
   );
 }

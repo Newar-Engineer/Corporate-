@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import HeroVideo from "@/components/HeroVideo";
-import CleanVideoSection from "@/components/CleanVideoSection";
+import SeamlessVideoSection from "@/components/SeamlessVideoSection";
 import SectionHeading from "@/components/SectionHeading";
 import StatsCounter from "@/components/StatsCounter";
 import TiltCard from "@/components/TiltCard";
@@ -99,11 +99,12 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <CleanVideoSection
+      <SeamlessVideoSection
         videoSrc="/videos/web animation.mp4"
-        badge="Interactive Showcase"
-        title="Experience Motion & Interaction"
-        subtitle="Explore how high-impact motion graphics and animations bring web interfaces to life for modern brands."
+        badge="Interactive Motion Showcase"
+        title="Fluid UI Animations & High-Impact Digital Experiences"
+        subtitle="Explore how custom web animations and interactive interfaces engage customers, elevate brand perception, and drive conversion across all devices."
+        themeGradient="from-indigo-400 via-cyan-400 to-blue-300"
       />
 
       <section className="section-gradient py-16 sm:py-20 lg:py-24">

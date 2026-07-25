@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import PortfolioHubClient from "./PortfolioHubClient";
-import CleanVideoSection from "@/components/CleanVideoSection";
-import { FiGrid } from "react-icons/fi";
+import SeamlessVideoHero from "@/components/SeamlessVideoHero";
+import SeamlessVideoSection from "@/components/SeamlessVideoSection";
 
 export const metadata: Metadata = {
-  title: "Portfolio — Newa Enterprises",
+  title: "Portfolio & Case Studies — Newa Enterprises",
   description:
     "Browse our portfolio of completed projects across trading, supply, consultancy, and digital services in Nepal.",
 };
@@ -34,33 +34,31 @@ export default async function PortfolioPage() {
   }
 
   return (
-    <>
-      <section className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
-        <div className="absolute inset-0 hero-gradient" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(99,102,241,0.15),transparent_50%)]" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm text-primary mb-6">
-            <FiGrid size={14} />
-            Our Work
-          </div>
-          <h1 className="gradient-text text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
-            Portfolio & Case Studies
-          </h1>
-          <p className="mx-auto max-w-2xl text-lg sm:text-xl text-slate-300 leading-relaxed">
-            Real projects, real results. Browse our work across industries and
-            see how we deliver measurable impact for our clients.
-          </p>
-        </div>
-      </section>
-
-      <CleanVideoSection
+    <div className="bg-slate-950 min-h-screen text-slate-100 selection:bg-amber-500 selection:text-slate-950">
+      {/* Seamless Video Hero - Golden Amber & Rose Theme */}
+      <SeamlessVideoHero
         videoSrc="/videos/websss.mp4"
-        badge="Project Highlights Reel"
-        title="High-Performance Digital Products in Action"
-        subtitle="Watch a compilation of our delivered web systems, responsive design performance, and interactive user experiences."
+        badge="Proven Track Record"
+        title="Featured Work & Case Studies"
+        subtitle="Explore our showcase of completed web applications, supply initiatives, and strategic consultancy results delivered for Nepali businesses."
+        themeGradient="from-amber-300 via-orange-400 to-rose-400"
+        accentColor="amber"
+        primaryCta={{ text: "View Case Studies", href: "#projects" }}
+        secondaryCta={{ text: "Start a Project", href: "/contact" }}
       />
 
-      <PortfolioHubClient items={items} />
-    </>
+      {/* Interactive Video Showcase Section */}
+      <SeamlessVideoSection
+        videoSrc="/videos/websss.mp4"
+        badge="Real World Results"
+        title="High Performance & Interactive Web Platforms"
+        subtitle="Every product we craft is engineered for high speed, intuitive UX, and measurable business growth."
+        themeGradient="from-rose-300 via-amber-300 to-orange-400"
+      />
+
+      <div id="projects" className="py-12">
+        <PortfolioHubClient items={items} />
+      </div>
+    </div>
   );
 }
