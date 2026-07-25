@@ -777,7 +777,7 @@ async function main() {
     { key: "company_name", value: "Newa Enterprises" },
     { key: "company_tagline", value: "Your Trusted Business Partner in Baneshwor, Kathmandu" },
     { key: "company_address", value: "Baneshwor, Kathmandu, Nepal" },
-    { key: "company_phone", value: "+977-1-4XXXXXX" },
+    { key: "company_phone", value: "+977-97444000111" },
     { key: "company_email", value: "info@newaenterprises.com" },
     { key: "company_hours", value: "Sunday - Friday: 9:00 AM - 6:00 PM" },
     { key: "hero_title", value: "Newa Enterprises — Building Business, Building Nepal" },

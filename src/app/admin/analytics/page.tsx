@@ -107,7 +107,7 @@ export default function AdminAnalyticsPage() {
           <div className="space-y-4">
             {data.topPages.map((page) => (
               <div key={page.path} className="flex items-center gap-4">
-                <span className="w-48 truncate text-sm text-gray-700 font-medium">
+                <span className="w-28 sm:w-48 truncate text-sm text-gray-700 font-medium">
                   {page.path}
                 </span>
                 <div className="flex-1">

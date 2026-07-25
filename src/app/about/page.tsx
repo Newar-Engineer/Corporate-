@@ -24,7 +24,7 @@ export default async function AboutPage() {
   }
 
   return (
-    <div className="bg-slate-950 min-h-screen text-slate-100 selection:bg-emerald-500 selection:text-white">
+    <div className="bg-black min-h-screen text-slate-100 selection:bg-emerald-500 selection:text-white">
       {/* Seamless Video Hero - Emerald Teal Theme */}
       <SeamlessVideoHero
         videoSrc="/videos/web desing.mp4"

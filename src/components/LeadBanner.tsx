@@ -39,7 +39,7 @@ export default function LeadBanner() {
     <>
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/10 to-primary/20" />
-        <div className="absolute inset-0 bg-slate-950/90" />
+        <div className="absolute inset-0 bg-black/90" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="max-w-2xl">
@@ -74,8 +74,8 @@ export default function LeadBanner() {
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="fixed inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowModal(false)} aria-hidden="true" />
-          <div className="relative z-10 w-full max-w-lg rounded-2xl border border-slate-800 bg-slate-950 shadow-2xl shadow-black/40">
-            <div className="p-6 border-b border-slate-800 flex items-center justify-between">
+          <div className="relative z-10 w-full max-w-lg rounded-2xl border border-slate-800 bg-black shadow-2xl shadow-black/40">
+            <div className="p-4 sm:p-6 border-b border-slate-800 flex items-center justify-between">
               <h3 className="text-xl font-bold text-white">Quick Inquiry</h3>
               <button
                 onClick={() => setShowModal(false)}
@@ -85,7 +85,7 @@ export default function LeadBanner() {
                 ✕
               </button>
             </div>
-            <form onSubmit={handleSubmit} className="p-6 space-y-4">
+            <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4">
               <Input
                 label="Your Name"
                 name="name"

@@ -21,7 +21,7 @@ export default async function BlogPage() {
   }
 
   return (
-    <div className="bg-slate-950 min-h-screen text-slate-100 selection:bg-teal-500 selection:text-white">
+    <div className="bg-black min-h-screen text-slate-100 selection:bg-teal-500 selection:text-white">
       {/* Hero - Electric Lime & Teal Theme */}
       <section className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-24">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(20,184,166,0.18)_0%,transparent_65%)]" />

@@ -14,12 +14,12 @@ const quickLinks = [
 ];
 
 const serviceLinks = [
-  { href: "/services/general-trading-supplies", label: "General Trading" },
-  { href: "/services/consultancy-project-management", label: "Consultancy" },
-  { href: "/services/logistics-transportation", label: "Logistics" },
-  { href: "/services/ecommerce-solutions", label: "E-commerce" },
-  { href: "/services/it-digital-services", label: "IT & Digital" },
-  { href: "/services/import-export-facilitation", label: "Import/Export" },
+  { href: "/services/web-development-engineering", label: "Web Development" },
+  { href: "/services/mobile-app-engineering", label: "Mobile Apps" },
+  { href: "/services/uiux-product-design", label: "UI/UX Design" },
+  { href: "/services/ecommerce-platforms", label: "E-Commerce" },
+  { href: "/services/cloud-devops-solutions", label: "Cloud & DevOps" },
+  { href: "/services/ai-data-analytics", label: "AI & Data" },
 ];
 
 const socialLinks = [
@@ -77,7 +77,7 @@ export default function Footer() {
   );
 
   return (
-    <footer className="relative bg-slate-950 border-t border-slate-800/50">
+    <footer className="relative bg-black border-t border-slate-800/50">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-900/20 to-transparent pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
@@ -102,8 +102,8 @@ export default function Footer() {
                 <span className="shrink-0 flex items-center justify-center h-8 w-8 rounded-lg bg-primary/10 text-primary-light">
                   <FiPhone size={15} />
                 </span>
-                <a href="tel:+977-1-4XXXXXX" className="text-slate-400 hover:text-white transition-colors pt-1">
-                  +977-1-4XXXXXX
+                <a href="tel:+97797444000111" className="text-slate-400 hover:text-white transition-colors pt-1 break-all">
+                  +977-97444000111
                 </a>
               </li>
               <li className="flex items-center gap-3">

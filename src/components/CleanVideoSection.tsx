@@ -89,7 +89,7 @@ export default function CleanVideoSection({
           />
 
           {/* Minimal Controls Bar */}
-          <div className="absolute bottom-4 right-4 z-10 flex items-center gap-2 bg-slate-950/85 backdrop-blur-md border border-slate-800 px-3 py-1.5 rounded-full shadow-lg opacity-90 transition-opacity group-hover:opacity-100">
+          <div className="absolute bottom-4 right-4 z-10 flex items-center gap-2 bg-black/85 backdrop-blur-md border border-slate-800 px-3 py-1.5 rounded-full shadow-lg opacity-90 transition-opacity group-hover:opacity-100">
             <button
               onClick={togglePlay}
               className="flex items-center justify-center p-1.5 text-slate-300 hover:text-white transition-colors"

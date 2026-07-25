@@ -15,14 +15,14 @@ const cards = [
   {
     icon: FiPhone,
     title: "Call & WhatsApp",
-    lines: ["+977-9800000000"],
+    lines: ["+977-97444000111"],
     action: {
       label: "Call Now",
-      href: "tel:+9779800000000",
+      href: "tel:+97797444000111",
     },
     secondary: {
       label: "WhatsApp Chat",
-      href: "https://wa.me/9779800000000",
+      href: "https://wa.me/97797444000111?text=Hi%20Newa%20Enterprises",
     },
   },
   {

@@ -16,6 +16,16 @@ interface SeamlessVideoHeroProps {
   minHeight?: string;
 }
 
+const accentDot: Record<string, string> = {
+  emerald: "bg-emerald-400",
+  amber: "bg-amber-400",
+  purple: "bg-purple-400",
+  sky: "bg-sky-400",
+  rose: "bg-rose-400",
+  teal: "bg-teal-400",
+  indigo: "bg-indigo-400",
+};
+
 export default function SeamlessVideoHero({
   videoSrc,
   badge,
@@ -26,7 +36,7 @@ export default function SeamlessVideoHero({
   cropHeader = true,
   themeGradient = "from-emerald-500 via-teal-500 to-cyan-500",
   accentColor = "emerald",
-  minHeight = "min-h-[550px] lg:min-h-[650px]",
+  minHeight = "min-h-[400px] sm:min-h-[550px] lg:min-h-[650px]",
 }: SeamlessVideoHeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -50,13 +60,13 @@ export default function SeamlessVideoHero({
           loop
           playsInline
           className={`w-full h-full object-cover ${
-            cropHeader ? "scale-[1.14] origin-bottom object-[center_30%]" : "object-cover"
+            cropHeader ? "sm:scale-[1.14] sm:origin-bottom object-[center_50%] sm:object-[center_30%]" : "object-cover"
           }`}
         />
         {/* Gradients to blend smoothly into page styling */}
-        <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-[1px]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-slate-950/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-transparent" />
+        <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
       </div>
 
       {/* Hero Overlay Content */}
@@ -64,7 +74,7 @@ export default function SeamlessVideoHero({
         <div className="max-w-3xl">
           {badge && (
             <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 backdrop-blur-md px-4 py-1.5 text-xs font-semibold text-white mb-6">
-              <span className={`h-2 w-2 rounded-full bg-${accentColor}-400 animate-pulse`} />
+              <span className={`h-2 w-2 rounded-full ${accentDot[accentColor] || "bg-emerald-400"} animate-pulse`} />
               {badge}
             </span>
           )}

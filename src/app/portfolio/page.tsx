@@ -34,7 +34,7 @@ export default async function PortfolioPage() {
   }
 
   return (
-    <div className="bg-slate-950 min-h-screen text-slate-100 selection:bg-amber-500 selection:text-slate-950">
+    <div className="bg-black min-h-screen text-slate-100 selection:bg-amber-500 selection:text-black">
       {/* Seamless Video Hero - Golden Amber & Rose Theme */}
       <SeamlessVideoHero
         videoSrc="/videos/websss.mp4"

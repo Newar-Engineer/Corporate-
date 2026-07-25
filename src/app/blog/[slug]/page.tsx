@@ -81,10 +81,12 @@ export default async function BlogPostPage({ params }: PageProps) {
             </span>
           </div>
 
-          <div
-            className="prose prose-gray max-w-none leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+          <div className="overflow-x-auto">
+            <div
+              className="prose prose-gray max-w-none leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+          </div>
         </div>
       </article>
 

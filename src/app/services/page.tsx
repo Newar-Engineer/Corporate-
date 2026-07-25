@@ -85,7 +85,7 @@ export default async function ServicesPage() {
   }
 
   return (
-    <div className="bg-slate-950 min-h-screen text-slate-100 selection:bg-purple-500 selection:text-white">
+    <div className="bg-black min-h-screen text-slate-100 selection:bg-purple-500 selection:text-white">
       {/* Seamless Video Hero - Cosmic Violet Theme */}
       <SeamlessVideoHero
         videoSrc="/videos/webdes.mp4"

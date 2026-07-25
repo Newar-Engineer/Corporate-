@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="bg-slate-950 min-h-screen text-slate-100 selection:bg-sky-500 selection:text-white">
+    <div className="bg-black min-h-screen text-slate-100 selection:bg-sky-500 selection:text-white">
       {/* ========================= HERO - Deep Ocean Blue Theme ========================= */}
       <section className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-24">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(14,165,233,0.18)_0%,transparent_65%)]" />
@@ -38,11 +38,11 @@ export default function ContactPage() {
       <ContactInfoCards />
 
       {/* ========================= FORM + FAQ ========================= */}
-      <section className="relative border-t border-sky-500/10 bg-slate-950 pb-20 pt-16 sm:pb-24 sm:pt-20">
+      <section className="relative border-t border-sky-500/10 bg-black pb-20 pt-16 sm:pb-24 sm:pt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-5">
             {/* Form */}
-            <div className="lg:col-span-3 bg-slate-900/60 backdrop-blur-md p-8 rounded-3xl border border-sky-500/20 shadow-2xl">
+            <div className="lg:col-span-3 bg-slate-900/60 backdrop-blur-md p-5 sm:p-8 rounded-3xl border border-sky-500/20 shadow-2xl">
               <SectionHeading title="Get a Project Quote" />
               <p className="mb-6 mt-2 text-sm text-slate-400">
                 Fill in the details below and our team will respond within 24 hours with a tailored proposal.
@@ -63,7 +63,7 @@ export default function ContactPage() {
       </section>
 
       {/* ========================= MAP ========================= */}
-      <section className="border-t border-sky-500/10 bg-slate-950 pb-20 sm:pb-24">
+      <section className="border-t border-sky-500/10 bg-black pb-20 sm:pb-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="overflow-hidden rounded-3xl border border-sky-500/20 shadow-2xl">
             <iframe

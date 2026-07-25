@@ -56,7 +56,7 @@ export default async function CareersPage() {
   }
 
   return (
-    <div className="bg-slate-950 min-h-screen text-slate-100 selection:bg-rose-500 selection:text-white">
+    <div className="bg-black min-h-screen text-slate-100 selection:bg-rose-500 selection:text-white">
       {/* Hero - Vibrant Coral Theme */}
       <section className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(244,63,94,0.18),transparent_60%)]" />

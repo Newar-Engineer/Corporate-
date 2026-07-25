@@ -128,7 +128,7 @@ export default function ContactFormAdvanced() {
             key={t.id}
             type="button"
             onClick={() => setInquiryType(t.id)}
-            className={`flex-1 rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 min-w-[120px] ${
+            className={`min-w-0 sm:min-w-[120px] flex-1 rounded-lg px-2 sm:px-3 py-2 text-xs sm:text-sm font-medium transition-all duration-200 ${
               inquiryType === t.id
                 ? "bg-primary text-white shadow-[0_0_10px_rgba(99,102,241,0.2)]"
                 : "text-slate-400 hover:text-white"
@@ -193,7 +193,7 @@ export default function ContactFormAdvanced() {
       {inquiryType === "project" && (
         <div>
           <label className="mb-2 block text-xs font-medium text-slate-300">Service Interested In</label>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
             {services.map((svc) => {
               const selected = form.selectedServices.includes(svc);
               return (

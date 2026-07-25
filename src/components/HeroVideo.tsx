@@ -44,7 +44,7 @@ export default function HeroVideo({
   }, [isMuted]);
 
   return (
-    <section className="relative w-full h-screen max-h-[900px] min-h-[600px] overflow-hidden" aria-labelledby="hero-headline">
+    <section className="relative w-full h-screen max-h-[900px] min-h-[400px] sm:min-h-[600px] overflow-hidden" aria-labelledby="hero-headline">
       {!videoFailed ? (
         <video
           ref={videoRef}
@@ -54,7 +54,7 @@ export default function HeroVideo({
           playsInline
           preload="auto"
           onError={() => setVideoFailed(true)}
-          className="absolute inset-0 w-full h-full object-cover scale-[1.7] origin-bottom-right object-[80%_60%] transition-opacity duration-700"
+          className="absolute inset-0 w-full h-full object-cover scale-[1.3] sm:scale-[1.7] sm:origin-bottom-right object-[60%_60%] sm:object-[80%_60%] transition-opacity duration-700"
           poster={fallbackImage || "/images/hero-poster.jpg"}
         >
           <source src={videoSrc} type="video/mp4" />
@@ -69,8 +69,8 @@ export default function HeroVideo({
         />
       )}
 
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" aria-hidden="true" />
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/40 to-transparent" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" aria-hidden="true" />
 
       <div className="absolute inset-0 flex items-center">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">

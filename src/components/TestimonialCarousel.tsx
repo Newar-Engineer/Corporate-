@@ -51,7 +51,7 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="glass rounded-3xl p-8 sm:p-10 lg:p-12 text-center">
+      <div className="glass rounded-3xl p-5 sm:p-10 lg:p-12 text-center">
         <div className="flex items-center justify-center gap-1 mb-6">
           {Array.from({ length: 5 }, (_, i) => (
             <FiStar
