@@ -21,41 +21,35 @@ const serviceIcons: Record<string, React.ReactNode> = {
 };
 
 const serviceDeliverables: Record<string, string[]> = {
-  "General Trading & Supplies": [
-    "Quality construction materials & hardware",
-    "Verified manufacturer sourcing",
-    "Timely Kathmandu Valley delivery",
-    "Competitive bulk pricing",
+  "Web Development & Engineering": [
+    "Custom web apps with React, Next.js & Node.js",
+    "Performance-optimized, SEO-friendly architecture",
+    "Responsive design across all devices",
   ],
-  "Consultancy & Project Management": [
-    "Feasibility studies & cost estimation",
-    "End-to-end project supervision",
-    "Vendor coordination & procurement",
-    "Quality assurance & compliance",
+  "Mobile App Engineering": [
+    "Native & cross-platform apps (React Native, Flutter)",
+    "eSewa, Khalti & payment gateway integration",
+    "App Store & Play Store deployment support",
   ],
-  "Logistics & Transportation": [
-    "Fleet of trucks & delivery vehicles",
-    "Kathmandu Valley & highway routes",
-    "Real-time shipment tracking",
-    "Safe & on-time delivery guarantee",
+  "UI/UX & Product Design": [
+    "User research & wireframing with Figma",
+    "Design system creation & brand consistency",
+    "Usability testing & iterative prototyping",
   ],
-  "E-commerce Solutions": [
-    "eSewa, Khalti & COD integration",
-    "Website & mobile store development",
-    "Inventory & order management",
-    "Last-mile delivery coordination",
+  "Cloud & DevOps Solutions": [
+    "AWS, GCP & Azure cloud infrastructure setup",
+    "CI/CD pipelines & automated deployments",
+    "24/7 monitoring, scaling & disaster recovery",
   ],
-  "IT & Digital Services": [
-    "Custom website & web app development",
-    "SEO & digital marketing campaigns",
-    "IT infrastructure & support",
-    "Social media management",
+  "E-Commerce Platforms": [
+    "Custom online stores with payment integration",
+    "Inventory management & order tracking systems",
+    "Multi-vendor marketplace development",
   ],
-  "Import & Export Facilitation": [
-    "Customs documentation & clearance",
-    "Freight & shipping coordination",
-    "Supplier verification in India & China",
-    "Quality inspection services",
+  "AI & Data Analytics": [
+    "Machine learning models & predictive analytics",
+    "Business intelligence dashboards & reporting",
+    "Data pipeline architecture & automation",
   ],
 };
 

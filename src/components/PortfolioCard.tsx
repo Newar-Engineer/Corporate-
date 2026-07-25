@@ -34,7 +34,7 @@ export default function PortfolioCard({
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 opacity-0 group-hover:opacity-100">
-        <span className="inline-block rounded-full bg-amber-600 text-white text-xs font-medium px-2.5 py-1 mb-2">
+        <span className="inline-block rounded-full bg-primary text-white text-xs font-medium px-2.5 py-1 mb-2">
           {category}
         </span>
         <h3 className="text-lg font-semibold text-white">{title}</h3>

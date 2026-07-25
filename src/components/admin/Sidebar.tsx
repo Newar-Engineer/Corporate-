@@ -68,7 +68,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
               className={clsx(
                 "min-h-[44px] flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-lg transition-colors",
                 isActive
-                  ? "bg-amber-600 text-white"
+                  ? "bg-primary text-white"
                   : "text-gray-400 hover:text-white hover:bg-gray-800"
               )}
             >
@@ -81,7 +81,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
 
       <div className="border-t border-gray-800 p-4">
         <div className="flex items-center gap-3 mb-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-amber-600 text-white text-sm font-bold">
+          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-white text-sm font-bold">
             A
           </div>
           <div className="flex-1 min-w-0">

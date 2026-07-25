@@ -11,24 +11,28 @@ interface StatsCounterProps {
 
 export default function StatsCounter({ value, label, suffix = "" }: StatsCounterProps) {
   const [count, setCount] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
+  const animatedRef = useRef(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || animatedRef.current) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) setHasAnimated(true);
+        if (entry.isIntersecting && !animatedRef.current) {
+          animatedRef.current = true;
+          observer.disconnect();
+          animateCount();
+        }
       },
-      { threshold: 0.3 }
+      { threshold: 0.15 }
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [hasAnimated]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  useEffect(() => {
-    if (!hasAnimated) return;
+  function animateCount() {
     const duration = 2000;
     const steps = 60;
     const increment = value / steps;
@@ -42,8 +46,7 @@ export default function StatsCounter({ value, label, suffix = "" }: StatsCounter
         setCount(Math.floor(current));
       }
     }, duration / steps);
-    return () => clearInterval(timer);
-  }, [hasAnimated, value]);
+  }
 
   return (
     <div ref={ref} className="glass-light rounded-2xl p-6 sm:p-8 text-center">

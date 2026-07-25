@@ -18,17 +18,17 @@ export default function SectionHeading({
         centered && "text-center"
       )}
     >
-      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-3 text-base sm:text-lg text-gray-600 max-w-2xl leading-relaxed mx-auto">
+        <p className="mt-3 text-base sm:text-lg text-slate-400 max-w-2xl leading-relaxed mx-auto">
           {subtitle}
         </p>
       )}
       <div
         className={clsx(
-          "mt-4 h-1 w-16 rounded-full bg-amber-600",
+          "mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-primary to-accent",
           centered && "mx-auto"
         )}
       />

@@ -20,13 +20,13 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px]";
+    "inline-flex items-center justify-center font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px]";
 
   const variants: Record<string, string> = {
-    primary: "bg-amber-600 text-white hover:bg-amber-700 active:bg-amber-800",
+    primary: "bg-primary text-white hover:bg-primary-dark active:brightness-90",
     secondary: "bg-gray-800 text-white hover:bg-gray-900 active:bg-gray-950",
     outline:
-      "border-2 border-amber-600 text-amber-600 hover:bg-amber-50 active:bg-amber-100",
+      "border-2 border-primary text-primary hover:bg-primary/10 active:bg-primary/20",
     danger: "bg-red-600 text-white hover:bg-red-700 active:bg-red-800",
   };
 
