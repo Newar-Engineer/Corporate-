@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import PortfolioHubClient from "./PortfolioHubClient";
+import CleanVideoSection from "@/components/CleanVideoSection";
 import { FiGrid } from "react-icons/fi";
 
 export const metadata: Metadata = {
@@ -51,6 +52,13 @@ export default async function PortfolioPage() {
           </p>
         </div>
       </section>
+
+      <CleanVideoSection
+        videoSrc="/videos/websss.mp4"
+        badge="Project Highlights Reel"
+        title="High-Performance Digital Products in Action"
+        subtitle="Watch a compilation of our delivered web systems, responsive design performance, and interactive user experiences."
+      />
 
       <PortfolioHubClient items={items} />
     </>

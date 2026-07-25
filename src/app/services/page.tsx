@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import SectionHeading from "@/components/SectionHeading";
 import ServiceCard from "@/components/ServiceCard";
+import CleanVideoSection from "@/components/CleanVideoSection";
 import {
   FiMonitor, FiSmartphone, FiCloud, FiCode, FiShoppingBag,
   FiTruck, FiTrendingUp, FiTool, FiUsers, FiLayout,
@@ -118,6 +119,13 @@ export default async function ServicesPage() {
           </p>
         </div>
       </section>
+
+      <CleanVideoSection
+        videoSrc="/videos/webdes.mp4"
+        badge="Engineering & Solutions"
+        title="Tailored Engineering Capabilities"
+        subtitle="Discover how our engineering solutions power enterprise workflows, scalable infrastructure, and digital operations."
+      />
 
       <section className="relative py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

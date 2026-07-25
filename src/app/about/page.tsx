@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { TeamMember } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import HeroSection from "@/components/HeroSection";
+import CleanVideoSection from "@/components/CleanVideoSection";
 import SectionHeading from "@/components/SectionHeading";
 import TeamCard from "@/components/TeamCard";
 import CTASection from "@/components/CTASection";
@@ -45,6 +46,13 @@ export default async function AboutPage() {
           </div>
         </div>
       </section>
+
+      <CleanVideoSection
+        videoSrc="/videos/web desing.mp4"
+        badge="Design Philosophy"
+        title="Modern & Purposeful Design"
+        subtitle="Watch how our design thinking translates complex business requirements into intuitive, aesthetically crafted digital experiences."
+      />
 
       <section className="bg-gray-50 py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
