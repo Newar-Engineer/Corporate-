@@ -718,13 +718,88 @@ async function main() {
 
   // Create job listings
   const jobs = [
-    { id: "jb00000000000000000001", title: "Sales Executive", slug: "sales-executive", location: "Baneshwor, Kathmandu", type: "full-time", department: "Sales & Marketing", description: "We are looking for an energetic Sales Executive to join our team in Baneshwor. You will be responsible for business development, client relationship management, and achieving sales targets for our trading and services divisions.", requirements: "- Bachelor's degree in Business Administration or related field\n- Minimum 2 years of sales experience\n- Excellent communication and negotiation skills\n- Knowledge of Kathmandu Valley market\n- Valid motorcycle license preferred", salary: "NPR 35,000 - 50,000 per month" },
-    { id: "jb00000000000000000002", title: "Logistics Coordinator", slug: "logistics-coordinator", location: "Baneshwor, Kathmandu", type: "full-time", department: "Operations", description: "Newa Enterprises is seeking a Logistics Coordinator to manage our supply chain and transportation operations. You will coordinate with suppliers, fleet drivers, and clients to ensure timely delivery of goods across the Kathmandu Valley.", requirements: "- Bachelor's degree in Supply Chain Management or related field\n- 3+ years of logistics experience\n- Familiarity with Kathmandu Valley routes\n- Strong organizational and problem-solving skills\n- Proficiency in MS Office and inventory management software", salary: "NPR 40,000 - 60,000 per month" },
-    { id: "jb00000000000000000003", title: "Web Developer (Part-Time)", slug: "web-developer-part-time", location: "Remote / Baneshwor", type: "part-time", department: "IT & Digital", description: "We are looking for a skilled Web Developer to join our IT team on a part-time basis. You will work on client websites, e-commerce platforms, and payment gateway integrations with eSewa and Khalti.", requirements: "- Proficiency in React, Next.js, and Tailwind CSS\n- Experience with Node.js and API development\n- Knowledge of Nepal payment gateways (eSewa, Khalti API)\n- Familiarity with PostgreSQL or MongoDB\n- Portfolio of previous work required", salary: "NPR 25,000 - 40,000 per month" },
+    {
+      id: "jb00000000000000000001",
+      title: "Senior Full Stack Next.js Engineer",
+      slug: "senior-fullstack-nextjs-engineer",
+      location: "Baneshwor, Kathmandu / Hybrid",
+      type: "Full-Time",
+      department: "Engineering",
+      description: "We are looking for a Senior Full Stack Engineer to lead development of enterprise web applications using Next.js 16, React 19, and Node.js. You will architect solutions, mentor junior developers, and work directly with clients to deliver high-impact digital products.",
+      requirements: "- 5+ years of professional web development experience\n- Expert-level proficiency in React, Next.js, and TypeScript\n- Strong experience with Node.js, PostgreSQL, and Prisma ORM\n- Experience with CI/CD pipelines (GitHub Actions, Vercel)\n- Familiarity with cloud services (AWS or Vercel)\n- Excellent communication skills and client-facing experience\n- Experience leading technical discussions and code reviews\n- Bonus: Knowledge of Nepal payment gateways (eSewa, Khalti APIs)",
+      salary: "NPR 150,000 - 200,000 / month",
+    },
+    {
+      id: "jb00000000000000000002",
+      title: "UI/UX Product Designer",
+      slug: "uiux-product-designer",
+      location: "Baneshwor, Kathmandu",
+      type: "Full-Time",
+      department: "Design",
+      description: "We are seeking a talented UI/UX Product Designer to own the end-to-end design process for our client projects. You will conduct user research, create wireframes and prototypes, build design systems, and collaborate closely with engineers to ship pixel-perfect interfaces.",
+      requirements: "- 4+ years of experience in product design (UI/UX)\n- Expert proficiency in Figma (components, variants, auto-layout, prototyping)\n- Strong portfolio demonstrating web and mobile app design\n- Experience building and maintaining design systems\n- Understanding of accessibility standards (WCAG 2.1)\n- Familiarity with motion design (Framer Motion, Lottie)\n- Knowledge of frontend development (HTML/CSS) is a strong plus\n- Experience designing for Nepal/South Asian markets preferred",
+      salary: "NPR 120,000 - 160,000 / month",
+    },
+    {
+      id: "jb00000000000000000003",
+      title: "DevOps & Cloud Specialist",
+      slug: "devops-cloud-specialist",
+      location: "Remote / Baneshwor",
+      type: "Full-Time",
+      department: "Engineering",
+      description: "We need a DevOps engineer to design, implement, and manage cloud infrastructure for our growing portfolio of enterprise clients. You will work with AWS, Docker, Kubernetes, and CI/CD pipelines to ensure 99.9% uptime and optimal performance for web applications serving millions of users.",
+      requirements: "- 3+ years of DevOps / cloud infrastructure experience\n- AWS certification (Solutions Architect or DevOps Engineer)\n- Strong experience with Docker and Kubernetes orchestration\n- Proficiency in infrastructure-as-code (Terraform, Pulumi, or CDK)\n- Experience with CI/CD tools (GitHub Actions, GitLab CI)\n- Knowledge of monitoring and logging (Datadog, Sentry, CloudWatch)\n- Scripting skills (Bash, Python, or TypeScript)\n- Experience with PostgreSQL administration and performance tuning",
+      salary: "NPR 140,000 - 180,000 / month",
+    },
+    {
+      id: "jb00000000000000000004",
+      title: "Senior React Native Developer",
+      slug: "senior-react-native-developer",
+      location: "Remote / Baneshwor",
+      type: "Full-Time",
+      department: "Engineering",
+      description: "Join our mobile engineering team to build cross-platform React Native applications for clients in fintech, e-commerce, and healthcare. You will own feature development from concept to App Store release and work on apps with 100,000+ users.",
+      requirements: "- 4+ years of mobile development experience with React Native\n- Published apps on both App Store and Google Play\n- Strong TypeScript skills\n- Experience with Expo SDK and native module integration\n- Knowledge of state management (Zustand, Redux Toolkit, or Jotai)\n- Experience with push notifications (Firebase, OneSignal)\n- Familiarity with offline-first architecture (WatermelonDB, SQLite)\n- Understanding of mobile performance optimization\n- Bonus: Experience with Stripe, eSewa, or Khalti mobile SDKs",
+      salary: "NPR 130,000 - 170,000 / month",
+    },
+    {
+      id: "jb00000000000000000005",
+      title: "Digital Marketing Lead",
+      slug: "digital-marketing-lead",
+      location: "Baneshwor, Kathmandu",
+      type: "Full-Time",
+      department: "Marketing",
+      description: "We are looking for a Digital Marketing Lead to drive our clients' online presence and growth. You will develop and execute comprehensive digital marketing strategies including SEO, SEM, social media, content marketing, and analytics — helping Nepali businesses achieve measurable online growth.",
+      requirements: "- 4+ years of digital marketing experience\n- Proven track record of growing organic traffic and conversions\n- Expert knowledge of SEO (on-page, off-page, technical)\n- Experience with Google Ads, Facebook Ads, and LinkedIn Ads\n- Proficiency in Google Analytics, Google Search Console, and SEMrush\n- Content strategy and copywriting skills\n- Experience with email marketing platforms (Mailchimp, SendGrid)\n- Understanding of Nepal's digital landscape and consumer behavior\n- Bonus: Experience with marketing automation tools (HubSpot, Marketo)",
+      salary: "NPR 90,000 - 130,000 / month",
+    },
+    {
+      id: "jb00000000000000000006",
+      title: "AI & Machine Learning Engineer",
+      slug: "ai-ml-engineer",
+      location: "Remote / Baneshwor",
+      type: "Full-Time",
+      department: "Engineering",
+      description: "We are building an AI/ML practice and need an engineer to develop production machine learning systems. You will work on recommendation engines, NLP pipelines for Nepali/English text, predictive analytics, and computer vision solutions for our enterprise clients.",
+      requirements: "- 3+ years of ML engineering experience\n- Strong Python skills and ML framework experience (TensorFlow, PyTorch, scikit-learn)\n- Experience deploying ML models to production (AWS SageMaker, MLflow, or similar)\n- Knowledge of NLP techniques and transformer architectures\n- SQL proficiency and experience with data pipelines (Apache Kafka, Airflow)\n- Understanding of MLOps best practices\n- Bachelor's/Master's in Computer Science, Data Science, or related field\n- Bonus: Experience with computer vision or recommendation systems\n- Bonus: Nepali language NLP experience",
+      salary: "NPR 160,000 - 220,000 / month",
+    },
+    {
+      id: "jb00000000000000000007",
+      title: "Technical Project Manager",
+      slug: "technical-project-manager",
+      location: "Baneshwor, Kathmandu",
+      type: "Full-Time",
+      department: "Management",
+      description: "We need a Technical Project Manager to lead cross-functional teams delivering complex web and mobile projects. You will manage client relationships, define project scope, track milestones, mitigate risks, and ensure on-time delivery within budget.",
+      requirements: "- 5+ years of project management experience in software development\n- PMP, CSM, or PRINCE2 certification preferred\n- Strong understanding of Agile/Scrum methodologies\n- Experience with project management tools (Jira, Linear, Notion)\n- Technical background (able to understand architecture discussions)\n- Excellent client communication and presentation skills\n- Experience managing budgets and resource allocation\n- Familiarity with Nepal's tech industry landscape\n- Bonus: Previous experience as a developer or engineer",
+      salary: "NPR 120,000 - 160,000 / month",
+    },
   ];
+  await query(`DELETE FROM "Job" WHERE "id" LIKE 'jb%'`);
   for (const j of jobs) {
     await query(
-      `INSERT INTO "Job" ("id","title","slug","location","type","department","description","requirements","salary","isActive","updatedAt") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,true,NOW()) ON CONFLICT ("slug") DO UPDATE SET "title"=EXCLUDED."title","description"=EXCLUDED."description"`,
+      `INSERT INTO "Job" ("id","title","slug","location","type","department","description","requirements","salary","isActive","updatedAt") VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,true,NOW())`,
       [j.id, j.title, j.slug, j.location, j.type, j.department, j.description, j.requirements, j.salary]
     );
   }

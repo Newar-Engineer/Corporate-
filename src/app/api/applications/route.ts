@@ -5,13 +5,14 @@ import { sendJobApplicationNotification } from "@/lib/mail";
 
 export async function POST(request: NextRequest) {
   try {
-    const { jobId, name, email, phone, resumeUrl, coverLetter } = await request.json();
+    const { jobId, jobSlug, name, email, phone, resumeUrl, coverLetter } = await request.json();
 
-    if (!jobId || !name || !email) {
-      return NextResponse.json({ error: "Job ID, name, and email are required" }, { status: 400 });
+    if ((!jobId && !jobSlug) || !name || !email) {
+      return NextResponse.json({ error: "Job ID/slug, name, and email are required" }, { status: 400 });
     }
 
-    const job = await prisma.job.findUnique({ where: { id: jobId } });
+    const findById = jobId ? { id: jobId } : { slug: jobSlug };
+    const job = await prisma.job.findUnique({ where: findById });
 
     if (!job) {
       return NextResponse.json({ error: "Job not found" }, { status: 404 });
