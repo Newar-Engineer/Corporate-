@@ -28,11 +28,11 @@ const cards = [
   {
     icon: FiMail,
     title: "Email Us",
-    lines: ["info@newaenterprises.com"],
+    lines: ["info@newatech.com"],
     response: "24-hour response guarantee",
     action: {
       label: "Send Email",
-      href: "mailto:info@newaenterprises.com",
+      href: "mailto:info@newatech.com",
     },
   },
 ];

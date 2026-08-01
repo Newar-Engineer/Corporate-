@@ -1,6 +1,6 @@
-# Newa Enterprises — Corporate Website
+# Newa Tech — Corporate Website
 
-A full-stack, production-ready business/corporate website for **Newa Enterprises**, a trading, consultancy, and digital services company based in **Baneshwor, Kathmandu, Nepal**.
+A full-stack, production-ready business/corporate website for **Newa Tech**, a trading, consultancy, and digital services company based in **Baneshwor, Kathmandu, Nepal**.
 
 Built with Next.js 16, PostgreSQL (Prisma 7), TypeScript, and Tailwind CSS v4.
 
@@ -38,7 +38,7 @@ Built with Next.js 16, PostgreSQL (Prisma 7), TypeScript, and Tailwind CSS v4.
 ### 1. Clone & Install
 
 ```bash
-cd newa-enterprises
+cd newa-tech
 npm install
 ```
 
@@ -67,8 +67,8 @@ npm run seed
 ```
 
 This creates:
-- **Admin user**: `admin@newaenterprises.com` / `Admin@123`
-- **Editor user**: `editor@newaenterprises.com` / `Editor@123`
+- **Admin user**: `admin@newatech.com` / `Admin@123`
+- **Editor user**: `editor@newatech.com` / `Editor@123`
 - 6 services, 4 team members, 4 testimonials, 5 portfolio items, 3 blog posts, 3 jobs, 13 site settings, 7 page contents
 
 ### 4. Run Development Server
@@ -182,15 +182,15 @@ npm start
 Use a process manager like PM2:
 ```bash
 npm install -g pm2
-pm2 start npm --name "newa-enterprises" -- start
+pm2 start npm --name "newa-tech" -- start
 ```
 
 ## Default Admin Credentials
 
 | Role | Email | Password |
 |------|-------|----------|
-| Super Admin | admin@newaenterprises.com | Admin@123 |
-| Editor | editor@newaenterprises.com | Editor@123 |
+| Super Admin | admin@newatech.com | Admin@123 |
+| Editor | editor@newatech.com | Editor@123 |
 
 **Change these immediately after first login!**
 
@@ -252,4 +252,4 @@ All site content is stored in the database and editable through the admin panel.
 
 ## License
 
-Private — All rights reserved. Built for Newa Enterprises.
+Private — All rights reserved. Built for Newa Tech.

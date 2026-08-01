@@ -17,10 +17,10 @@ export async function sendContactNotification(data: {
   subject: string;
   message: string;
 }) {
-  const adminEmail = process.env.ADMIN_EMAIL || "admin@newaenterprises.com";
+  const adminEmail = process.env.ADMIN_EMAIL || "admin@newatech.com";
 
   await transporter.sendMail({
-    from: `"Newa Enterprises Contact" <${process.env.SMTP_USER}>`,
+    from: `"Newa Tech Contact" <${process.env.SMTP_USER}>`,
     to: adminEmail,
     subject: `New Contact Message: ${data.subject}`,
     html: `
@@ -41,10 +41,10 @@ export async function sendJobApplicationNotification(data: {
   phone?: string;
   jobTitle: string;
 }) {
-  const adminEmail = process.env.ADMIN_EMAIL || "admin@newaenterprises.com";
+  const adminEmail = process.env.ADMIN_EMAIL || "admin@newatech.com";
 
   await transporter.sendMail({
-    from: `"Newa Enterprises Careers" <${process.env.SMTP_USER}>`,
+    from: `"Newa Tech Careers" <${process.env.SMTP_USER}>`,
     to: adminEmail,
     subject: `New Job Application: ${data.jobTitle}`,
     html: `

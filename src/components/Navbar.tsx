@@ -65,7 +65,7 @@ export default function Navbar() {
         >
           <span className="text-lg font-bold tracking-tight">
             <span className="text-white">Newa</span>
-            <span className="gradient-text ml-1">Enterprises</span>
+            <span className="gradient-text ml-1">Tech</span>
           </span>
         </Link>
 

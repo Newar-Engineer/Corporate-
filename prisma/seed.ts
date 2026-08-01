@@ -37,13 +37,13 @@ async function main() {
     `INSERT INTO "User" ("id", "email", "password", "name", "role", "updatedAt")
      VALUES ($1, $2, $3, $4, $5, NOW())
      ON CONFLICT ("email") DO UPDATE SET "name" = EXCLUDED."name", "role" = EXCLUDED."role"`,
-    ["cm0000000000000000000001", "admin@newaenterprises.com", adminHash, "Super Admin", "super-admin"]
+    ["cm0000000000000000000001", "admin@newatech.com", adminHash, "Super Admin", "super-admin"]
   );
   await query(
     `INSERT INTO "User" ("id", "email", "password", "name", "role", "updatedAt")
      VALUES ($1, $2, $3, $4, $5, NOW())
      ON CONFLICT ("email") DO UPDATE SET "name" = EXCLUDED."name", "role" = EXCLUDED."role"`,
-    ["cm0000000000000000000002", "editor@newaenterprises.com", editorHash, "Editor User", "editor"]
+    ["cm0000000000000000000002", "editor@newatech.com", editorHash, "Editor User", "editor"]
   );
   console.log("Created users");
 
@@ -273,7 +273,7 @@ async function main() {
 
   // Create team members
   const team = [
-    { id: "tm00000000000000000001", name: "Rajesh Shrestha", role: "CEO & Founder", bio: "With over 20 years of experience across trading, technology, and business development, Rajesh founded Newa Enterprises in 2014. He oversees company strategy, key partnerships, and new market expansion. A proud Newar businessman from Baneshwor, he is deeply committed to building Nepal's technology ecosystem.", socialLinks: JSON.stringify({ linkedin: "https://linkedin.com/in/rajesh-shrestha", twitter: "https://twitter.com/rajeshne" }), order: 1 },
+    { id: "tm00000000000000000001", name: "Rajesh Shrestha", role: "CEO & Founder", bio: "With over 20 years of experience across trading, technology, and business development, Rajesh founded Newa Tech in 2014. He oversees company strategy, key partnerships, and new market expansion. A proud Newar businessman from Baneshwor, he is deeply committed to building Nepal's technology ecosystem.", socialLinks: JSON.stringify({ linkedin: "https://linkedin.com/in/rajesh-shrestha", twitter: "https://twitter.com/rajeshne" }), order: 1 },
     { id: "tm00000000000000000002", name: "Anil Bajracharya", role: "CTO & Head of Engineering", bio: "Anil leads the engineering team and drives technical strategy across all service lines. A computer engineering graduate from Pulchowk Campus, he has architected e-commerce platforms, payment gateways, and enterprise systems serving over 100+ Nepali businesses. He specializes in Next.js, React Native, and cloud architecture.", socialLinks: JSON.stringify({ linkedin: "https://linkedin.com/in/anil-bajracharya", github: "https://github.com/anilbajra" }), order: 2 },
     { id: "tm00000000000000000003", name: "Priya Maharjan", role: "VP of Product Design", bio: "Priya brings 10+ years of UX design leadership from both agency and product environments. She has led design initiatives for fintech, e-commerce, and SaaS products used by millions. Her design philosophy centers on data-informed decisions and inclusive design practices.", socialLinks: JSON.stringify({ linkedin: "https://linkedin.com/in/priya-maharjan", twitter: "https://twitter.com/priyamaha" }), order: 3 },
     { id: "tm00000000000000000004", name: "Sagar Karmacharya", role: "Lead Full-Stack Engineer", bio: "Sagar is a full-stack engineer with deep expertise in React, Node.js, and PostgreSQL. He has built and scaled multiple SaaS platforms from zero to production. He is passionate about clean architecture, type safety, and developer experience.", socialLinks: JSON.stringify({ linkedin: "https://linkedin.com/in/sagar-karmacharya", github: "https://github.com/sagarkar" }), order: 4 },
@@ -290,11 +290,11 @@ async function main() {
 
   // Create testimonials
   const testimonials = [
-    { id: "tt00000000000000000001", clientName: "Rabi Shakya", company: "ShopNepal Pvt. Ltd.", message: "Newa Enterprises delivered our mobile app in record time without compromising quality. The eSewa and Khalti payment integration was flawless, and the AI recommendations have been a game-changer for our sales. They truly understand both the technology and the Nepal market — a rare combination.", rating: 5, approved: true },
+    { id: "tt00000000000000000001", clientName: "Rabi Shakya", company: "ShopNepal Pvt. Ltd.", message: "Newa Tech delivered our mobile app in record time without compromising quality. The eSewa and Khalti payment integration was flawless, and the AI recommendations have been a game-changer for our sales. They truly understand both the technology and the Nepal market — a rare combination.", rating: 5, approved: true },
     { id: "tt00000000000000000002", clientName: "Amit Pradhan", company: "FinFlow Technologies", message: "The analytics dashboard transformed how we run our business. What used to take half a day of Excel work now loads in under 30 seconds. The fraud detection module alone paid for the entire project within weeks of deployment.", rating: 5, approved: true },
-    { id: "tt00000000000000000003", clientName: "Dr. Sunita KC", company: "HealthFirst Nepal", message: "The healthcare booking platform has been a lifesaver for our patients and staff. Patient wait times dropped from 45 minutes to just 12 minutes, and the telemedicine integration was seamless. Newa Enterprises understood healthcare compliance requirements from day one.", rating: 5, approved: true },
+    { id: "tt00000000000000000003", clientName: "Dr. Sunita KC", company: "HealthFirst Nepal", message: "The healthcare booking platform has been a lifesaver for our patients and staff. Patient wait times dropped from 45 minutes to just 12 minutes, and the telemedicine integration was seamless. Newa Tech understood healthcare compliance requirements from day one.", rating: 5, approved: true },
     { id: "tt00000000000000000004", clientName: "Kiran Basnet", company: "Himalayan Group of Companies", message: "NepalERP transformed our business operations across all 7 departments. The month-end closing that used to take 15 days of manual work now happens automatically in 2 days. The VAT automation alone has saved us lakhs in potential penalties.", rating: 5, approved: true },
-    { id: "tt00000000000000000005", clientName: "Bishnu Adhikari", company: "Kathmandu Metropolitan City", message: "The smart city platform has given us unprecedented visibility into how our city functions. The air quality monitoring and waste management optimization have been invaluable for public policy. Newa Enterprises delivered a world-class solution for Kathmandu.", rating: 5, approved: true },
+    { id: "tt00000000000000000005", clientName: "Bishnu Adhikari", company: "Kathmandu Metropolitan City", message: "The smart city platform has given us unprecedented visibility into how our city functions. The air quality monitoring and waste management optimization have been invaluable for public policy. Newa Tech delivered a world-class solution for Kathmandu.", rating: 5, approved: true },
   ];
   for (const t of testimonials) {
     await query(
@@ -340,7 +340,7 @@ async function main() {
         { url: "/images/gallery/shopnepal-2.jpg", caption: "eSewa and Khalti checkout flow" },
         { url: "/images/gallery/shopnepal-3.jpg", caption: "Vendor dashboard with real-time sales analytics" },
       ]),
-      testimonial: "Newa Enterprises delivered our app in record time without compromising quality. The payment integration was flawless and the AI recommendations have been a game-changer for our sales. They truly understand the Nepal market.",
+      testimonial: "Newa Tech delivered our app in record time without compromising quality. The payment integration was flawless and the AI recommendations have been a game-changer for our sales. They truly understand the Nepal market.",
       testimonialAuthor: "Rabi Shakya",
       testimonialRole: "CEO, ShopNepal Pvt. Ltd.",
       completionDate: "2026-06-15",
@@ -416,7 +416,7 @@ async function main() {
         { url: "/images/gallery/cargolink-2.jpg", caption: "Route optimization engine with real-time traffic" },
         { url: "/images/gallery/cargolink-3.jpg", caption: "Driver mobile app with proof-of-delivery workflow" },
       ]),
-      testimonial: "Newa Enterprises took our operations from the 1990s to the cutting edge. The real-time tracking and route optimization have been transformative. Our customers can finally see where their shipments are.",
+      testimonial: "Newa Tech took our operations from the 1990s to the cutting edge. The real-time tracking and route optimization have been transformative. Our customers can finally see where their shipments are.",
       testimonialAuthor: "Vikram Thapa",
       testimonialRole: "VP of Operations, CargoLink International",
       completionDate: "2026-02-28",
@@ -453,7 +453,7 @@ async function main() {
         { url: "/images/gallery/healthfirst-2.jpg", caption: "Doctor dashboard with schedule and telemedicine controls" },
         { url: "/images/gallery/healthfirst-3.jpg", caption: "Video consultation interface with EHR side panel" },
       ]),
-      testimonial: "The platform has been a lifesaver for our patients and staff. Wait times are down dramatically and the telemedicine integration was seamless. Newa Enterprises understood healthcare compliance requirements from day one.",
+      testimonial: "The platform has been a lifesaver for our patients and staff. Wait times are down dramatically and the telemedicine integration was seamless. Newa Tech understood healthcare compliance requirements from day one.",
       testimonialAuthor: "Dr. Sunita KC",
       testimonialRole: "Medical Director, HealthFirst Nepal",
       completionDate: "2025-12-10",
@@ -528,7 +528,7 @@ async function main() {
         { url: "/images/gallery/teamsync-2.jpg", caption: "Video conference with adaptive quality controls" },
         { url: "/images/gallery/teamsync-3.jpg", caption: "Multi-region latency dashboard for infrastructure monitoring" },
       ]),
-      testimonial: "Newa Enterprises solved problems we'd been struggling with for two years. The CRDT-based sync and edge deployment transformed our product. Our users in Nepal now have the same experience as users in Bangalore.",
+      testimonial: "Newa Tech solved problems we'd been struggling with for two years. The CRDT-based sync and edge deployment transformed our product. Our users in Nepal now have the same experience as users in Bangalore.",
       testimonialAuthor: "Arun Patel",
       testimonialRole: "CTO, TeamSync Labs",
       completionDate: "2025-09-30",
@@ -603,7 +603,7 @@ async function main() {
         { url: "/images/gallery/smartcity-2.jpg", caption: "Traffic heatmap with congestion prediction" },
         { url: "/images/gallery/smartcity-3.jpg", caption: "Waste management dashboard with fill-level alerts" },
       ]),
-      testimonial: "This platform has given us unprecedented visibility into how our city functions. The air quality monitoring alone has been invaluable for public health policy. Newa Enterprises delivered a world-class solution for Kathmandu.",
+      testimonial: "This platform has given us unprecedented visibility into how our city functions. The air quality monitoring alone has been invaluable for public health policy. Newa Tech delivered a world-class solution for Kathmandu.",
       testimonialAuthor: "Bishnu Adhikari",
       testimonialRole: "Chief Technology Officer, Kathmandu Metropolitan City",
       completionDate: "2026-05-01",
@@ -634,12 +634,12 @@ async function main() {
 <p>Next.js 16 introduces the stable App Router as the default, Server Components as a first-class citizen, and streaming SSR that sends HTML progressively to the browser. For enterprise applications handling large datasets, this means Time to First Byte (TTFB) improvements of 40-60% compared to Pages Router.</p>
 
 <h2>Turbopack: 700x Faster Than Webpack</h2>
-<p>Turbopack, built in Rust by the Vercel team, achieves cold starts 700x faster than Webpack and hot module replacements that are effectively instant. In our testing at Newa Enterprises, a Next.js enterprise application with 2,000+ components that previously took 45 seconds for a production build now compiles in under 4 seconds.</p>
+<p>Turbopack, built in Rust by the Vercel team, achieves cold starts 700x faster than Webpack and hot module replacements that are effectively instant. In our testing at Newa Tech, a Next.js enterprise application with 2,000+ components that previously took 45 seconds for a production build now compiles in under 4 seconds.</p>
 
 <h2>Why This Matters for Nepali Businesses</h2>
 <p>For Nepali enterprises operating on slower internet connections, the reduced bundle sizes and faster load times translate directly to better user engagement. Our e-commerce clients have seen conversion rate improvements of 15-25% after migrating from traditional SPAs to Next.js 16 with Turbopack.</p>
 
-<p>At Newa Enterprises, we've already migrated 12 enterprise clients to Next.js 16. The performance improvements have been dramatic — average Lighthouse scores went from 65 to 95+, and server costs decreased by 40% due to more efficient edge caching.</p>`,
+<p>At Newa Tech, we've already migrated 12 enterprise clients to Next.js 16. The performance improvements have been dramatic — average Lighthouse scores went from 65 to 95+, and server costs decreased by 40% due to more efficient edge caching.</p>`,
       excerpt: "Next.js 16 with Turbopack delivers 700x faster builds, 40-60% faster page loads, and lower infrastructure costs. Here's why your enterprise should upgrade.",
       author: "Anil Bajracharya",
       publishedAt: "2026-07-20",
@@ -679,7 +679,7 @@ async function main() {
 <h2>Security Best Practices</h2>
 <p>Never expose API keys on the client side. Use server-side API routes (Next.js API routes or Node.js middleware) to proxy payment requests. Implement request signing, rate limiting, and fraud detection. Store transaction logs in PostgreSQL for audit trails.</p>
 
-<p>At Newa Enterprises, we've integrated these gateways for 25+ clients. Our average integration time is 3 days, and our systems handle 99.9% payment success rates.</p>`,
+<p>At Newa Tech, we've integrated these gateways for 25+ clients. Our average integration time is 3 days, and our systems handle 99.9% payment success rates.</p>`,
       excerpt: "A technical guide to integrating eSewa and Khalti payment gateways into your Next.js or Node.js application with security best practices.",
       author: "Sagar Karmacharya",
       publishedAt: "2026-05-15",
@@ -774,15 +774,15 @@ async function main() {
 
   // Create site settings
   const settings = [
-    { key: "company_name", value: "Newa Enterprises" },
+    { key: "company_name", value: "Newa Tech" },
     { key: "company_tagline", value: "Your Trusted Business Partner in Baneshwor, Kathmandu" },
     { key: "company_address", value: "Baneshwor, Kathmandu, Nepal" },
     { key: "company_phone", value: "+977-97444000111" },
-    { key: "company_email", value: "info@newaenterprises.com" },
+    { key: "company_email", value: "info@newatech.com" },
     { key: "company_hours", value: "Sunday - Friday: 9:00 AM - 6:00 PM" },
-    { key: "hero_title", value: "Newa Enterprises — Building Business, Building Nepal" },
+    { key: "hero_title", value: "Newa Tech — Building Business, Building Nepal" },
     { key: "hero_subtitle", value: "Trusted trading, consultancy, and digital services provider in Baneshwor, Kathmandu. We help Nepali businesses grow with reliable supply chains and modern digital solutions." },
-    { key: "about_story", value: "Founded in 2014 by Rajesh Shrestha, Newa Enterprises began as a small trading operation in Baneshwor, Kathmandu. What started with supplying construction materials to local builders has grown into a diversified business serving clients across Nepal." },
+    { key: "about_story", value: "Founded in 2014 by Rajesh Shrestha, Newa Tech began as a small trading operation in Baneshwor, Kathmandu. What started with supplying construction materials to local builders has grown into a diversified business serving clients across Nepal." },
     { key: "mission", value: "To empower Nepali businesses with reliable supply chains, expert consultancy, and modern digital solutions that drive growth and prosperity." },
     { key: "vision", value: "To be Nepal's most trusted business partner — known for integrity, quality, and innovation in every sector we serve." },
   ];
@@ -798,13 +798,13 @@ async function main() {
 
   // Create page content
   const pageContents = [
-    { page: "home", title: "Newa Enterprises — Trusted Business Partner in Baneshwor, Kathmandu", subtitle: "Trading, Consultancy & Digital Services", metaTitle: "Newa Enterprises — Trusted Business Partner in Baneshwor, Kathmandu", metaDescription: "Newa Enterprises in Baneshwor, Kathmandu offers reliable trading, consultancy, logistics, and digital services for Nepali businesses." },
-    { page: "about", title: "About Newa Enterprises — Our Story, Mission & Team", subtitle: "Learn about our journey since 2014", metaTitle: "About Newa Enterprises — Baneshwor, Kathmandu", metaDescription: "Discover the story of Newa Enterprises, our mission to empower Nepali businesses, and meet our experienced team." },
-    { page: "services", title: "Our Services — Trading, Consultancy & Digital Solutions", subtitle: "Comprehensive business services in Kathmandu", metaTitle: "Services — Newa Enterprises | Baneshwor, Kathmandu", metaDescription: "Explore Newa Enterprises' services: general trading & supplies, consultancy, logistics, e-commerce, IT, and import/export facilitation." },
-    { page: "portfolio", title: "Our Portfolio — Projects & Case Studies", subtitle: "See our work across Nepal", metaTitle: "Portfolio — Newa Enterprises | Projects in Kathmandu", metaDescription: "View Newa Enterprises' portfolio of construction supply, e-commerce, logistics, and consultancy projects across the Kathmandu Valley." },
-    { page: "blog", title: "Blog — Insights & Updates from Newa Enterprises", subtitle: "Business tips, guides, and company news", metaTitle: "Blog — Newa Enterprises | Business Insights Nepal", metaDescription: "Read the latest articles from Newa Enterprises on digital payments (eSewa, Khalti), construction sourcing, business growth, and more." },
-    { page: "contact", title: "Contact Newa Enterprises — Baneshwor, Kathmandu", subtitle: "Get in touch with our team", metaTitle: "Contact — Newa Enterprises | Baneshwor, Kathmandu", metaDescription: "Contact Newa Enterprises in Baneshwor, Kathmandu for trading, consultancy, logistics, and digital services." },
-    { page: "careers", title: "Careers — Join the Newa Enterprises Team", subtitle: "Build your career with us", metaTitle: "Careers — Newa Enterprises | Jobs in Kathmandu", metaDescription: "Explore career opportunities at Newa Enterprises in Baneshwor, Kathmandu." },
+    { page: "home", title: "Newa Tech — Trusted Business Partner in Baneshwor, Kathmandu", subtitle: "Trading, Consultancy & Digital Services", metaTitle: "Newa Tech — Trusted Business Partner in Baneshwor, Kathmandu", metaDescription: "Newa Tech in Baneshwor, Kathmandu offers reliable trading, consultancy, logistics, and digital services for Nepali businesses." },
+    { page: "about", title: "About Newa Tech — Our Story, Mission & Team", subtitle: "Learn about our journey since 2014", metaTitle: "About Newa Tech — Baneshwor, Kathmandu", metaDescription: "Discover the story of Newa Tech, our mission to empower Nepali businesses, and meet our experienced team." },
+    { page: "services", title: "Our Services — Trading, Consultancy & Digital Solutions", subtitle: "Comprehensive business services in Kathmandu", metaTitle: "Services — Newa Tech | Baneshwor, Kathmandu", metaDescription: "Explore Newa Tech' services: general trading & supplies, consultancy, logistics, e-commerce, IT, and import/export facilitation." },
+    { page: "portfolio", title: "Our Portfolio — Projects & Case Studies", subtitle: "See our work across Nepal", metaTitle: "Portfolio — Newa Tech | Projects in Kathmandu", metaDescription: "View Newa Tech' portfolio of construction supply, e-commerce, logistics, and consultancy projects across the Kathmandu Valley." },
+    { page: "blog", title: "Blog — Insights & Updates from Newa Tech", subtitle: "Business tips, guides, and company news", metaTitle: "Blog — Newa Tech | Business Insights Nepal", metaDescription: "Read the latest articles from Newa Tech on digital payments (eSewa, Khalti), construction sourcing, business growth, and more." },
+    { page: "contact", title: "Contact Newa Tech — Baneshwor, Kathmandu", subtitle: "Get in touch with our team", metaTitle: "Contact — Newa Tech | Baneshwor, Kathmandu", metaDescription: "Contact Newa Tech in Baneshwor, Kathmandu for trading, consultancy, logistics, and digital services." },
+    { page: "careers", title: "Careers — Join the Newa Tech Team", subtitle: "Build your career with us", metaTitle: "Careers — Newa Tech | Jobs in Kathmandu", metaDescription: "Explore career opportunities at Newa Tech in Baneshwor, Kathmandu." },
   ];
   for (const pc of pageContents) {
     const exists = await query(`SELECT 1 FROM "PageContent" WHERE "page" = $1`, [pc.page]);
@@ -823,8 +823,8 @@ async function main() {
   console.log(`Created ${pageContents.length} page contents`);
 
   console.log("\n✅ Database seeded successfully!");
-  console.log("📧 Admin login: admin@newaenterprises.com / Admin@123");
-  console.log("📧 Editor login: editor@newaenterprises.com / Editor@123");
+  console.log("📧 Admin login: admin@newatech.com / Admin@123");
+  console.log("📧 Editor login: editor@newatech.com / Editor@123");
 }
 
 main()

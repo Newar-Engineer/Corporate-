@@ -18,9 +18,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Newa Enterprises — Building Nepal's Digital Future",
+  title: "Newa Tech — Building Nepal's Digital Future",
   description:
-    "Newa Enterprises is a trusted business partner based in Baneshwor, Kathmandu, Nepal. We provide quality services in trading, consultancy, supplies, and digital solutions.",
+    "Newa Tech is a trusted business partner based in Baneshwor, Kathmandu, Nepal. We provide quality services in trading, consultancy, supplies, and digital solutions.",
 };
 
 export default function RootLayout({

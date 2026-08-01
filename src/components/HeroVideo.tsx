@@ -17,7 +17,7 @@ export default function HeroVideo({
   videoSrc = "/videos/web animation.mp4",
   fallbackImage,
   headline = "Building Nepal's Digital Future —",
-  subtitle = "Newa Enterprises delivers trusted trading, consultancy, logistics, and digital solutions from Baneshwor, Kathmandu to clients across Nepal.",
+  subtitle = "Newa Tech delivers trusted trading, consultancy, logistics, and digital solutions from Baneshwor, Kathmandu to clients across Nepal.",
   primaryCta = { text: "Explore Services", href: "/services" },
   secondaryCta = { text: "Watch Showcase", href: "/portfolio" },
 }: HeroVideoProps) {

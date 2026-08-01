@@ -92,9 +92,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   } catch (error) {
     console.error("Error fetching service metadata:", error);
   }
-  if (!service) return { title: "Service Not Found — Newa Enterprises" };
+  if (!service) return { title: "Service Not Found — Newa Tech" };
   return {
-    title: `${service.title} — Newa Enterprises`,
+    title: `${service.title} — Newa Tech`,
     description: service.description,
   };
 }

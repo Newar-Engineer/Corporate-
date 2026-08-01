@@ -5,7 +5,7 @@ import SeamlessVideoHero from "@/components/SeamlessVideoHero";
 import SeamlessVideoSection from "@/components/SeamlessVideoSection";
 
 export const metadata: Metadata = {
-  title: "Portfolio & Case Studies — Newa Enterprises",
+  title: "Portfolio & Case Studies — Newa Tech",
   description:
     "Browse our portfolio of completed projects across trading, supply, consultancy, and digital services in Nepal.",
 };

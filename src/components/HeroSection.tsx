@@ -92,7 +92,7 @@ export default function HeroSection() {
           <div className="max-w-2xl">
             <p className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary-light mb-8">
               <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-              Newa Enterprises — Baneshwor, Kathmandu
+              Newa Tech — Baneshwor, Kathmandu
             </p>
 
             <h1

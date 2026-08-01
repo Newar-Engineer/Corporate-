@@ -5,8 +5,8 @@ import SectionHeading from "@/components/SectionHeading";
 import BlogCard from "@/components/BlogCard";
 
 export const metadata: Metadata = {
-  title: "Blog & Industry Insights — Newa Enterprises",
-  description: "Read insights, updates, and stories from Newa Enterprises. Stay informed about industry trends and company news in Nepal.",
+  title: "Blog & Industry Insights — Newa Tech",
+  description: "Read insights, updates, and stories from Newa Tech. Stay informed about industry trends and company news in Nepal.",
 };
 
 export default async function BlogPage() {

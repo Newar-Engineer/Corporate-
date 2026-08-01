@@ -20,10 +20,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     console.error("Error fetching post metadata:", error);
   }
 
-  if (!post) return { title: "Post Not Found — Newa Enterprises" };
+  if (!post) return { title: "Post Not Found — Newa Tech" };
 
   return {
-    title: `${post.title} — Newa Enterprises Blog`,
+    title: `${post.title} — Newa Tech Blog`,
     description: post.excerpt || post.title,
   };
 }

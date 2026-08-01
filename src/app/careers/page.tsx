@@ -6,9 +6,9 @@ import {
 } from "react-icons/fi";
 
 export const metadata: Metadata = {
-  title: "Careers — Newa Enterprises",
+  title: "Careers — Newa Tech",
   description:
-    "Join the Newa Enterprises team in Baneshwor, Kathmandu. Explore current job openings and grow your career with us.",
+    "Join the Newa Tech team in Baneshwor, Kathmandu. Explore current job openings and grow your career with us.",
 };
 
 const perks = [
@@ -92,12 +92,12 @@ export default async function CareersPage() {
         </div>
       </section>
 
-      {/* Life at Newa Enterprises — Culture Grid */}
+      {/* Life at Newa Tech — Culture Grid */}
       <section className="relative py-16 sm:py-20 border-t border-rose-500/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 sm:mb-12 text-center">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3">
-              Life at <span className="bg-gradient-to-r from-rose-400 to-amber-400 bg-clip-text text-transparent">Newa Enterprises</span>
+              Life at <span className="bg-gradient-to-r from-rose-400 to-amber-400 bg-clip-text text-transparent">Newa Tech</span>
             </h2>
             <p className="text-slate-400 max-w-xl mx-auto">
               We believe great work happens when people are supported, challenged,

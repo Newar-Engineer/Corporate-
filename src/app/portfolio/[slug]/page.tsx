@@ -33,9 +33,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   } catch (error) {
     console.error("Error fetching portfolio metadata:", error);
   }
-  if (!item) return { title: "Project Not Found — Newa Enterprises" };
+  if (!item) return { title: "Project Not Found — Newa Tech" };
   return {
-    title: `${item.title} — Newa Enterprises Portfolio`,
+    title: `${item.title} — Newa Tech Portfolio`,
     description: item.description,
   };
 }

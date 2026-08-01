@@ -11,9 +11,9 @@ import {
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Our Services — Newa Enterprises",
+  title: "Our Services — Newa Tech",
   description:
-    "Explore the comprehensive range of services offered by Newa Enterprises in Baneshwor, Kathmandu — from trading and supply to IT consulting and digital solutions.",
+    "Explore the comprehensive range of services offered by Newa Tech in Baneshwor, Kathmandu — from trading and supply to IT consulting and digital solutions.",
 };
 
 interface ServiceFeature {

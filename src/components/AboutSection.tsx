@@ -67,7 +67,7 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-xs font-medium text-accent-light mb-6">
-              About Newa Enterprises
+              About Newa Tech
             </p>
 
             <h2 ref={headingRef} className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-8">
@@ -77,7 +77,7 @@ export default function AboutSection() {
 
             <div ref={contentRef} className="space-y-4 mb-10">
               <p className="anim-text text-base sm:text-lg text-slate-300 leading-relaxed">
-                Headquartered in <span className="text-primary-light font-medium">Baneshwor, Kathmandu</span>, Newa Enterprises is a dynamic business house dedicated to providing high-quality products, reliable consultancy, and end-to-end supply chain solutions.
+                Headquartered in <span className="text-primary-light font-medium">Baneshwor, Kathmandu</span>, Newa Tech is a dynamic business house dedicated to providing high-quality products, reliable consultancy, and end-to-end supply chain solutions.
               </p>
               <p className="anim-text text-sm sm:text-base text-slate-400 leading-relaxed">
                 Our multi-disciplinary team brings decades of combined experience across trading, logistics, IT consulting, and digital transformation — enabling us to deliver results that meet the highest standards of quality and professionalism.

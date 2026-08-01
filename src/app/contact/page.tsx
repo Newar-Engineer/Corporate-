@@ -5,9 +5,9 @@ import ContactInfoCards from "./ContactInfoCards";
 import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "Contact Us — Newa Enterprises",
+  title: "Contact Us — Newa Tech",
   description:
-    "Let's build something extraordinary together. Reach Newa Enterprises in Baneshwor, Kathmandu for project inquiries, partnerships, or general questions.",
+    "Let's build something extraordinary together. Reach Newa Tech in Baneshwor, Kathmandu for project inquiries, partnerships, or general questions.",
 };
 
 export default function ContactPage() {
@@ -74,7 +74,7 @@ export default function ContactPage() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Newa Enterprises — Baneshwor, Kathmandu"
+              title="Newa Tech — Baneshwor, Kathmandu"
             />
           </div>
         </div>

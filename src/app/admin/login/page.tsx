@@ -61,7 +61,7 @@ export default function AdminLoginPage() {
             <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-100">
               <FiLock className="h-8 w-8 text-amber-600" />
             </div>
-            <h1 className="text-2xl font-bold text-gray-900">Newa Enterprises</h1>
+            <h1 className="text-2xl font-bold text-gray-900">Newa Tech</h1>
             <p className="mt-1 text-sm text-gray-500">Admin Panel Sign In</p>
           </div>
 
@@ -73,7 +73,7 @@ export default function AdminLoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               error={errors.email}
-              placeholder="admin@newaenterprises.com"
+              placeholder="admin@newatech.com"
               required
             />
             <Input
@@ -92,7 +92,7 @@ export default function AdminLoginPage() {
           </form>
         </div>
         <p className="mt-4 text-center text-xs text-gray-400">
-          &copy; {new Date().getFullYear()} Newa Enterprises. All rights reserved.
+          &copy; {new Date().getFullYear()} Newa Tech. All rights reserved.
         </p>
       </div>
     </div>

@@ -16,10 +16,10 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const job = await prisma.job.findUnique({ where: { slug, isActive: true } });
-  if (!job) return { title: "Position Not Found — Newa Enterprises Careers" };
+  if (!job) return { title: "Position Not Found — Newa Tech Careers" };
   return {
-    title: `Apply: ${job.title} — Newa Enterprises Careers`,
-    description: `Apply for the ${job.title} position at Newa Enterprises in ${job.location || "Baneshwor, Kathmandu"}.`,
+    title: `Apply: ${job.title} — Newa Tech Careers`,
+    description: `Apply for the ${job.title} position at Newa Tech in ${job.location || "Baneshwor, Kathmandu"}.`,
   };
 }
 

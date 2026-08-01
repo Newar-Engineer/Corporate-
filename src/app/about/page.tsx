@@ -8,8 +8,8 @@ import TeamCard from "@/components/TeamCard";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "About Us — Newa Enterprises",
-  description: "Learn about Newa Enterprises, a trusted business partner based in Baneshwor, Kathmandu. Discover our mission, vision, and the team driving our success.",
+  title: "About Us — Newa Tech",
+  description: "Learn about Newa Tech, a trusted business partner based in Baneshwor, Kathmandu. Discover our mission, vision, and the team driving our success.",
 };
 
 export default async function AboutPage() {
@@ -28,7 +28,7 @@ export default async function AboutPage() {
       {/* Seamless Video Hero - Emerald Teal Theme */}
       <SeamlessVideoHero
         videoSrc="/videos/web desing.mp4"
-        badge="About Newa Enterprises"
+        badge="About Newa Tech"
         title="Pioneering Excellence & Digital Innovation"
         subtitle="Headquartered in Baneshwor, Kathmandu — we empower businesses across Nepal with high-grade products, consultancy, and bespoke digital solutions."
         themeGradient="from-emerald-400 via-teal-300 to-cyan-400"
@@ -48,13 +48,13 @@ export default async function AboutPage() {
           />
           <div className="space-y-6 text-slate-300 text-base sm:text-lg leading-relaxed bg-slate-900/60 backdrop-blur-md p-8 rounded-3xl border border-emerald-500/20 shadow-xl shadow-emerald-950/40">
             <p>
-              Newa Enterprises was founded in Baneshwor, Kathmandu, with a singular vision — to become a reliable and trusted business partner for organizations across Nepal. What began as a small trading operation has grown into a multi-faceted enterprise serving clients in diverse sectors including construction, hospitality, education, and government.
+              Newa Tech was founded in Baneshwor, Kathmandu, with a singular vision — to become a reliable and trusted business partner for organizations across Nepal. What began as a small trading operation has grown into a multi-faceted enterprise serving clients in diverse sectors including construction, hospitality, education, and government.
             </p>
             <p>
               Over the past decade, we have built a strong reputation for integrity, quality, and on-time delivery. Our portfolio spans trading and supply of construction materials, industrial equipment, office supplies, IT infrastructure, and consultancy services. Every engagement is driven by a deep understanding of local market dynamics and a commitment to exceeding client expectations.
             </p>
             <p>
-              Today, Newa Enterprises employs a dedicated team of over 25 professionals and has successfully completed hundreds of projects across Nepal. We continue to expand our capabilities, embracing new technologies and partnerships to serve our clients better.
+              Today, Newa Tech employs a dedicated team of over 25 professionals and has successfully completed hundreds of projects across Nepal. We continue to expand our capabilities, embracing new technologies and partnerships to serve our clients better.
             </p>
           </div>
         </div>

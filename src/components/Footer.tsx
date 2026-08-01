@@ -87,7 +87,7 @@ export default function Footer() {
               <span className="gradient-text">Enterprises</span>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed mb-6 max-w-sm">
-              Headquartered in Baneshwor, Kathmandu, Newa Enterprises is a trusted
+              Headquartered in Baneshwor, Kathmandu, Newa Tech is a trusted
               provider of trading, consultancy, logistics, and digital solutions
               serving businesses across Nepal.
             </p>
@@ -110,8 +110,8 @@ export default function Footer() {
                 <span className="shrink-0 flex items-center justify-center h-8 w-8 rounded-lg bg-primary/10 text-primary-light">
                   <FiMail size={15} />
                 </span>
-                <a href="mailto:info@newaenterprises.com" className="text-slate-400 hover:text-white transition-colors pt-1">
-                  info@newaenterprises.com
+                <a href="mailto:info@newatech.com" className="text-slate-400 hover:text-white transition-colors pt-1">
+                  info@newatech.com
                 </a>
               </li>
             </ul>
@@ -205,9 +205,9 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 pt-8 border-t border-slate-800/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>&copy; {new Date().getFullYear()} Newa Enterprises. All rights reserved. Baneshwor, Kathmandu, Nepal.</p>
+          <p>&copy; {new Date().getFullYear()} Newa Tech. All rights reserved. Baneshwor, Kathmandu, Nepal.</p>
           <div className="flex gap-4">
-            <Link href="/" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
+            <Link href="/privacy-policy" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
             <Link href="/" className="hover:text-slate-300 transition-colors">Terms of Service</Link>
           </div>
         </div>
