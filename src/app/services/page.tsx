@@ -43,11 +43,17 @@ const categoryIconMap: Record<string, React.ReactNode> = {
   FiShoppingBag: <FiShoppingBag size={28} />,
 };
 
+const startingPrices: Record<string, string> = {
+  "web-development-engineering": "NPR 25,000",
+  "mobile-app-engineering": "NPR 80,000",
+  "ecommerce-platforms": "NPR 45,000",
+  "uiux-product-design": "NPR 20,000",
+};
+
 const typeColors: Record<string, string> = {
   Frontend: "border-sky-500/30 text-sky-400 bg-sky-500/10",
   Backend: "border-blue-500/30 text-blue-400 bg-blue-500/10",
   Database: "border-cyan-500/30 text-cyan-400 bg-cyan-500/10",
-  Cloud: "border-sky-500/30 text-sky-400 bg-sky-500/10",
   Design: "border-blue-400/30 text-blue-300 bg-blue-400/10",
   Payment: "border-gold/30 text-gold bg-gold/10",
   Platform: "border-primary/30 text-primary-light bg-primary/10",
@@ -81,7 +87,6 @@ export default async function ServicesPage() {
   return (
     <div className="bg-black min-h-screen text-slate-100 selection:bg-primary selection:text-white">
       <SeamlessVideoHero
-        videoSrc="/videos/webdes.mp4"
         badge="Website & App Development Agency"
         title="Websites & Apps Built for Your Business"
         subtitle="From business websites to e-commerce stores and mobile apps, we design and develop digital products that help your business grow."
@@ -92,7 +97,6 @@ export default async function ServicesPage() {
       />
 
       <SeamlessVideoSection
-        videoSrc="/videos/webdes.mp4"
         badge="Modern Development Standards"
         title="Design & Engineering That Delivers"
         subtitle="Our team builds responsive, fast, and secure websites and apps using modern stacks like React, Next.js, and Node.js."
@@ -138,6 +142,11 @@ export default async function ServicesPage() {
                   <h3 className="mb-3 text-xl font-bold text-white group-hover:text-primary-light transition-colors">
                     {service.title}
                   </h3>
+                  {startingPrices[service.slug] && (
+                    <p className="mb-2 text-sm font-semibold text-gold">
+                      Starting from {startingPrices[service.slug]}
+                    </p>
+                  )}
                   <p className="mb-5 text-sm text-slate-300 leading-relaxed line-clamp-3">
                     {truncate(service.description, 150)}
                   </p>

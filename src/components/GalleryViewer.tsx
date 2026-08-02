@@ -44,7 +44,7 @@ export default function GalleryViewer({ images }: GalleryViewerProps) {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center">
               <div className="mb-2 text-4xl opacity-30">🖼</div>
-              <p className="text-sm text-slate-500">{current.caption}</p>
+              <p className="text-sm text-slate-400">{current.caption}</p>
             </div>
           </div>
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">

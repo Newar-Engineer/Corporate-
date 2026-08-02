@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import GalleryViewer from "@/components/GalleryViewer";
+import { ButtonLink } from "@/components/ui/Button";
 import { FiArrowRight, FiCalendar, FiUser, FiBarChart2, FiZap, FiTarget, FiCheckCircle } from "react-icons/fi";
 
 interface PageProps {
@@ -228,13 +229,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
               <p className="text-sm text-slate-400 mb-4">
                 Let&apos;s discuss how we can deliver results for your business.
               </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(99,102,241,0.3)]"
-              >
+              <ButtonLink href="/contact">
                 Request a Similar Project
                 <FiArrowRight size={16} />
-              </Link>
+              </ButtonLink>
             </div>
           </div>
         </div>

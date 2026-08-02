@@ -19,25 +19,25 @@ export default function TestimonialCard({
   photoUrl,
 }: TestimonialCardProps) {
   return (
-    <Card className="relative">
+    <Card variant="dark" className="relative">
       <div className="mb-3 flex items-center gap-1">
         {Array.from({ length: 5 }, (_, i) => (
           <FiStar
             key={i}
             size={16}
             className={
-              i < rating ? "fill-amber-400 text-amber-400" : "text-gray-300"
+              i < rating ? "fill-accent text-accent" : "text-slate-600"
             }
           />
         ))}
       </div>
 
-      <blockquote className="text-sm text-gray-600 leading-relaxed mb-4 italic">
+      <blockquote className="text-sm text-slate-300 leading-relaxed mb-4 italic">
         &ldquo;{message}&rdquo;
       </blockquote>
 
       <div className="flex items-center gap-3">
-        <div className="relative h-10 w-10 overflow-hidden rounded-full bg-gray-100 shrink-0">
+        <div className="relative h-10 w-10 overflow-hidden rounded-full bg-slate-900 border border-primary/20 shrink-0">
           {photoUrl ? (
             <Image
               src={photoUrl}
@@ -47,16 +47,16 @@ export default function TestimonialCard({
               sizes="40px"
             />
           ) : (
-            <div className="flex h-full w-full items-center justify-center bg-amber-100 text-amber-700 text-xs font-bold">
+            <div className="flex h-full w-full items-center justify-center bg-primary/10 text-primary-light text-xs font-bold">
               {getInitials(clientName)}
             </div>
           )}
         </div>
         <div>
-          <cite className="not-italic text-sm font-semibold text-gray-900 block">
+          <cite className="not-italic text-sm font-semibold text-white block">
             {clientName}
           </cite>
-          <span className="text-xs text-gray-500">{company}</span>
+          <span className="text-xs text-slate-400">{company}</span>
         </div>
       </div>
     </Card>

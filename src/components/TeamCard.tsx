@@ -16,8 +16,8 @@ export default function TeamCard({
   bio,
 }: TeamCardProps) {
   return (
-    <Card className="text-center group hover:-translate-y-1 transition-all duration-300">
-      <div className="relative mx-auto mb-4 h-24 w-24 sm:h-28 sm:w-28 overflow-hidden rounded-full bg-gray-100">
+    <Card variant="dark" hover className="text-center group">
+      <div className="relative mx-auto mb-4 h-24 w-24 sm:h-28 sm:w-28 overflow-hidden rounded-full bg-slate-900 border-2 border-primary/20">
         {photoUrl ? (
           <Image
             src={photoUrl}
@@ -27,15 +27,15 @@ export default function TeamCard({
             sizes="(max-width: 640px) 96px, 112px"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center bg-amber-100 text-amber-700 text-xl font-bold">
+          <div className="flex h-full w-full items-center justify-center bg-primary/10 text-primary-light text-xl font-bold">
             {getInitials(name)}
           </div>
         )}
       </div>
-      <h3 className="text-lg font-semibold text-gray-900">{name}</h3>
-      <p className="text-sm text-amber-600 font-medium mb-2">{role}</p>
+      <h3 className="text-lg font-semibold text-white">{name}</h3>
+      <p className="text-sm text-primary-light font-medium mb-2">{role}</p>
       {bio && (
-        <p className="text-sm text-gray-600 leading-relaxed">{bio}</p>
+        <p className="text-sm text-slate-400 leading-relaxed">{bio}</p>
       )}
     </Card>
   );

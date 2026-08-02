@@ -45,7 +45,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     <>
       <article>
         {post.coverImage && (
-          <div className="relative h-56 sm:h-72 md:h-96 w-full bg-gray-100">
+          <div className="relative h-56 sm:h-72 md:h-96 w-full bg-slate-900">
             <Image
               src={post.coverImage}
               alt={post.title}
@@ -60,17 +60,17 @@ export default async function BlogPostPage({ params }: PageProps) {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-1.5 text-sm text-amber-600 hover:text-amber-700 font-medium mb-6"
+            className="inline-flex items-center gap-1.5 text-sm text-primary-light hover:text-primary-sky font-medium mb-6"
           >
             <FiArrowLeft size={16} />
             Back to Blog
           </Link>
 
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight">
             {post.title}
           </h1>
 
-          <div className="flex items-center gap-4 text-sm text-gray-500 mb-8 pb-6 border-b border-gray-200">
+          <div className="flex items-center gap-4 text-sm text-slate-400 mb-8 pb-6 border-b border-white/10">
             <span className="flex items-center gap-1.5">
               <FiUser size={15} />
               {post.author}
@@ -83,7 +83,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
           <div className="overflow-x-auto">
             <div
-              className="prose prose-gray max-w-none leading-relaxed"
+              className="article-content max-w-none"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
           </div>

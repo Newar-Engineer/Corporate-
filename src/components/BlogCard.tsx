@@ -23,8 +23,8 @@ export default function BlogCard({
 }: BlogCardProps) {
   return (
     <Link href={`/blog/${slug}`}>
-      <Card hover className="group h-full cursor-pointer overflow-hidden transition-all duration-300 hover:-translate-y-1 p-0">
-        <div className="relative h-48 w-full overflow-hidden bg-gray-100">
+      <Card variant="dark" hover className="group h-full cursor-pointer overflow-hidden p-0">
+        <div className="relative h-48 w-full overflow-hidden bg-slate-900">
           {coverImage ? (
             <Image
               src={coverImage}
@@ -34,19 +34,19 @@ export default function BlogCard({
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
           ) : (
-            <div className="flex h-full items-center justify-center bg-gray-200 text-gray-400 text-sm">
+            <div className="flex h-full items-center justify-center bg-slate-800 text-slate-400 text-sm">
               No image
             </div>
           )}
         </div>
         <div className="p-5">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-amber-600 transition-colors line-clamp-2">
+          <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-primary-light transition-colors line-clamp-2">
             {title}
           </h3>
-          <p className="text-sm text-gray-600 leading-relaxed mb-4 line-clamp-2">
+          <p className="text-sm text-slate-400 leading-relaxed mb-4 line-clamp-2">
             {truncate(excerpt, 120)}
           </p>
-          <div className="flex items-center gap-4 text-xs text-gray-500">
+          <div className="flex items-center gap-4 text-xs text-slate-400">
             <span className="flex items-center gap-1">
               <FiUser size={13} />
               {author}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import Link from "next/link";
+import Button, { ButtonLink } from "@/components/ui/Button";
 
 export default function ServiceError({
   error,
@@ -24,18 +24,12 @@ export default function ServiceError({
           We encountered an error while loading this service page. Please try again or contact us.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
-          <button
-            onClick={reset}
-            className="rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-primary/90"
-          >
+          <Button onClick={reset}>
             Try Again
-          </button>
-          <Link
-            href="/services"
-            className="rounded-lg border border-slate-700 px-6 py-3 text-sm font-semibold text-slate-300 transition-all hover:border-primary/50 hover:text-white"
-          >
+          </Button>
+          <ButtonLink href="/services" variant="secondary">
             Browse Services
-          </Link>
+          </ButtonLink>
         </div>
       </div>
     </section>

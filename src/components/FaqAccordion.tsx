@@ -22,14 +22,18 @@ const faqs = [
   },
 ];
 
-export default function FaqAccordion() {
+interface FaqAccordionProps {
+  faqs?: { q: string; a: string }[];
+}
+
+export default function FaqAccordion({ faqs: items = faqs }: FaqAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
     <div className="space-y-3">
-      {faqs.map((faq, i) => {
+      {items.map((faq, i) => {
         const isOpen = openIndex === i;
         return (
           <div
@@ -43,12 +47,15 @@ export default function FaqAccordion() {
             <button
               type="button"
               onClick={() => toggle(i)}
+              id={`faq-button-${i}`}
+              aria-expanded={isOpen}
+              aria-controls={`faq-panel-${i}`}
               className="flex w-full items-center gap-3 px-5 py-4 text-left"
             >
               <FiHelpCircle
                 size={16}
                 className={`shrink-0 transition-colors ${
-                  isOpen ? "text-primary" : "text-slate-500"
+                  isOpen ? "text-primary" : "text-slate-400"
                 }`}
               />
               <span
@@ -60,12 +67,15 @@ export default function FaqAccordion() {
               </span>
               <FiChevronDown
                 size={16}
-                className={`shrink-0 text-slate-500 transition-transform duration-300 ${
+                className={`shrink-0 text-slate-400 transition-transform duration-300 ${
                   isOpen ? "rotate-180 text-primary" : ""
                 }`}
               />
             </button>
             <div
+              id={`faq-panel-${i}`}
+              role="region"
+              aria-labelledby={`faq-button-${i}`}
               className={`overflow-hidden transition-all duration-300 ${
                 isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
               }`}

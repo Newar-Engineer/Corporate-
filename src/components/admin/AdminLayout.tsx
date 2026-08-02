@@ -24,7 +24,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
           >
             <FiMenu size={22} />
           </button>
-          <h1 className="text-lg font-semibold text-gray-900">Admin Dashboard</h1>
+          <p className="text-lg font-semibold text-gray-900">Admin Dashboard</p>
         </header>
 
         <main className="p-4 sm:p-6 lg:p-8">{children}</main>

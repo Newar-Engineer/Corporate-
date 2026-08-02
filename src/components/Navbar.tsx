@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FiMenu, FiX, FiChevronDown } from "react-icons/fi";
+import { ButtonLink } from "@/components/ui/Button";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -20,6 +21,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState(0);
   const pathname = usePathname();
+  const menuToggleRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -30,6 +33,45 @@ export default function Navbar() {
   useEffect(() => {
     setMobileOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const panel = panelRef.current;
+    document.body.style.overflow = "hidden";
+    panel
+      ?.querySelector<HTMLElement>('button[aria-label="Close navigation menu"]')
+      ?.focus();
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileOpen(false);
+        return;
+      }
+      if (e.key === "Tab" && panel) {
+        const focusables = panel.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        const active = document.activeElement;
+        if (e.shiftKey && (active === first || !panel.contains(active))) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && (active === last || !panel.contains(active))) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+      if (document.activeElement && panel?.contains(document.activeElement)) {
+        menuToggleRef.current?.focus();
+      }
+    };
+  }, [mobileOpen]);
 
   useEffect(() => {
     if (pathname !== "/") return;
@@ -89,25 +131,32 @@ export default function Navbar() {
         </div>
 
         <div className="hidden lg:flex items-center gap-3">
-          <Link
-            href="/contact"
-            className="min-h-[44px] inline-flex items-center px-5 py-2 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-primary to-accent hover:shadow-[0_0_25px_rgba(79,124,255,0.3)] transition-all duration-300"
-          >
+          <ButtonLink href="/contact" size="sm" className="px-5 py-2">
             Get Started
-          </Link>
+          </ButtonLink>
         </div>
 
         <button
+          ref={menuToggleRef}
           onClick={() => setMobileOpen(true)}
           className="min-h-[44px] min-w-[44px] flex lg:hidden items-center justify-center rounded-lg text-slate-400 hover:text-white hover:bg-white/5"
           aria-label="Open navigation menu"
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-menu"
         >
           <FiMenu size={22} />
         </button>
       </nav>
 
       {mobileOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden">
+        <div
+          ref={panelRef}
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile navigation menu"
+          className="fixed inset-0 z-50 lg:hidden"
+        >
           <div
             className="fixed inset-0 bg-black/70 backdrop-blur-sm"
             onClick={() => setMobileOpen(false)}
@@ -141,13 +190,14 @@ export default function Navbar() {
               ))}
             </div>
             <div className="p-4 border-t border-white/10">
-              <Link
+              <ButtonLink
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="flex items-center justify-center min-h-[48px] w-full rounded-xl text-base font-semibold text-white bg-gradient-to-r from-primary to-accent transition-all"
+                size="lg"
+                className="w-full"
               >
                 Get Started
-              </Link>
+              </ButtonLink>
             </div>
           </div>
         </div>

@@ -36,7 +36,6 @@ export default async function PortfolioPage() {
   return (
     <div className="bg-black min-h-screen text-slate-100 selection:bg-gold selection:text-black">
       <SeamlessVideoHero
-        videoSrc="/videos/websss.mp4"
         badge="Our Recent Work"
         title="Websites & Apps We've Built"
         subtitle="Explore our showcase of websites, e-commerce stores, and mobile apps delivered for businesses across Nepal."
@@ -47,7 +46,6 @@ export default async function PortfolioPage() {
       />
 
       <SeamlessVideoSection
-        videoSrc="/videos/websss.mp4"
         badge="Real World Results"
         title="High Performance & Beautiful Digital Products"
         subtitle="Every website and app we craft is engineered for speed, intuitive UX, and measurable business growth."

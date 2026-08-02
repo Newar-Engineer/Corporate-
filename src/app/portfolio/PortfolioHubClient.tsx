@@ -88,7 +88,7 @@ export default function PortfolioHubClient({ items }: { items: PortfolioItemData
                     {item.category}
                   </span>
                   {item.client && (
-                    <span className="text-[11px] text-slate-500">{item.client}</span>
+                    <span className="text-[11px] text-slate-400">{item.client}</span>
                   )}
                 </div>
 
@@ -106,7 +106,7 @@ export default function PortfolioHubClient({ items }: { items: PortfolioItemData
                     {item.metrics.slice(0, 4).map((m, i) => (
                       <div key={i} className="rounded-lg bg-slate-800/60 border border-slate-700/30 p-2 text-center">
                         <div className="text-sm font-bold gradient-text">{m.value}</div>
-                        <div className="text-[10px] text-slate-500 leading-tight">{m.label}</div>
+                        <div className="text-[10px] text-slate-400 leading-tight">{m.label}</div>
                       </div>
                     ))}
                   </div>
@@ -124,7 +124,7 @@ export default function PortfolioHubClient({ items }: { items: PortfolioItemData
                       </span>
                     ))}
                     {item.techStack.length > 4 && (
-                      <span className="inline-block rounded-md border border-slate-600/30 px-2 py-0.5 text-[10px] text-slate-500">
+                      <span className="inline-block rounded-md border border-slate-600/30 px-2 py-0.5 text-[10px] text-slate-400">
                         +{item.techStack.length - 4}
                       </span>
                     )}

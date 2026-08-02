@@ -1,6 +1,6 @@
 # Newa Tech — Corporate Website
 
-A full-stack, production-ready business/corporate website for **Newa Tech**, a trading, consultancy, and digital services company based in **Baneshwor, Kathmandu, Nepal**.
+A full-stack, production-ready corporate website for **Newa Tech**, a web design and app development agency based in **Baneshwor, Kathmandu, Nepal**.
 
 Built with Next.js 16, PostgreSQL (Prisma 7), TypeScript, and Tailwind CSS v4.
 
@@ -69,7 +69,7 @@ npm run seed
 This creates:
 - **Admin user**: `admin@newatech.com` / `Admin@123`
 - **Editor user**: `editor@newatech.com` / `Editor@123`
-- 6 services, 4 team members, 4 testimonials, 5 portfolio items, 3 blog posts, 3 jobs, 13 site settings, 7 page contents
+- 4 services (web development, mobile apps, UI/UX design, e-commerce), 6 team members, 5 testimonials, 9 portfolio items, 4 blog posts, 4 jobs, 13 site settings, 7 page contents
 
 ### 4. Run Development Server
 

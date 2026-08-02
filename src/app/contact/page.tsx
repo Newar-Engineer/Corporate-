@@ -35,10 +35,11 @@ export default function ContactPage() {
       </section>
 
       {/* ========================= CONTACT INFO CARDS ========================= */}
+      <h2 className="sr-only">Contact information</h2>
       <ContactInfoCards />
 
       {/* ========================= FORM + FAQ ========================= */}
-      <section className="relative border-t border-sky-500/10 bg-black pb-20 pt-16 sm:pb-24 sm:pt-20">
+      <section id="quote" className="relative border-t border-sky-500/10 bg-black pb-20 pt-16 sm:pb-24 sm:pt-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-5">
             {/* Form */}

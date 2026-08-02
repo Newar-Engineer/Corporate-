@@ -49,7 +49,7 @@ const sections = [
     content: (
       <p className="text-sm sm:text-base text-slate-400 leading-relaxed">
         Your information is stored securely and accessed only by Newa
-        Enterprises for the purpose of responding to your inquiry and
+        Tech for the purpose of responding to your inquiry and
         delivering our services.
       </p>
     ),
@@ -111,7 +111,7 @@ export default function PrivacyPolicyPage() {
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-3">
             <span className="gradient-text">Privacy Policy</span>
           </h1>
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-slate-400">
             Last updated: August 1, 2026
           </p>
         </div>

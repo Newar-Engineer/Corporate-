@@ -7,6 +7,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
+import ProcessSection from "@/components/ProcessSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import TechStackSection from "@/components/TechStackSection";
+import FaqSection from "@/components/FaqSection";
 import LeadBanner from "@/components/LeadBanner";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -43,6 +47,10 @@ export default function HomePage() {
       <HeroSection />
       <AboutSection />
       <ServicesSection />
+      <ProcessSection />
+      <TechStackSection />
+      <TestimonialsSection />
+      <FaqSection />
       <LeadBanner />
     </div>
   );

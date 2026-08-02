@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useCallback } from "react";
-import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ButtonLink } from "@/components/ui/Button";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -74,7 +74,7 @@ export default function HeroSection() {
     });
   }, []);
 
-  const words = ["We", "Design", "Websites", "&", "Apps"];
+  const words = ["We", "Build", "Websites", "&", "Apps", "That", "Grow", "Your", "Business"];
 
   return (
     <section
@@ -115,20 +115,18 @@ export default function HeroSection() {
             </p>
 
             <div ref={ctaRef} className="flex flex-wrap gap-4">
-              <Link
+              <ButtonLink
                 href="/services"
-                className="group relative inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold text-white gradient-blue overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(30,95,217,0.5)]"
+                size="lg"
+                className="group relative overflow-hidden"
               >
                 <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                 <span className="relative">Explore Services</span>
                 <svg className="relative w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-              </Link>
-              <Link
-                href="/portfolio"
-                className="gradient-border-btn inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold text-slate-200 hover:text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,201,60,0.15)]"
-              >
+              </ButtonLink>
+              <ButtonLink href="/portfolio" variant="secondary" size="lg">
                 View Our Work
-              </Link>
+              </ButtonLink>
             </div>
           </div>
 

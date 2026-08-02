@@ -6,7 +6,7 @@ import Link from "next/link";
 import ServiceDetailClient from "./ServiceDetailClient";
 import ServiceInquiryForm from "@/components/ServiceInquiryForm";
 import SectionHeading from "@/components/SectionHeading";
-import { FiClock, FiArrowRight, FiCheckCircle, FiMonitor, FiSmartphone, FiCloud, FiCode, FiShoppingBag, FiTruck, FiTrendingUp, FiTool, FiUsers } from "react-icons/fi";
+import { FiClock, FiArrowRight, FiCheckCircle, FiMonitor, FiSmartphone, FiCode, FiShoppingBag } from "react-icons/fi";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -31,40 +31,27 @@ interface ProcessStep {
 const iconMap: Record<string, React.ReactNode> = {
   FiMonitor: <FiMonitor size={28} />,
   FiSmartphone: <FiSmartphone size={28} />,
-  FiCloud: <FiCloud size={28} />,
   FiCode: <FiCode size={28} />,
   FiShoppingBag: <FiShoppingBag size={28} />,
-  FiTruck: <FiTruck size={28} />,
-  FiTrendingUp: <FiTrendingUp size={28} />,
-  FiTool: <FiTool size={28} />,
-  FiUsers: <FiUsers size={28} />,
 };
 
 const typeColors: Record<string, string> = {
   Frontend: "border-pink-500/30 text-pink-400 bg-pink-500/10",
   Backend: "border-emerald-500/30 text-emerald-400 bg-emerald-500/10",
   Database: "border-amber-500/30 text-amber-400 bg-amber-500/10",
-  Cloud: "border-sky-500/30 text-sky-400 bg-sky-500/10",
   Design: "border-purple-500/30 text-purple-400 bg-purple-500/10",
   Payment: "border-cyan-500/30 text-cyan-400 bg-cyan-500/10",
   Platform: "border-indigo-500/30 text-indigo-400 bg-indigo-500/10",
-  ERP: "border-orange-500/30 text-orange-400 bg-orange-500/10",
-  Logistics: "border-teal-500/30 text-teal-400 bg-teal-500/10",
-  Tracking: "border-rose-500/30 text-rose-400 bg-rose-500/10",
-  Planning: "border-violet-500/30 text-violet-400 bg-violet-500/10",
-  Compliance: "border-yellow-500/30 text-yellow-400 bg-yellow-500/10",
-  Accounting: "border-green-500/30 text-green-400 bg-green-500/10",
-  Management: "border-blue-500/30 text-blue-400 bg-blue-500/10",
-  Collaboration: "border-fuchsia-500/30 text-fuchsia-400 bg-fuchsia-500/10",
-  Navigation: "border-cyan-500/30 text-cyan-400 bg-cyan-500/10",
-  Optimization: "border-lime-500/30 text-lime-400 bg-lime-500/10",
-  Inventory: "border-red-500/30 text-red-400 bg-red-500/10",
-  Government: "border-stone-500/30 text-stone-400 bg-stone-500/10",
-  Freight: "border-slate-500/30 text-slate-400 bg-slate-500/10",
-  Blockchain: "border-indigo-500/30 text-indigo-400 bg-indigo-500/10",
   Language: "border-cyan-500/30 text-cyan-400 bg-cyan-500/10",
   Analytics: "border-emerald-500/30 text-emerald-400 bg-emerald-500/10",
   Hosting: "border-blue-500/30 text-blue-400 bg-blue-500/10",
+};
+
+const startingPrices: Record<string, string> = {
+  "web-development-engineering": "NPR 25,000",
+  "mobile-app-engineering": "NPR 80,000",
+  "ecommerce-platforms": "NPR 45,000",
+  "uiux-product-design": "NPR 20,000",
 };
 
 function getTypeColor(type: string): string {
@@ -159,6 +146,11 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               {service.description}
             </p>
             <div className="flex flex-wrap items-center gap-3">
+              {startingPrices[service.slug] && (
+                <span className="inline-flex items-center gap-1.5 rounded-lg border border-gold/30 bg-gold/10 px-3 py-1.5 text-sm font-semibold text-gold">
+                  Starting from {startingPrices[service.slug]}
+                </span>
+              )}
               {service.timeline && (
                 <span className="inline-flex items-center gap-1.5 rounded-lg border border-slate-600/30 bg-slate-800/50 px-3 py-1.5 text-sm text-slate-300">
                   <FiClock size={14} className="text-primary" />
@@ -292,8 +284,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                     {item.description}
                   </p>
                   {item.client && (
-                    <p className="text-xs text-slate-500">
-                      Client: <span className="text-slate-400">{item.client}</span>
+                    <p className="text-xs text-slate-400">
+                      Client: <span className="text-slate-300">{item.client}</span>
                     </p>
                   )}
                 </Link>

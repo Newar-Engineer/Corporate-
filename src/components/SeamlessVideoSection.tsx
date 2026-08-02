@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React from "react";
 
 interface SeamlessVideoSectionProps {
-  videoSrc: string;
   badge?: string;
   title: string;
   subtitle?: string;
@@ -13,7 +12,6 @@ interface SeamlessVideoSectionProps {
 }
 
 export default function SeamlessVideoSection({
-  videoSrc,
   badge,
   title,
   subtitle,
@@ -21,14 +19,6 @@ export default function SeamlessVideoSection({
   themeGradient = "from-emerald-400 to-teal-200",
   reverseLayout = false,
 }: SeamlessVideoSectionProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(() => {});
-    }
-  }, [videoSrc]);
-
   return (
     <section className="relative py-16 sm:py-24 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -54,20 +44,15 @@ export default function SeamlessVideoSection({
             {children}
           </div>
 
-          {/* Seamless Video Frame Column - Cropping recorded navbars/frames */}
+          {/* Media Frame Column — gradient art consistent with the brand palette */}
           <div className={`lg:col-span-7 ${reverseLayout ? "lg:order-1" : "lg:order-2"}`}>
             <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900 shadow-2xl shadow-black/80 aspect-video group">
-              <video
-                ref={videoRef}
-                src={videoSrc}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-full object-cover scale-[1.12] origin-bottom object-[center_35%] transition-transform duration-700 group-hover:scale-[1.16]"
-              />
-              {/* Subtle edge overlay blending */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-slate-950/20 pointer-events-none" />
+              <div aria-hidden="true" className="absolute inset-0">
+                <div className={`absolute inset-0 bg-gradient-to-br ${themeGradient} opacity-25`} />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(30,95,217,0.4),transparent_60%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(255,201,60,0.15),transparent_55%)]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/30" />
+              </div>
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-3xl pointer-events-none" />
             </div>
           </div>

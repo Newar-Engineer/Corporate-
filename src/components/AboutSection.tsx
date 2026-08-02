@@ -5,6 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiArrowUpRight } from "react-icons/fi";
+import StatsCounter from "@/components/StatsCounter";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -89,14 +90,13 @@ export default function AboutSection() {
               className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10"
             >
               {[
-                { val: "150+", label: "Projects" },
-                { val: "200+", label: "Clients" },
-                { val: "25+", label: "Experts" },
-                { val: "10+", label: "Years" },
+                { value: 150, label: "Projects", suffix: "+" },
+                { value: 200, label: "Clients", suffix: "+" },
+                { value: 25, label: "Experts", suffix: "+" },
+                { value: 10, label: "Years", suffix: "+" },
               ].map((s, i) => (
-                <div key={i} className="stat-item p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] text-center">
-                  <div className="text-2xl sm:text-3xl font-bold gradient-text">{s.val}</div>
-                  <p className="text-xs text-slate-500 mt-1">{s.label}</p>
+                <div key={i} className="stat-item">
+                  <StatsCounter value={s.value} label={s.label} suffix={s.suffix} />
                 </div>
               ))}
             </div>

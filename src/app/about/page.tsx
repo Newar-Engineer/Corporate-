@@ -26,7 +26,6 @@ export default async function AboutPage() {
   return (
     <div className="bg-black min-h-screen text-slate-100 selection:bg-primary selection:text-white">
       <SeamlessVideoHero
-        videoSrc="/videos/web desing.mp4"
         badge="About Newa Tech"
         title="We Build Websites & Apps That Work"
         subtitle="Newa Tech is a web design and app development agency in Baneshwor, Kathmandu — helping businesses get a professional website or mobile app."
@@ -59,7 +58,6 @@ export default async function AboutPage() {
       </section>
 
       <SeamlessVideoSection
-        videoSrc="/videos/web desing.mp4"
         badge="Design & Development Standard"
         title="Modern Design, Reliable Engineering"
         subtitle="Our websites and apps are built with modern stacks, clean UI, and performance — grounded in the real needs of the Nepali market."

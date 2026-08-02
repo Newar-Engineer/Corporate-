@@ -1,18 +1,17 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FiMonitor, FiSmartphone, FiShoppingBag, FiCode } from "react-icons/fi";
+import ServiceCard from "@/components/ServiceCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const services = [
-  { icon: FiMonitor, title: "Web Development", slug: "web-development-engineering", desc: "Custom websites & web apps with React, Next.js & Node.js" },
-  { icon: FiSmartphone, title: "Mobile App Development", slug: "mobile-app-engineering", desc: "iOS & Android apps with eSewa, Khalti & payment integration" },
-  { icon: FiShoppingBag, title: "E-Commerce Websites", slug: "ecommerce-platforms", desc: "Online stores with inventory, orders & payment gateways" },
-  { icon: FiCode, title: "UI/UX Design", slug: "uiux-product-design", desc: "User research, wireframing & modern design systems" },
+  { icon: "web", title: "Web Development", slug: "web-development-engineering", desc: "Custom websites & web apps with React, Next.js & Node.js", price: "NPR 25,000" },
+  { icon: "mobile", title: "Mobile App Development", slug: "mobile-app-engineering", desc: "iOS & Android apps with eSewa, Khalti & payment integration", price: "NPR 80,000" },
+  { icon: "ecommerce", title: "E-Commerce Websites", slug: "ecommerce-platforms", desc: "Online stores with inventory, orders & payment gateways", price: "NPR 45,000" },
+  { icon: "design", title: "UI/UX Design", slug: "uiux-product-design", desc: "User research, wireframing & modern design systems", price: "NPR 20,000" },
 ];
 
 export default function ServicesSection() {
@@ -81,30 +80,17 @@ export default function ServicesSection() {
           </div>
 
           <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {services.map((svc, i) => {
-              const Icon = svc.icon;
-              return (
-                <Link
-                  key={i}
-                  href={`/services/${svc.slug}`}
-                  className="service-card group relative p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-primary/30 transition-all duration-500 hover:bg-white/[0.04] hover:shadow-[0_0_30px_rgba(79,124,255,0.08)]"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="shrink-0 flex items-center justify-center h-10 w-10 rounded-xl bg-primary/10 text-primary-light group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300">
-                      <Icon size={20} />
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-semibold text-white group-hover:text-primary-light transition-colors mb-1">
-                        {svc.title}
-                      </h3>
-                      <p className="text-xs text-slate-500 leading-relaxed">
-                        {svc.desc}
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
+            {services.map((svc, i) => (
+              <div key={i} className="service-card">
+                <ServiceCard
+                  title={svc.title}
+                  description={svc.desc}
+                  icon={svc.icon}
+                  slug={svc.slug}
+                  startingFrom={svc.price}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

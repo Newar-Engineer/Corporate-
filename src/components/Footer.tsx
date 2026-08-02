@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useCallback } from "react";
 import Link from "next/link";
-import { FiMapPin, FiPhone, FiMail, FiSend, FiCheck, FiArrowUpRight } from "react-icons/fi";
+import { FiMapPin, FiPhone, FiMail, FiSend, FiArrowUpRight } from "react-icons/fi";
+import { ButtonLink } from "@/components/ui/Button";
 
 const quickLinks = [
   { href: "/", label: "Home" },
@@ -44,36 +44,6 @@ const socialLinks = [
 ];
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-  const [subLoading, setSubLoading] = useState(false);
-
-  const handleSubscribe = useCallback(
-    async (e: React.FormEvent) => {
-      e.preventDefault();
-      if (!email) return;
-      setSubLoading(true);
-      try {
-        await fetch("/api/contact", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: "Newsletter Subscriber",
-            email,
-            subject: "Newsletter Subscription",
-            message: "New newsletter subscription from footer.",
-          }),
-        });
-        setSubscribed(true);
-        setEmail("");
-      } catch {
-      } finally {
-        setSubLoading(false);
-      }
-    },
-    [email]
-  );
-
   return (
     <footer className="relative bg-black border-t border-slate-800/50">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-900/20 to-transparent pointer-events-none" />
@@ -82,11 +52,11 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-1.5 text-xl font-bold mb-4">
               <span className="text-white">Newa</span>
-              <span className="gradient-text">Enterprises</span>
+              <span className="gradient-text">Tech</span>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed mb-6 max-w-sm">
               Newa Tech is a web design and app development agency in Baneshwor,
-              Kathmandu — helping businesses get a professional website or
+              Kathmandu Ã¢â‚¬â€ helping businesses get a professional website or
               mobile app.
             </p>
             <ul className="space-y-3 text-sm">
@@ -116,9 +86,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-xs font-semibold text-slate-300 uppercase tracking-widest mb-4">
+            <h3 className="text-xs font-semibold text-slate-300 uppercase tracking-widest mb-4">
               Quick Links
-            </h4>
+            </h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
@@ -135,9 +105,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-xs font-semibold text-slate-300 uppercase tracking-widest mb-4">
+            <h3 className="text-xs font-semibold text-slate-300 uppercase tracking-widest mb-4">
               Services
-            </h4>
+            </h3>
             <ul className="space-y-2">
               {serviceLinks.map((link) => (
                 <li key={link.href}>
@@ -154,9 +124,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-xs font-semibold text-slate-300 uppercase tracking-widest mb-4">
+            <h3 className="text-xs font-semibold text-slate-300 uppercase tracking-widest mb-4">
               Stay Connected
-            </h4>
+            </h3>
             <div className="flex gap-2 mb-6">
               {socialLinks.map((social) => (
                 <a
@@ -171,38 +141,24 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-            <h4 className="text-xs font-semibold text-slate-300 uppercase tracking-widest mb-3">
-              Newsletter
-            </h4>
-            {subscribed ? (
-              <div className="flex items-center gap-2 text-sm text-accent-light">
-                <FiCheck size={16} />
-                <span>Subscribed successfully!</span>
-              </div>
-            ) : (
-              <form onSubmit={handleSubscribe} className="flex gap-2">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  required
-                  className="flex-1 min-h-[44px] rounded-xl border border-slate-800 bg-slate-900/60 px-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
-                />
-                <button
-                  type="submit"
-                  disabled={subLoading}
-                  className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-xl bg-gradient-to-r from-primary to-accent text-white hover:from-primary-dark hover:to-accent-dark transition-all disabled:opacity-50"
-                  aria-label="Subscribe"
-                >
-                  <FiSend size={16} />
-                </button>
-              </form>
-            )}
+            <h3 className="text-xs font-semibold text-slate-300 uppercase tracking-widest mb-3">
+              Have a Project?
+            </h3>
+            <p className="text-sm text-slate-400 leading-relaxed mb-4">
+              Get a free quote for your website or app in 24 hours.
+            </p>
+            <ButtonLink
+              href="/contact"
+              size="sm"
+              className="w-full"
+            >
+              <FiSend size={16} />
+              Get a Free Quote
+            </ButtonLink>
           </div>
         </div>
 
-        <div className="mt-10 pt-8 border-t border-slate-800/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="mt-10 pt-8 border-t border-slate-800/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>&copy; {new Date().getFullYear()} Newa Tech. All rights reserved. Baneshwor, Kathmandu, Nepal.</p>
           <div className="flex gap-4">
             <Link href="/privacy-policy" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>

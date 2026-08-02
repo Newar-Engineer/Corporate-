@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+/* Visible focus for keyboard users (WCAG 2.4.7) */
+:focus-visible {
+  outline: 2px solid #FFC93C;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
 @theme inline {
   --color-primary: #1E5FD9;
   --color-primary-dark: #0B3D91;
@@ -8,10 +18,30 @@
   --color-gold: #FFC93C;
   --color-gold-dark: #F2A900;
   --color-gold-deep: #E8960C;
+  --color-accent: #FFC93C;
+  --color-accent-dark: #F2A900;
+  --color-accent-light: #FFD700;
   --color-surface: #050816;
   --color-surface-light: #0A0E1A;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Typography scale */
+  --text-h1: 3.5rem;
+  --text-h1--line-height: 1.05;
+  --text-h1--font-weight: 700;
+  --text-h2: 2.5rem;
+  --text-h2--line-height: 1.1;
+  --text-h2--font-weight: 700;
+  --text-h3: 1.25rem;
+  --text-h3--line-height: 1.4;
+  --text-h3--font-weight: 600;
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+  --text-body--font-weight: 400;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.5;
+  --text-small--font-weight: 400;
 }
 
 * { box-sizing: border-box; }
@@ -51,6 +81,13 @@ body {
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid rgba(30, 95, 217, 0.1);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .gradient-text {
@@ -142,4 +179,96 @@ body {
 
 .btn-magnetic {
   transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Blog article content */
+.article-content {
+  color: #E2E8F0;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4 {
+  color: #FFFFFF;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.article-content h1 { font-size: 2rem; }
+.article-content h2 { font-size: 1.5rem; }
+.article-content h3 { font-size: 1.25rem; }
+.article-content h4 { font-size: 1.05rem; }
+.article-content p {
+  margin-bottom: 1.25rem;
+  color: #E2E8F0;
+}
+.article-content a {
+  color: #29ABE2;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.article-content a:hover { color: #4FC3F7; }
+.article-content ul,
+.article-content ol {
+  margin: 0 0 1.25rem 1.25rem;
+  padding-left: 1.25rem;
+}
+.article-content ul { list-style: disc; }
+.article-content ol { list-style: decimal; }
+.article-content li { margin-bottom: 0.5rem; }
+.article-content blockquote {
+  border-left: 3px solid #1E5FD9;
+  padding: 0.75rem 1.25rem;
+  margin: 1.5rem 0;
+  color: #CBD5E1;
+  font-style: italic;
+  background: rgba(30, 95, 217, 0.06);
+  border-radius: 0 8px 8px 0;
+}
+.article-content pre {
+  background: #0A0E1A;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin: 1.25rem 0;
+}
+.article-content code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.15rem 0.4rem;
+  border-radius: 6px;
+  font-size: 0.875em;
+  color: #4FC3F7;
+}
+.article-content pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+.article-content img {
+  border-radius: 12px;
+  margin: 1.5rem 0;
+}
+.article-content hr {
+  border-color: rgba(255, 255, 255, 0.1);
+  margin: 2rem 0;
+}
+.article-content strong { color: #FFFFFF; }
+.article-content table {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+}
+.article-content th,
+.article-content td {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.6rem 0.9rem;
+  text-align: left;
+}
+.article-content th {
+  background: rgba(30, 95, 217, 0.1);
+  color: #FFFFFF;
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import { ToastProvider } from "@/components/ui/Toast";
 import "./globals.css";
 
@@ -38,6 +39,7 @@ export default function RootLayout({
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />
+          <WhatsAppButton />
         </ToastProvider>
       </body>
     </html>

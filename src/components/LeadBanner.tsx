@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { FiSend, FiZap } from "react-icons/fi";
-import Button from "@/components/ui/Button";
+import { FiSend, FiZap, FiShield, FiCreditCard } from "react-icons/fi";
+import Button, { ButtonLink } from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import Textarea from "@/components/ui/Textarea";
 import { useToast } from "@/components/ui/Toast";
@@ -50,22 +49,34 @@ export default function LeadBanner() {
                 Let&apos;s discuss your website or app idea. From design to
                 launch — we build digital products that deliver real results.
               </p>
+              <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3">
+                <span className="inline-flex items-center gap-2 text-sm text-slate-300">
+                  <FiShield size={16} className="text-gold shrink-0" />
+                  3 months free bug fixes after launch
+                </span>
+                <span className="inline-flex items-center gap-2 text-sm text-slate-300">
+                  <FiCreditCard size={16} className="text-gold shrink-0" />
+                  Pay with eSewa, Khalti or bank transfer
+                </span>
+              </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">
-              <button
+              <Button
                 onClick={() => setShowModal(true)}
-                className="min-h-[52px] inline-flex items-center gap-2 px-6 rounded-xl text-base font-semibold text-white gradient-blue hover:shadow-[0_0_25px_rgba(30,95,217,0.4)] transition-all shadow-lg shadow-primary/25 animate-glow"
+                size="lg"
+                className="shadow-lg shadow-primary/25"
               >
                 <FiZap size={18} />
-                1-Minute Inquiry
-              </button>
-              <Link
+                Get a Free Quote in 24 Hours
+              </Button>
+              <ButtonLink
                 href="/contact"
-                className="min-h-[52px] inline-flex items-center justify-center gap-2 px-6 rounded-xl text-base font-semibold text-slate-200 border border-slate-700 hover:border-primary/50 hover:text-white transition-all"
+                variant="secondary"
+                size="lg"
               >
                 <FiSend size={16} />
                 Contact Us
-              </Link>
+              </ButtonLink>
             </div>
           </div>
         </div>

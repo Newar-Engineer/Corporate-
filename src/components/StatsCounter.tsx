@@ -49,11 +49,11 @@ export default function StatsCounter({ value, label, suffix = "" }: StatsCounter
   }
 
   return (
-    <div ref={ref} className="glass-light rounded-2xl p-4 sm:p-8 text-center">
-      <div className="text-2xl sm:text-5xl lg:text-6xl font-bold gradient-text mb-1">
+    <div ref={ref} className="glass-light rounded-2xl p-4 sm:p-5 text-center">
+      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold gradient-text mb-1">
         {count}{suffix}
       </div>
-      <p className="text-sm sm:text-base text-slate-400 font-medium">{label}</p>
+      <p className="text-xs sm:text-sm text-slate-400 font-medium">{label}</p>
     </div>
   );
 }

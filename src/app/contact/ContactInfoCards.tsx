@@ -1,6 +1,6 @@
 "use client";
 
-import { FiMapPin, FiPhone, FiMail, FiExternalLink } from "react-icons/fi";
+import { FiMapPin, FiPhone, FiMail, FiExternalLink, FiCreditCard } from "react-icons/fi";
 
 const cards = [
   {
@@ -22,7 +22,7 @@ const cards = [
     },
     secondary: {
       label: "WhatsApp Chat",
-      href: "https://wa.me/97797444000111?text=Hi%20Newa%20Enterprises",
+      href: "https://wa.me/97797444000111?text=Hi%20Newa%20Tech",
     },
   },
   {
@@ -33,6 +33,15 @@ const cards = [
     action: {
       label: "Send Email",
       href: "mailto:info@newatech.com",
+    },
+  },
+  {
+    icon: FiCreditCard,
+    title: "Payment Methods",
+    lines: ["eSewa", "Khalti", "Bank transfer (Nepal)", "Milestone-based plans"],
+    action: {
+      label: "Get a Free Quote",
+      href: "#quote",
     },
   },
 ];
