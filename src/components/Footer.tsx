@@ -15,11 +15,9 @@ const quickLinks = [
 
 const serviceLinks = [
   { href: "/services/web-development-engineering", label: "Web Development" },
-  { href: "/services/mobile-app-engineering", label: "Mobile Apps" },
+  { href: "/services/mobile-app-engineering", label: "Mobile App Development" },
   { href: "/services/uiux-product-design", label: "UI/UX Design" },
-  { href: "/services/ecommerce-platforms", label: "E-Commerce" },
-  { href: "/services/cloud-devops-solutions", label: "Cloud & DevOps" },
-  { href: "/services/ai-data-analytics", label: "AI & Data" },
+  { href: "/services/ecommerce-platforms", label: "E-Commerce Websites" },
 ];
 
 const socialLinks = [
@@ -87,9 +85,9 @@ export default function Footer() {
               <span className="gradient-text">Enterprises</span>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed mb-6 max-w-sm">
-              Headquartered in Baneshwor, Kathmandu, Newa Tech is a trusted
-              provider of trading, consultancy, logistics, and digital solutions
-              serving businesses across Nepal.
+              Newa Tech is a web design and app development agency in Baneshwor,
+              Kathmandu — helping businesses get a professional website or
+              mobile app.
             </p>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-3">

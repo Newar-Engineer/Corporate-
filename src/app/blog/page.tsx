@@ -5,8 +5,8 @@ import SectionHeading from "@/components/SectionHeading";
 import BlogCard from "@/components/BlogCard";
 
 export const metadata: Metadata = {
-  title: "Blog & Industry Insights — Newa Tech",
-  description: "Read insights, updates, and stories from Newa Tech. Stay informed about industry trends and company news in Nepal.",
+  title: "Blog — Web Design & App Development Insights | Newa Tech",
+  description: "Read insights, guides, and updates from Newa Tech on website design, app development, e-commerce, and digital growth in Nepal.",
 };
 
 export default async function BlogPage() {
@@ -21,26 +21,25 @@ export default async function BlogPage() {
   }
 
   return (
-    <div className="bg-black min-h-screen text-slate-100 selection:bg-teal-500 selection:text-white">
-      {/* Hero - Electric Lime & Teal Theme */}
+    <div className="bg-black min-h-screen text-slate-100 selection:bg-primary selection:text-white">
       <section className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-24">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(20,184,166,0.18)_0%,transparent_65%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(30,95,217,0.18)_0%,transparent_65%)]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-teal-500/30 bg-teal-500/10 px-4 py-1.5 text-xs font-semibold text-teal-400 mb-6 backdrop-blur-md">
-            📰 Articles & Perspectives
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary-light mb-6 backdrop-blur-md">
+            📰 Articles & Guides
           </span>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
-            <span className="bg-gradient-to-r from-teal-300 via-emerald-400 to-lime-300 bg-clip-text text-transparent">
-              Insights & Engineering Perspectives
+            <span className="bg-gradient-to-r from-sky-300 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
+              Web & App Development Insights
             </span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg sm:text-xl text-slate-300 leading-relaxed">
-            Stay informed with the latest updates on digital transformation, technology trends, and market insights across Nepal.
+            Guides, tips, and updates on building websites, e-commerce stores, and mobile apps for businesses in Nepal.
           </p>
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 border-t border-teal-500/10">
+      <section className="py-16 sm:py-20 border-t border-primary/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="Latest Articles"

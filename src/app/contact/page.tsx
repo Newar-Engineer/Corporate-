@@ -5,30 +5,30 @@ import ContactInfoCards from "./ContactInfoCards";
 import SectionHeading from "@/components/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "Contact Us — Newa Tech",
+  title: "Contact Us — Newa Tech | Website & App Development Quote",
   description:
-    "Let's build something extraordinary together. Reach Newa Tech in Baneshwor, Kathmandu for project inquiries, partnerships, or general questions.",
+    "Get a free quote for your website or app project. Contact Newa Tech in Baneshwor, Kathmandu for web design, app development, and e-commerce projects.",
 };
 
 export default function ContactPage() {
   return (
     <div className="bg-black min-h-screen text-slate-100 selection:bg-sky-500 selection:text-white">
-      {/* ========================= HERO - Deep Ocean Blue Theme ========================= */}
+      {/* ========================= HERO ========================= */}
       <section className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-24">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(14,165,233,0.18)_0%,transparent_65%)]" />
-        <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-sky-500/50 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(30,95,217,0.18)_0%,transparent_65%)]" />
+        <div className="absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
         
         <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <span className="inline-flex items-center gap-2 rounded-full border border-sky-500/30 bg-sky-500/10 px-4 py-1.5 text-xs font-semibold text-sky-400 mb-6 backdrop-blur-md">
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary-light mb-6 backdrop-blur-md">
             📍 Baneshwor, Kathmandu, Nepal
           </span>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6">
             <span className="bg-gradient-to-r from-sky-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
-              Let&rsquo;s Build Something Extraordinary Together
+              Let&rsquo;s Build Your Website or App
             </span>
           </h1>
           <p className="mx-auto max-w-2xl text-base sm:text-lg text-slate-300 leading-relaxed">
-            Have a project idea, inquiry, or need a custom corporate solution?
+            Have a project idea or need a professional website, e-commerce store, or mobile app?
             Connect directly with our team in Baneshwor.
           </p>
         </div>

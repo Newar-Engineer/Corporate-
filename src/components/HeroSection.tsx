@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useCallback, Suspense } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import HeroGlassRing from "@/components/three/HeroGlassRing";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -75,7 +74,7 @@ export default function HeroSection() {
     });
   }, []);
 
-  const words = ["Building", "Nepal's", "Digital", "Future"];
+  const words = ["We", "Design", "Websites", "&", "Apps"];
 
   return (
     <section
@@ -92,7 +91,7 @@ export default function HeroSection() {
           <div className="max-w-2xl">
             <p className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary-light mb-8">
               <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-              Newa Tech — Baneshwor, Kathmandu
+              Newa Tech — Web Design & App Development, Kathmandu
             </p>
 
             <h1
@@ -101,7 +100,7 @@ export default function HeroSection() {
             >
               {words.map((word, i) => (
                 <span key={i} className="block overflow-hidden mb-1">
-                  <span className="word inline-block gradient-text">{word}</span>
+                  <span className={`word inline-block ${i === 4 ? "gradient-text-gold" : "gradient-text"}`}>{word}</span>
                 </span>
               ))}
             </h1>
@@ -110,14 +109,15 @@ export default function HeroSection() {
               ref={subtitleRef}
               className="text-base sm:text-lg text-slate-400 max-w-xl leading-relaxed mb-10"
             >
-              Trusted trading, consultancy, logistics, and digital solutions — 
-              serving businesses across Nepal with excellence since 2014.
+              Newa Tech is a web design and app development agency in Nepal — 
+              helping businesses get a professional website or mobile app that 
+              grows their brand and business.
             </p>
 
             <div ref={ctaRef} className="flex flex-wrap gap-4">
               <Link
                 href="/services"
-                className="group relative inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-primary to-accent overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(79,124,255,0.4)]"
+                className="group relative inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold text-white gradient-blue overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(30,95,217,0.5)]"
               >
                 <span className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                 <span className="relative">Explore Services</span>
@@ -125,18 +125,14 @@ export default function HeroSection() {
               </Link>
               <Link
                 href="/portfolio"
-                className="gradient-border-btn inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold text-slate-200 hover:text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(123,97,255,0.2)]"
+                className="gradient-border-btn inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold text-slate-200 hover:text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,201,60,0.15)]"
               >
                 View Our Work
               </Link>
             </div>
           </div>
 
-          <div className="hidden lg:block relative h-[600px] w-full">
-            <Suspense fallback={null}>
-              <HeroGlassRing />
-            </Suspense>
-          </div>
+          <div className="hidden lg:block" />
         </div>
       </div>
     </section>

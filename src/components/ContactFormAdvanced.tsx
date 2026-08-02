@@ -13,8 +13,7 @@ const services = [
   "Web Development",
   "Mobile App",
   "UI/UX Design",
-  "Cloud/DevOps",
-  "Consulting",
+  "E-Commerce",
 ];
 
 const budgets = [

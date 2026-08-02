@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import dynamic from "next/dynamic";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -11,11 +10,6 @@ import ServicesSection from "@/components/ServicesSection";
 import LeadBanner from "@/components/LeadBanner";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const SceneManager = dynamic(
-  () => import("@/components/canvas/SceneManager"),
-  { ssr: false }
-);
 
 export default function HomePage() {
   const lenisRef = useRef<Lenis | null>(null);
@@ -45,14 +39,11 @@ export default function HomePage() {
   }, []);
 
   return (
-    <>
-      <SceneManager />
-      <div className="relative z-10">
-        <HeroSection />
-        <AboutSection />
-        <ServicesSection />
-        <LeadBanner />
-      </div>
-    </>
+    <div className="relative z-10">
+      <HeroSection />
+      <AboutSection />
+      <ServicesSection />
+      <LeadBanner />
+    </div>
   );
 }

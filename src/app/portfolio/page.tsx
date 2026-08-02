@@ -5,9 +5,9 @@ import SeamlessVideoHero from "@/components/SeamlessVideoHero";
 import SeamlessVideoSection from "@/components/SeamlessVideoSection";
 
 export const metadata: Metadata = {
-  title: "Portfolio & Case Studies — Newa Tech",
+  title: "Portfolio — Websites & Apps by Newa Tech",
   description:
-    "Browse our portfolio of completed projects across trading, supply, consultancy, and digital services in Nepal.",
+    "Browse our portfolio of websites, e-commerce stores, and mobile apps built for businesses across Nepal.",
 };
 
 export default async function PortfolioPage() {
@@ -34,26 +34,24 @@ export default async function PortfolioPage() {
   }
 
   return (
-    <div className="bg-black min-h-screen text-slate-100 selection:bg-amber-500 selection:text-black">
-      {/* Seamless Video Hero - Golden Amber & Rose Theme */}
+    <div className="bg-black min-h-screen text-slate-100 selection:bg-gold selection:text-black">
       <SeamlessVideoHero
         videoSrc="/videos/websss.mp4"
-        badge="Proven Track Record"
-        title="Featured Work & Case Studies"
-        subtitle="Explore our showcase of completed web applications, supply initiatives, and strategic consultancy results delivered for Nepali businesses."
-        themeGradient="from-amber-300 via-orange-400 to-rose-400"
-        accentColor="amber"
-        primaryCta={{ text: "View Case Studies", href: "#projects" }}
+        badge="Our Recent Work"
+        title="Websites & Apps We've Built"
+        subtitle="Explore our showcase of websites, e-commerce stores, and mobile apps delivered for businesses across Nepal."
+        themeGradient="from-sky-300 via-blue-400 to-cyan-300"
+        accentColor="sky"
+        primaryCta={{ text: "View Projects", href: "#projects" }}
         secondaryCta={{ text: "Start a Project", href: "/contact" }}
       />
 
-      {/* Interactive Video Showcase Section */}
       <SeamlessVideoSection
         videoSrc="/videos/websss.mp4"
         badge="Real World Results"
-        title="High Performance & Interactive Web Platforms"
-        subtitle="Every product we craft is engineered for high speed, intuitive UX, and measurable business growth."
-        themeGradient="from-rose-300 via-amber-300 to-orange-400"
+        title="High Performance & Beautiful Digital Products"
+        subtitle="Every website and app we craft is engineered for speed, intuitive UX, and measurable business growth."
+        themeGradient="from-cyan-300 via-sky-400 to-blue-500"
       />
 
       <div id="projects" className="py-12">

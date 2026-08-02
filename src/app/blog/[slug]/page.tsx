@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${post.title} — Newa Tech Blog`,
-    description: post.excerpt || post.title,
+    description: post.excerpt,
   };
 }
 

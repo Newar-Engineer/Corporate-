@@ -62,25 +62,25 @@ export default function AboutSection() {
       data-scene-index={1}
       className="section-gradient-alt relative min-h-screen flex items-center overflow-hidden"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_30%_at_70%_50%,rgba(123,97,255,0.06),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_30%_at_70%_50%,rgba(41,171,226,0.05),transparent)]" />
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
-            <p className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-xs font-medium text-accent-light mb-6">
+            <p className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary-light mb-6">
               About Newa Tech
             </p>
 
             <h2 ref={headingRef} className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-8">
-              <span className="block overflow-hidden"><span className="line inline-block text-white">Trusted Partner</span></span>
-              <span className="block overflow-hidden"><span className="line inline-block gradient-text-blue">Since 2014</span></span>
+              <span className="block overflow-hidden"><span className="line inline-block text-white">Your Agency</span></span>
+              <span className="block overflow-hidden"><span className="line inline-block gradient-text-blue">For Web & Apps</span></span>
             </h2>
 
             <div ref={contentRef} className="space-y-4 mb-10">
               <p className="anim-text text-base sm:text-lg text-slate-300 leading-relaxed">
-                Headquartered in <span className="text-primary-light font-medium">Baneshwor, Kathmandu</span>, Newa Tech is a dynamic business house dedicated to providing high-quality products, reliable consultancy, and end-to-end supply chain solutions.
+                Headquartered in <span className="text-primary-light font-medium">Baneshwor, Kathmandu</span>, Newa Tech is a web design and app development agency helping businesses in Nepal and beyond get a professional website or mobile app.
               </p>
               <p className="anim-text text-sm sm:text-base text-slate-400 leading-relaxed">
-                Our multi-disciplinary team brings decades of combined experience across trading, logistics, IT consulting, and digital transformation — enabling us to deliver results that meet the highest standards of quality and professionalism.
+                Our team of designers and developers crafts modern websites, e-commerce stores, and mobile apps — from concept and UI/UX design to development and launch — with quality and performance at the heart of everything we build.
               </p>
             </div>
 

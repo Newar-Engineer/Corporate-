@@ -6,9 +6,9 @@ import {
 } from "react-icons/fi";
 
 export const metadata: Metadata = {
-  title: "Careers — Newa Tech",
+  title: "Careers — Newa Tech | Web & App Development Jobs in Kathmandu",
   description:
-    "Join the Newa Tech team in Baneshwor, Kathmandu. Explore current job openings and grow your career with us.",
+    "Join the Newa Tech team in Baneshwor, Kathmandu — designers, developers, and digital marketers building websites and apps for businesses in Nepal.",
 };
 
 const perks = [
@@ -56,33 +56,32 @@ export default async function CareersPage() {
   }
 
   return (
-    <div className="bg-black min-h-screen text-slate-100 selection:bg-rose-500 selection:text-white">
-      {/* Hero - Vibrant Coral Theme */}
+    <div className="bg-black min-h-screen text-slate-100 selection:bg-primary selection:text-white">
       <section className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(244,63,94,0.18),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(30,95,217,0.18),transparent_60%)]" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-rose-500/30 bg-rose-500/10 px-4 py-1.5 text-xs font-semibold text-rose-400 mb-6 backdrop-blur-md">
+          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary-light mb-6 backdrop-blur-md">
             <FiUsers size={14} />
             Join Our Team in Kathmandu
           </div>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
-            <span className="bg-gradient-to-r from-rose-400 via-red-400 to-amber-400 bg-clip-text text-transparent">
-              Build the Future of Digital Solutions With Us
+            <span className="bg-gradient-to-r from-sky-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
+              Build Websites & Apps With Us
             </span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg sm:text-xl text-slate-300 leading-relaxed mb-8">
-            Join a passionate, innovative team in Baneshwor, Kathmandu pushing
-            boundaries in web, mobile, and enterprise technology.
+            Join a passionate, innovative team in Baneshwor, Kathmandu crafting
+            modern websites and mobile apps for clients across Nepal.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             {[
               { label: "Flexible Work Culture", icon: "🚀" },
-              { label: "Top-Tier Tech Stack", icon: "⚡" },
+              { label: "Modern Tech Stack", icon: "⚡" },
               { label: "Learning Budget", icon: "🎓" },
             ].map((badge) => (
               <span
                 key={badge.label}
-                className="inline-flex items-center gap-1.5 rounded-full border border-rose-500/20 bg-rose-950/40 px-4 py-1.5 text-sm text-rose-200"
+                className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-blue-950/40 px-4 py-1.5 text-sm text-blue-200"
               >
                 <span className="text-base">{badge.icon}</span>
                 {badge.label}
@@ -92,12 +91,11 @@ export default async function CareersPage() {
         </div>
       </section>
 
-      {/* Life at Newa Tech — Culture Grid */}
-      <section className="relative py-16 sm:py-20 border-t border-rose-500/10">
+      <section className="relative py-16 sm:py-20 border-t border-primary/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 sm:mb-12 text-center">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3">
-              Life at <span className="bg-gradient-to-r from-rose-400 to-amber-400 bg-clip-text text-transparent">Newa Tech</span>
+              Life at <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">Newa Tech</span>
             </h2>
             <p className="text-slate-400 max-w-xl mx-auto">
               We believe great work happens when people are supported, challenged,
@@ -108,9 +106,9 @@ export default async function CareersPage() {
             {perks.map((perk, i) => (
               <div
                 key={i}
-                className="rounded-2xl border border-rose-500/20 bg-slate-900/60 p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-rose-500/50 hover:shadow-lg hover:shadow-rose-950/40"
+                className="rounded-2xl border border-primary/20 bg-slate-900/60 p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
               >
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-rose-500/10 text-rose-400 border border-rose-500/20">
+                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary-light border border-primary/20">
                   {perk.icon}
                 </div>
                 <h3 className="text-base font-bold text-white mb-2">
@@ -125,7 +123,6 @@ export default async function CareersPage() {
         </div>
       </section>
 
-      {/* Open Positions */}
       <CareersFilterClient jobs={jobs} />
     </div>
   );

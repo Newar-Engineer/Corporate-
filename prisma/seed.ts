@@ -156,46 +156,11 @@ async function main() {
     },
     {
       id: "svc00000000000000000004",
-      title: "Cloud & DevOps Solutions",
-      slug: "cloud-devops-solutions",
-      description: "Enterprise-grade cloud infrastructure on AWS and Vercel. We design scalable, secure environments with automated CI/CD pipelines, container orchestration, and 24/7 monitoring. Migrate from legacy servers to serverless architectures with zero downtime.",
-      icon: "FiCloud",
-      order: 4,
-      features: JSON.stringify([
-        { title: "Cloud Architecture Design", description: "Scalable AWS/ Vercel architecture with cost optimization and security best practices." },
-        { title: "CI/CD Pipeline Setup", description: "Automated GitHub Actions / GitLab CI pipelines with staging and production environments." },
-        { title: "Docker & Kubernetes", description: "Containerized deployments with Docker Compose and Kubernetes orchestration." },
-        { title: "Monitoring & Alerting", description: "Datadog, Sentry, and PagerDuty integration with proactive alerting." },
-        { title: "Database Management", description: "PostgreSQL replication, backup strategies, and migration automation." },
-        { title: "Security & Compliance", description: "SSL/TLS, WAF, DDoS protection, and SOC 2 compliance preparation." },
-      ]),
-      techStack: JSON.stringify([
-        { name: "AWS", type: "Cloud" },
-        { name: "Vercel", type: "Hosting" },
-        { name: "Docker", type: "DevOps" },
-        { name: "Kubernetes", type: "DevOps" },
-        { name: "GitHub Actions", type: "DevOps" },
-        { name: "Terraform", type: "DevOps" },
-        { name: "Datadog", type: "Monitoring" },
-        { name: "Sentry", type: "Monitoring" },
-      ]),
-      processSteps: JSON.stringify([
-        { title: "Infrastructure Audit", description: "Assess current infrastructure, identify bottlenecks, and plan migration.", duration: "1 week" },
-        { title: "Architecture Design", description: "Design cloud architecture with HA, DR, and security considerations.", duration: "1 week" },
-        { title: "Environment Setup", description: "Provision staging and production environments with IaC (Terraform).", duration: "1-2 weeks" },
-        { title: "Migration & Deployment", description: "Zero-downtime migration with rollback capability and validation.", duration: "2-4 weeks" },
-        { title: "Monitoring Setup", description: "Configure dashboards, alerts, and logging infrastructure.", duration: "1 week" },
-        { title: "Ongoing Management", description: "24/7 monitoring, cost optimization, and security patching.", duration: "Ongoing" },
-      ]),
-      timeline: "4-10 weeks",
-    },
-    {
-      id: "svc00000000000000000005",
-      title: "E-Commerce Platforms",
+      title: "E-Commerce Websites",
       slug: "ecommerce-platforms",
       description: "Revenue-generating e-commerce platforms with Nepal's preferred payment gateways — eSewa, Khalti, and COD. We build custom storefronts, marketplace platforms, and subscription-based e-commerce systems optimized for conversion and mobile-first shopping behavior.",
-      icon: "FiTrendingUp",
-      order: 5,
+      icon: "FiShoppingBag",
+      order: 4,
       features: JSON.stringify([
         { title: "Custom Storefront", description: "Next.js-powered storefronts with ISR for instant product page loads." },
         { title: "Nepal Payment Integration", description: "eSewa, Khalti, ConnectIPS, and Cash on Delivery payment gateways." },
@@ -226,41 +191,6 @@ async function main() {
       ]),
       timeline: "10-14 weeks",
     },
-    {
-      id: "svc00000000000000000006",
-      title: "AI & Data Analytics",
-      slug: "ai-data-analytics",
-      description: "Transform raw data into actionable intelligence. We build custom AI solutions including recommendation engines, predictive analytics dashboards, natural language processing pipelines, and computer vision systems — tailored for South Asian business contexts and data volumes.",
-      icon: "FiCode",
-      order: 6,
-      features: JSON.stringify([
-        { title: "Custom ML Models", description: "Scikit-learn, TensorFlow, and PyTorch models trained on your business data." },
-        { title: "Predictive Analytics", description: "Demand forecasting, customer churn prediction, and price optimization." },
-        { title: "NLP & Text Analytics", description: "Sentiment analysis, document classification, and multilingual NLP for Nepali/English." },
-        { title: "Computer Vision", description: "Image classification, object detection, and OCR for document processing." },
-        { title: "BI Dashboards", description: "Interactive Metabase and Power BI dashboards with real-time data pipelines." },
-        { title: "Data Engineering", description: "ETL pipelines, data warehousing, and real-time streaming with Kafka." },
-      ]),
-      techStack: JSON.stringify([
-        { name: "Python", type: "Language" },
-        { name: "TensorFlow", type: "ML" },
-        { name: "PyTorch", type: "ML" },
-        { name: "Apache Kafka", type: "Data" },
-        { name: "PostgreSQL", type: "Database" },
-        { name: "Metabase", type: "Analytics" },
-        { name: "Power BI", type: "Analytics" },
-        { name: "AWS SageMaker", type: "Cloud" },
-      ]),
-      processSteps: JSON.stringify([
-        { title: "Data Audit", description: "Assess data quality, sources, and infrastructure readiness.", duration: "1-2 weeks" },
-        { title: "Pipeline Development", description: "Build ETL pipelines for data ingestion, cleaning, and transformation.", duration: "2-4 weeks" },
-        { title: "Model Development", description: "Train, validate, and optimize machine learning models.", duration: "3-6 weeks" },
-        { title: "Dashboard & Visualization", description: "Create interactive dashboards with key business metrics and insights.", duration: "1-2 weeks" },
-        { title: "Deployment & Integration", description: "Deploy models to production with API endpoints and monitoring.", duration: "1-2 weeks" },
-        { title: "Ongoing Optimization", description: "Model retraining, performance monitoring, and accuracy improvement.", duration: "Ongoing" },
-      ]),
-      timeline: "8-16 weeks",
-    },
   ];
 
   for (const svc of services) {
@@ -273,12 +203,12 @@ async function main() {
 
   // Create team members
   const team = [
-    { id: "tm00000000000000000001", name: "Rajesh Shrestha", role: "CEO & Founder", bio: "With over 20 years of experience across trading, technology, and business development, Rajesh founded Newa Tech in 2014. He oversees company strategy, key partnerships, and new market expansion. A proud Newar businessman from Baneshwor, he is deeply committed to building Nepal's technology ecosystem.", socialLinks: JSON.stringify({ linkedin: "https://linkedin.com/in/rajesh-shrestha", twitter: "https://twitter.com/rajeshne" }), order: 1 },
+    { id: "tm00000000000000000001", name: "Rajesh Shrestha", role: "CEO & Founder", bio: "With over 15 years of experience in technology and business development, Rajesh founded Newa Tech to help Nepali businesses grow online. He oversees company strategy, key partnerships, and client relationships. A proud Newar businessman from Baneshwor, he is deeply committed to building Nepal's technology ecosystem.", socialLinks: JSON.stringify({ linkedin: "https://linkedin.com/in/rajesh-shrestha", twitter: "https://twitter.com/rajeshne" }), order: 1 },
     { id: "tm00000000000000000002", name: "Anil Bajracharya", role: "CTO & Head of Engineering", bio: "Anil leads the engineering team and drives technical strategy across all service lines. A computer engineering graduate from Pulchowk Campus, he has architected e-commerce platforms, payment gateways, and enterprise systems serving over 100+ Nepali businesses. He specializes in Next.js, React Native, and cloud architecture.", socialLinks: JSON.stringify({ linkedin: "https://linkedin.com/in/anil-bajracharya", github: "https://github.com/anilbajra" }), order: 2 },
     { id: "tm00000000000000000003", name: "Priya Maharjan", role: "VP of Product Design", bio: "Priya brings 10+ years of UX design leadership from both agency and product environments. She has led design initiatives for fintech, e-commerce, and SaaS products used by millions. Her design philosophy centers on data-informed decisions and inclusive design practices.", socialLinks: JSON.stringify({ linkedin: "https://linkedin.com/in/priya-maharjan", twitter: "https://twitter.com/priyamaha" }), order: 3 },
     { id: "tm00000000000000000004", name: "Sagar Karmacharya", role: "Lead Full-Stack Engineer", bio: "Sagar is a full-stack engineer with deep expertise in React, Node.js, and PostgreSQL. He has built and scaled multiple SaaS platforms from zero to production. He is passionate about clean architecture, type safety, and developer experience.", socialLinks: JSON.stringify({ linkedin: "https://linkedin.com/in/sagar-karmacharya", github: "https://github.com/sagarkar" }), order: 4 },
-    { id: "tm00000000000000000005", name: "Riya Shrestha", role: "AI & Data Engineering Lead", bio: "Riya specializes in machine learning, NLP, and data pipeline engineering. With a Master's in Data Science from TU Berlin and 6 years of industry experience, she has deployed production ML systems for finance, healthcare, and logistics clients across South Asia.", socialLinks: JSON.stringify({ linkedin: "https://linkedin.com/in/riya-shrestha" }), order: 5 },
-    { id: "tm00000000000000000006", name: "Amit Joshi", role: "Cloud & DevOps Architect", bio: "Amit is a certified AWS Solutions Architect with 8+ years of experience designing and managing cloud infrastructure. He has led migrations of 50+ servers to cloud-native architectures and specializes in Kubernetes, Terraform, and CI/CD automation.", socialLinks: JSON.stringify({ linkedin: "https://linkedin.com/in/amit-joshi", github: "https://github.com/amitjoshi" }), order: 6 },
+    { id: "tm00000000000000000005", name: "Riya Shrestha", role: "Senior Frontend Engineer", bio: "Riya is a senior frontend engineer specializing in React, Next.js, and design systems. With 6 years of industry experience, she has built high-performing websites and web apps for e-commerce, healthcare, and fintech clients across South Asia.", socialLinks: JSON.stringify({ linkedin: "https://linkedin.com/in/riya-shrestha" }), order: 5 },
+    { id: "tm00000000000000000006", name: "Amit Joshi", role: "Senior Backend & DevOps Engineer", bio: "Amit is a certified AWS Solutions Architect with 8+ years of experience building secure, scalable backends and deploying web applications to production. He specializes in Node.js, PostgreSQL, and CI/CD automation for fast, reliable releases.", socialLinks: JSON.stringify({ linkedin: "https://linkedin.com/in/amit-joshi", github: "https://github.com/amitjoshi" }), order: 6 },
   ];
   for (const m of team) {
     await query(
@@ -775,16 +705,16 @@ async function main() {
   // Create site settings
   const settings = [
     { key: "company_name", value: "Newa Tech" },
-    { key: "company_tagline", value: "Your Trusted Business Partner in Baneshwor, Kathmandu" },
+    { key: "company_tagline", value: "Web Design & App Development Agency in Baneshwor, Kathmandu" },
     { key: "company_address", value: "Baneshwor, Kathmandu, Nepal" },
     { key: "company_phone", value: "+977-97444000111" },
     { key: "company_email", value: "info@newatech.com" },
     { key: "company_hours", value: "Sunday - Friday: 9:00 AM - 6:00 PM" },
-    { key: "hero_title", value: "Newa Tech — Building Business, Building Nepal" },
-    { key: "hero_subtitle", value: "Trusted trading, consultancy, and digital services provider in Baneshwor, Kathmandu. We help Nepali businesses grow with reliable supply chains and modern digital solutions." },
-    { key: "about_story", value: "Founded in 2014 by Rajesh Shrestha, Newa Tech began as a small trading operation in Baneshwor, Kathmandu. What started with supplying construction materials to local builders has grown into a diversified business serving clients across Nepal." },
-    { key: "mission", value: "To empower Nepali businesses with reliable supply chains, expert consultancy, and modern digital solutions that drive growth and prosperity." },
-    { key: "vision", value: "To be Nepal's most trusted business partner — known for integrity, quality, and innovation in every sector we serve." },
+    { key: "hero_title", value: "Newa Tech — Building Websites & Apps for Nepal" },
+    { key: "hero_subtitle", value: "Web design and app development agency in Baneshwor, Kathmandu. We build professional websites, e-commerce stores, and mobile apps that help Nepali businesses grow." },
+    { key: "about_story", value: "Newa Tech is a web design and app development agency in Baneshwor, Kathmandu. We design, build, and launch professional websites and mobile apps for businesses across Nepal — from concept and UI/UX design to development and launch." },
+    { key: "mission", value: "To empower Nepali businesses with professional websites and mobile apps that build trust, attract customers, and drive growth." },
+    { key: "vision", value: "To be Nepal's most trusted web design and app development agency — known for modern, high-quality digital products and genuine client care." },
   ];
   for (const s of settings) {
     const exists = await query(`SELECT 1 FROM "SiteSetting" WHERE "key" = $1`, [s.key]);
@@ -798,12 +728,12 @@ async function main() {
 
   // Create page content
   const pageContents = [
-    { page: "home", title: "Newa Tech — Trusted Business Partner in Baneshwor, Kathmandu", subtitle: "Trading, Consultancy & Digital Services", metaTitle: "Newa Tech — Trusted Business Partner in Baneshwor, Kathmandu", metaDescription: "Newa Tech in Baneshwor, Kathmandu offers reliable trading, consultancy, logistics, and digital services for Nepali businesses." },
-    { page: "about", title: "About Newa Tech — Our Story, Mission & Team", subtitle: "Learn about our journey since 2014", metaTitle: "About Newa Tech — Baneshwor, Kathmandu", metaDescription: "Discover the story of Newa Tech, our mission to empower Nepali businesses, and meet our experienced team." },
-    { page: "services", title: "Our Services — Trading, Consultancy & Digital Solutions", subtitle: "Comprehensive business services in Kathmandu", metaTitle: "Services — Newa Tech | Baneshwor, Kathmandu", metaDescription: "Explore Newa Tech' services: general trading & supplies, consultancy, logistics, e-commerce, IT, and import/export facilitation." },
-    { page: "portfolio", title: "Our Portfolio — Projects & Case Studies", subtitle: "See our work across Nepal", metaTitle: "Portfolio — Newa Tech | Projects in Kathmandu", metaDescription: "View Newa Tech' portfolio of construction supply, e-commerce, logistics, and consultancy projects across the Kathmandu Valley." },
-    { page: "blog", title: "Blog — Insights & Updates from Newa Tech", subtitle: "Business tips, guides, and company news", metaTitle: "Blog — Newa Tech | Business Insights Nepal", metaDescription: "Read the latest articles from Newa Tech on digital payments (eSewa, Khalti), construction sourcing, business growth, and more." },
-    { page: "contact", title: "Contact Newa Tech — Baneshwor, Kathmandu", subtitle: "Get in touch with our team", metaTitle: "Contact — Newa Tech | Baneshwor, Kathmandu", metaDescription: "Contact Newa Tech in Baneshwor, Kathmandu for trading, consultancy, logistics, and digital services." },
+    { page: "home", title: "Newa Tech — Web Design & App Development Agency in Kathmandu", subtitle: "Websites & Apps for Nepali Businesses", metaTitle: "Newa Tech — Web Design & App Development Agency in Kathmandu", metaDescription: "Newa Tech is a web design and app development agency in Baneshwor, Kathmandu building professional websites, e-commerce stores, and mobile apps for Nepali businesses." },
+    { page: "about", title: "About Newa Tech — Web Design & App Development Agency", subtitle: "A Kathmandu-based agency for websites & apps", metaTitle: "About Newa Tech — Baneshwor, Kathmandu", metaDescription: "Meet Newa Tech, a web design and app development agency in Baneshwor, Kathmandu, building websites, e-commerce platforms, and mobile apps for Nepali businesses." },
+    { page: "services", title: "Our Services — Website Design & App Development", subtitle: "Web development, mobile apps, UI/UX design & e-commerce", metaTitle: "Services — Newa Tech | Baneshwor, Kathmandu", metaDescription: "Explore Newa Tech services: web development, mobile app development, UI/UX design, and e-commerce website development." },
+    { page: "portfolio", title: "Our Portfolio — Websites & Apps We've Built", subtitle: "See our work across Nepal", metaTitle: "Portfolio — Newa Tech | Projects in Kathmandu", metaDescription: "View Newa Tech portfolio of websites, e-commerce stores, and mobile apps built for businesses across Nepal." },
+    { page: "blog", title: "Blog — Web & App Development Insights from Newa Tech", subtitle: "Design tips, tech guides, and company news", metaTitle: "Blog — Newa Tech | Web & App Insights Nepal", metaDescription: "Read the latest articles from Newa Tech on web design, app development, e-commerce, and digital growth for Nepali businesses." },
+    { page: "contact", title: "Contact Newa Tech — Baneshwor, Kathmandu", subtitle: "Get in touch with our team", metaTitle: "Contact — Newa Tech | Baneshwor, Kathmandu", metaDescription: "Contact Newa Tech in Baneshwor, Kathmandu for web design, app development, UI/UX design, and e-commerce services." },
     { page: "careers", title: "Careers — Join the Newa Tech Team", subtitle: "Build your career with us", metaTitle: "Careers — Newa Tech | Jobs in Kathmandu", metaDescription: "Explore career opportunities at Newa Tech in Baneshwor, Kathmandu." },
   ];
   for (const pc of pageContents) {

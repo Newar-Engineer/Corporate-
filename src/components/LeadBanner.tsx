@@ -38,7 +38,7 @@ export default function LeadBanner() {
   return (
     <>
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/10 to-primary/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-primary-light/10 to-primary/20" />
         <div className="absolute inset-0 bg-black/90" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
@@ -47,14 +47,14 @@ export default function LeadBanner() {
                 Have a Project in Mind?
               </h2>
               <p className="text-lg text-slate-300 leading-relaxed">
-                Let&apos;s discuss how we can help your business grow. From trading and
-                logistics to digital transformation — we deliver real results.
+                Let&apos;s discuss your website or app idea. From design to
+                launch — we build digital products that deliver real results.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">
               <button
                 onClick={() => setShowModal(true)}
-                className="min-h-[52px] inline-flex items-center gap-2 px-6 rounded-xl text-base font-semibold text-white bg-gradient-to-r from-primary to-accent hover:from-primary-dark hover:to-accent-dark transition-all shadow-lg shadow-primary/25 animate-glow"
+                className="min-h-[52px] inline-flex items-center gap-2 px-6 rounded-xl text-base font-semibold text-white gradient-blue hover:shadow-[0_0_25px_rgba(30,95,217,0.4)] transition-all shadow-lg shadow-primary/25 animate-glow"
               >
                 <FiZap size={18} />
                 1-Minute Inquiry

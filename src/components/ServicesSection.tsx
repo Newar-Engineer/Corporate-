@@ -4,17 +4,15 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FiMonitor, FiSmartphone, FiCloud, FiCode, FiShoppingBag, FiTrendingUp } from "react-icons/fi";
+import { FiMonitor, FiSmartphone, FiShoppingBag, FiCode } from "react-icons/fi";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const services = [
-  { icon: FiMonitor, title: "Web Development", slug: "web-development-engineering", desc: "Custom web apps with React, Next.js & Node.js" },
-  { icon: FiSmartphone, title: "Mobile Apps", slug: "mobile-app-engineering", desc: "Native & cross-platform apps with payment integration" },
-  { icon: FiCloud, title: "Cloud & DevOps", slug: "cloud-devops-solutions", desc: "AWS, GCP & Azure infrastructure & CI/CD pipelines" },
-  { icon: FiCode, title: "UI/UX Design", slug: "uiux-product-design", desc: "User research, wireframing & design systems" },
-  { icon: FiShoppingBag, title: "E-Commerce", slug: "ecommerce-platforms", desc: "Custom stores with inventory & order tracking" },
-  { icon: FiTrendingUp, title: "AI & Data", slug: "ai-data-analytics", desc: "ML models, BI dashboards & data pipelines" },
+  { icon: FiMonitor, title: "Web Development", slug: "web-development-engineering", desc: "Custom websites & web apps with React, Next.js & Node.js" },
+  { icon: FiSmartphone, title: "Mobile App Development", slug: "mobile-app-engineering", desc: "iOS & Android apps with eSewa, Khalti & payment integration" },
+  { icon: FiShoppingBag, title: "E-Commerce Websites", slug: "ecommerce-platforms", desc: "Online stores with inventory, orders & payment gateways" },
+  { icon: FiCode, title: "UI/UX Design", slug: "uiux-product-design", desc: "User research, wireframing & modern design systems" },
 ];
 
 export default function ServicesSection() {
@@ -61,23 +59,24 @@ export default function ServicesSection() {
       data-scene-index={2}
       className="section-gradient relative min-h-screen flex items-center overflow-hidden"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_30%_at_30%_50%,rgba(255,138,61,0.04),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_30%_at_30%_50%,rgba(255,201,60,0.04),transparent)]" />
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <div>
-            <p className="inline-flex items-center gap-2 rounded-full border border-orange/20 bg-orange/5 px-4 py-1.5 text-xs font-medium text-orange-light mb-6">
-              <span className="h-2 w-2 rounded-full bg-orange animate-pulse" />
-              Our Expertise
+            <p className="inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/5 px-4 py-1.5 text-xs font-medium text-gold mb-6">
+              <span className="h-2 w-2 rounded-full bg-gold animate-pulse" />
+              What We Build
             </p>
 
             <h2 ref={headingRef} className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
-              <span className="block overflow-hidden"><span className="line inline-block text-white">Solutions That</span></span>
-              <span className="block overflow-hidden"><span className="line inline-block gradient-text-blue">Drive Growth</span></span>
+              <span className="block overflow-hidden"><span className="line inline-block text-white">Websites & Apps</span></span>
+              <span className="block overflow-hidden"><span className="line inline-block gradient-text-blue">That Convert</span></span>
             </h2>
 
             <p className="text-sm sm:text-base text-slate-400 leading-relaxed mb-8 max-w-lg">
-              From concept to deployment, our multi-disciplinary team delivers 
-              enterprise-grade solutions tailored to the Nepali market.
+              From modern business websites to full-featured mobile apps — our 
+              designers and developers build digital products tailored to the 
+              Nepali market.
             </p>
           </div>
 

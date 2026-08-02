@@ -24,6 +24,9 @@ const accentDot: Record<string, string> = {
   rose: "bg-rose-400",
   teal: "bg-teal-400",
   indigo: "bg-indigo-400",
+  blue: "bg-blue-400",
+  cyan: "bg-cyan-400",
+  gold: "bg-[#FFC93C]",
 };
 
 export default function SeamlessVideoHero({
