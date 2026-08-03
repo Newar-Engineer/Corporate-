@@ -84,20 +84,20 @@ export default function HeroSection() {
       data-scene-index={0}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen w-full flex items-center overflow-hidden"
     >
-      <div className="hero-gradient absolute inset-0" />
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-32 lg:py-40">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="hero-gradient absolute inset-0 w-full" />
+      <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 sm:px-8 lg:px-12 xl:px-16 py-32 lg:py-40">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-8 xl:gap-12 items-center">
           <div className="max-w-2xl">
             <p className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary-light mb-8">
               <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-              Newa Tech — Web Design & App Development, Kathmandu
+              Newa Tech — Web Design &amp; App Development, Kathmandu
             </p>
 
             <h1
               ref={titleRef}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight mb-6"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-bold leading-[1.05] tracking-tight mb-6"
             >
               {words.map((word, i) => (
                 <span key={i} className="block overflow-hidden mb-1">
@@ -131,7 +131,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex items-center justify-center">
             <HeroDemoMockup />
           </div>
         </div>

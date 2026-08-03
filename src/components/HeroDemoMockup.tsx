@@ -1,121 +1,143 @@
-import { FiMonitor, FiSmartphone, FiShoppingBag, FiZap, FiCheckCircle, FiShield } from "react-icons/fi";
+"use client";
+
+import { useEffect, useRef } from "react";
+import Image from "next/image";
+import gsap from "gsap";
 
 export default function HeroDemoMockup() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Entrance animation for the illustration
+      gsap.fromTo(
+        ".hero-visual-image",
+        { opacity: 0, scale: 0.92, y: 30 },
+        { opacity: 1, scale: 1, y: 0, duration: 1.2, ease: "power3.out", delay: 0.3 }
+      );
+
+      // Floating metric cards staggered entrance
+      gsap.fromTo(
+        ".hero-metric-card",
+        { opacity: 0, y: 40, scale: 0.9 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          ease: "back.out(1.7)",
+          stagger: 0.15,
+          delay: 0.8,
+        }
+      );
+
+      // Continuous subtle float for metric cards
+      gsap.to(".hero-metric-1", {
+        y: -8,
+        duration: 3,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+      });
+      gsap.to(".hero-metric-2", {
+        y: -10,
+        duration: 3.5,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+        delay: 0.5,
+      });
+      gsap.to(".hero-metric-3", {
+        y: -6,
+        duration: 2.8,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+        delay: 1,
+      });
+
+      // Glow pulse
+      gsap.to(".hero-glow", {
+        opacity: 0.6,
+        scale: 1.05,
+        duration: 3,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="hidden lg:block relative" aria-hidden="true">
-      {/* ambient glow behind the window */}
-      <div className="absolute -inset-10 bg-gradient-to-br from-primary/30 via-transparent to-gold/25 blur-3xl rounded-full" />
+    <div ref={containerRef} className="relative w-full h-full min-h-[480px] flex items-center justify-center" aria-hidden="true">
+      {/* Ambient glow effects */}
+      <div className="hero-glow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-primary/20 via-primary-light/10 to-gold/10 rounded-full blur-[100px] opacity-40" />
+      <div className="absolute -top-20 -right-20 w-[300px] h-[300px] bg-primary/8 rounded-full blur-[80px]" />
+      <div className="absolute -bottom-10 -left-10 w-[200px] h-[200px] bg-gold/8 rounded-full blur-[60px]" />
 
-      {/* floating badge — top left */}
-      <div className="animate-float-y absolute -top-7 -left-10 z-20 flex items-center gap-2 rounded-xl border border-white/10 bg-slate-900/90 backdrop-blur px-3.5 py-2 shadow-xl shadow-black/40">
-        <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/15 text-primary-light">
-          <FiZap size={14} />
-        </span>
-        <div>
-          <p className="text-[11px] font-semibold text-white leading-none">Fast &amp; Responsive</p>
-          <p className="mt-0.5 text-[9px] text-slate-400 leading-none">Built with Next.js</p>
+      {/* Main illustration */}
+      <div className="hero-visual-image relative z-10 w-full max-w-[520px]">
+        <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/15">
+          <Image
+            src="/hero-illustration.jpg"
+            alt="Professional web and app development showcase"
+            width={520}
+            height={520}
+            priority
+            className="w-full h-auto object-cover"
+          />
+          {/* Subtle gradient overlay to blend with the dark background */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#050816]/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[#050816]/30" />
+          {/* Glowing border effect */}
+          <div className="absolute inset-0 rounded-2xl ring-1 ring-white/10" />
         </div>
       </div>
 
-      {/* floating badge — bottom right */}
-      <div className="animate-float-y-slow absolute -bottom-8 -right-6 z-20 flex items-center gap-2 rounded-xl border border-gold/20 bg-slate-900/90 backdrop-blur px-3.5 py-2 shadow-xl shadow-black/40">
-        <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gold/15 text-gold">
-          <FiCheckCircle size={14} />
-        </span>
+      {/* Floating metric cards */}
+      <div className="hero-metric-card hero-metric-1 absolute top-4 -left-4 xl:-left-8 z-20 flex items-center gap-3 rounded-xl border border-white/10 bg-[#0A0E1A]/90 backdrop-blur-xl px-4 py-3 shadow-xl shadow-black/30">
+        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-light">
+          <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          </svg>
+        </div>
         <div>
-          <p className="text-[11px] font-semibold text-white leading-none">150+ Projects</p>
-          <p className="mt-0.5 text-[9px] text-slate-400 leading-none">Delivered in Nepal</p>
+          <p className="text-sm font-bold text-white leading-none">150+</p>
+          <p className="mt-0.5 text-xs text-slate-400 leading-none">Projects Delivered</p>
         </div>
       </div>
 
-      {/* browser window */}
-      <div className="animate-float-y relative z-10 rounded-2xl border border-white/10 bg-slate-900/95 backdrop-blur shadow-2xl shadow-primary/20 rotate-[1.2deg]">
-        {/* browser chrome */}
-        <div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-3">
-          <span className="h-2.5 w-2.5 rounded-full bg-rose-400/80" />
-          <span className="h-2.5 w-2.5 rounded-full bg-amber-400/80" />
-          <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
-          <div className="ml-3 flex flex-1 items-center gap-1.5 rounded-md bg-white/5 px-3 py-1.5 max-w-[60%]">
-            <FiShield size={9} className="text-emerald-400" />
-            <span className="text-[9px] text-slate-400 truncate">newatech.com.np</span>
-          </div>
+      <div className="hero-metric-card hero-metric-2 absolute bottom-16 -left-2 xl:-left-6 z-20 flex items-center gap-3 rounded-xl border border-gold/15 bg-[#0A0E1A]/90 backdrop-blur-xl px-4 py-3 shadow-xl shadow-black/30">
+        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-gold-dark to-gold">
+          <svg className="w-5 h-5 text-[#050816]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
         </div>
-
-        {/* mini website preview */}
-        <div className="space-y-4 p-5">
-          {/* mini navbar */}
-          <div className="flex items-center justify-between gap-3">
-            <div className="flex items-center gap-1.5">
-              <span className="h-4 w-4 rounded-md bg-gradient-to-br from-primary to-primary-light" />
-              <span className="text-[10px] font-bold text-white">NewaTech</span>
-            </div>
-            <div className="hidden xl:flex items-center gap-2 text-[8px] text-slate-400">
-              <span className="text-white">Services</span>
-              <span>Portfolio</span>
-              <span>About</span>
-              <span>Contact</span>
-            </div>
-            <span className="rounded-md bg-gradient-to-r from-primary to-accent px-2 py-1 text-[8px] font-semibold text-white">
-              Get a Quote
-            </span>
-          </div>
-
-          {/* mini hero */}
-          <div className="relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-primary/25 via-slate-900 to-gold/15 p-4">
-            <div className="absolute -top-6 -right-6 h-20 w-20 rounded-full bg-primary/30 blur-2xl animate-pulse" />
-            <p className="relative text-[11px] font-bold text-white leading-snug">
-              Your Business Deserves a Website That Works
-            </p>
-            <div className="relative mt-2 h-1.5 w-4/5 overflow-hidden rounded-full bg-white/10">
-              <div className="animate-pulse-width h-full rounded-full bg-gradient-to-r from-primary-light to-accent" />
-            </div>
-            <div className="relative mt-3 flex items-center gap-1.5">
-              <span className="rounded-md bg-gradient-to-r from-primary to-primary-light px-2 py-1 text-[8px] font-semibold text-white">
-                Get Started
-              </span>
-              <span className="rounded-md border border-white/20 px-2 py-1 text-[8px] text-slate-300">
-                View Our Work
-              </span>
-            </div>
-          </div>
-
-          {/* mini service cards */}
-          <div className="grid grid-cols-3 gap-2">
-            {[
-              { icon: <FiMonitor size={12} />, label: "Websites", sub: "Next.js & React", delay: "0s" },
-              { icon: <FiSmartphone size={12} />, label: "Mobile Apps", sub: "iOS & Android", delay: "0.15s" },
-              { icon: <FiShoppingBag size={12} />, label: "E-Commerce", sub: "eSewa & Khalti", delay: "0.3s" },
-            ].map((c) => (
-              <div
-                key={c.label}
-                className="animate-bob-y rounded-lg border border-white/10 bg-white/[0.03] p-2.5"
-                style={{ animationDelay: c.delay }}
-              >
-                <span className="flex h-6 w-6 items-center justify-center rounded-md bg-primary/15 text-primary-light">
-                  {c.icon}
-                </span>
-                <p className="mt-1.5 text-[9px] font-semibold text-white leading-none">{c.label}</p>
-                <p className="mt-0.5 text-[7px] text-slate-400 leading-none">{c.sub}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* mini stats bar */}
-          <div className="grid grid-cols-3 gap-2 rounded-lg border border-white/10 bg-white/[0.03] px-2 py-2.5 text-center">
-            <div>
-              <p className="text-[11px] font-bold gradient-text leading-none">150+</p>
-              <p className="mt-0.5 text-[7px] text-slate-400 leading-none">Projects</p>
-            </div>
-            <div className="border-x border-white/10">
-              <p className="text-[11px] font-bold gradient-text leading-none">200+</p>
-              <p className="mt-0.5 text-[7px] text-slate-400 leading-none">Clients</p>
-            </div>
-            <div>
-              <p className="text-[11px] font-bold gradient-text leading-none">24h</p>
-              <p className="mt-0.5 text-[7px] text-slate-400 leading-none">Quote Time</p>
-            </div>
-          </div>
+        <div>
+          <p className="text-sm font-bold text-white leading-none">200+</p>
+          <p className="mt-0.5 text-xs text-slate-400 leading-none">Happy Clients</p>
         </div>
+      </div>
+
+      <div className="hero-metric-card hero-metric-3 absolute top-20 -right-4 xl:-right-8 z-20 flex items-center gap-3 rounded-xl border border-emerald-500/15 bg-[#0A0E1A]/90 backdrop-blur-xl px-4 py-3 shadow-xl shadow-black/30">
+        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-500 to-emerald-400">
+          <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <div>
+          <p className="text-sm font-bold text-white leading-none">99.9%</p>
+          <p className="mt-0.5 text-xs text-slate-400 leading-none">Uptime Guarantee</p>
+        </div>
+      </div>
+
+      {/* Decorative dots grid */}
+      <div className="absolute -bottom-6 right-8 z-0 grid grid-cols-5 gap-2 opacity-20">
+        {Array.from({ length: 15 }).map((_, i) => (
+          <div key={i} className="w-1.5 h-1.5 rounded-full bg-primary-light" />
+        ))}
       </div>
     </div>
   );
