@@ -77,7 +77,7 @@ export default function ContactInfoCards() {
 
                 {/* Response badge */}
                 {card.response && (
-                  <span className="mt-2 inline-block rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[11px] font-medium text-emerald-400">
+                  <span className="mt-2 inline-block rounded-full bg-primary/10 px-2.5 py-0.5 text-[11px] font-medium text-primary-light">
                     {card.response}
                   </span>
                 )}
@@ -88,7 +88,7 @@ export default function ContactInfoCards() {
                     href={card.action.href}
                     target={card.action.href.startsWith("http") ? "_blank" : undefined}
                     rel={card.action.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="inline-flex items-center gap-1.5 rounded-lg bg-primary/10 px-3.5 py-1.5 text-xs font-medium text-primary transition-all hover:bg-primary/20"
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-primary/10 px-3.5 py-1.5 text-xs font-medium text-primary-light transition-all hover:bg-primary/20"
                   >
                     {card.action.label}
                     <FiExternalLink size={12} />
@@ -98,7 +98,7 @@ export default function ContactInfoCards() {
                       href={card.secondary.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-500/10 px-3.5 py-1.5 text-xs font-medium text-emerald-400 transition-all hover:bg-emerald-500/20"
+                      className="inline-flex items-center gap-1.5 rounded-lg bg-gold/10 px-3.5 py-1.5 text-xs font-medium text-gold transition-all hover:bg-gold/20"
                     >
                       {card.secondary.label}
                       <FiExternalLink size={12} />

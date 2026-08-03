@@ -97,7 +97,7 @@ export default function HeroSection() {
 
             <h1
               ref={titleRef}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-bold leading-[1.05] tracking-tight mb-6"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] xl:text-[5rem] font-bold leading-[1.08] tracking-tight mb-6"
             >
               {words.map((word, i) => (
                 <span key={i} className="block overflow-hidden mb-1">

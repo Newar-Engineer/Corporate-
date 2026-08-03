@@ -36,15 +36,15 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 const typeColors: Record<string, string> = {
-  Frontend: "border-pink-500/30 text-pink-400 bg-pink-500/10",
-  Backend: "border-emerald-500/30 text-emerald-400 bg-emerald-500/10",
-  Database: "border-amber-500/30 text-amber-400 bg-amber-500/10",
-  Design: "border-purple-500/30 text-purple-400 bg-purple-500/10",
-  Payment: "border-cyan-500/30 text-cyan-400 bg-cyan-500/10",
-  Platform: "border-indigo-500/30 text-indigo-400 bg-indigo-500/10",
-  Language: "border-cyan-500/30 text-cyan-400 bg-cyan-500/10",
-  Analytics: "border-emerald-500/30 text-emerald-400 bg-emerald-500/10",
-  Hosting: "border-blue-500/30 text-blue-400 bg-blue-500/10",
+  Frontend: "border-primary-light/30 text-primary-light bg-primary-light/10",
+  Backend: "border-primary/30 text-primary bg-primary/10",
+  Database: "border-gold/30 text-gold bg-gold/10",
+  Design: "border-gold-dark/30 text-gold-dark bg-gold-dark/10",
+  Payment: "border-primary-sky/30 text-primary-sky bg-primary-sky/10",
+  Platform: "border-primary/30 text-primary-light bg-primary/10",
+  Language: "border-primary-sky/30 text-primary-sky bg-primary-sky/10",
+  Analytics: "border-gold/30 text-gold bg-gold/10",
+  Hosting: "border-primary/30 text-primary-light bg-primary/10",
 };
 
 const startingPrices: Record<string, string> = {
