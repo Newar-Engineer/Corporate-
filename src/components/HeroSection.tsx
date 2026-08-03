@@ -4,6 +4,7 @@ import { useEffect, useRef, useCallback } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ButtonLink } from "@/components/ui/Button";
+import HeroDemoMockup from "@/components/HeroDemoMockup";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -130,7 +131,9 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <div className="hidden lg:block" />
+          <div className="hidden lg:block">
+            <HeroDemoMockup />
+          </div>
         </div>
       </div>
     </section>

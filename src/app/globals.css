@@ -10,6 +10,33 @@
   outline: none;
 }
 
+/* Hero demo mockup animations */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes bob-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+@keyframes pulse-width {
+  0%, 100% { width: 55%; }
+  50% { width: 85%; }
+}
+.animate-float-y { animation: float-y 6s ease-in-out infinite; }
+.animate-float-y-slow { animation: float-y 7.5s ease-in-out 1s infinite; }
+.animate-bob-y { animation: bob-y 3.5s ease-in-out infinite; }
+.animate-pulse-width { animation: pulse-width 3s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-y,
+  .animate-float-y-slow,
+  .animate-bob-y,
+  .animate-pulse-width {
+    animation: none;
+  }
+}
+
 @theme inline {
   --color-primary: #1E5FD9;
   --color-primary-dark: #0B3D91;

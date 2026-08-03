@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { FiMapPin, FiPhone, FiMail, FiSend, FiArrowUpRight } from "react-icons/fi";
 import { ButtonLink } from "@/components/ui/Button";
 
@@ -50,13 +51,22 @@ export default function Footer() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
           <div className="sm:col-span-2 lg:col-span-2">
-            <Link href="/" className="inline-flex items-center gap-1.5 text-xl font-bold mb-4">
-              <span className="text-white">Newa</span>
-              <span className="gradient-text">Tech</span>
+<Link href="/" className="inline-flex items-center gap-2.5 text-xl font-bold mb-4">
+              <Image
+                src="/logo-removebg-preview.png"
+                alt="Newa Tech logo"
+                width={40}
+                height={40}
+                className="h-10 w-10 object-contain"
+              />
+              <span>
+                <span className="text-white">Newa</span>
+                <span className="gradient-text">Tech</span>
+              </span>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed mb-6 max-w-sm">
               Newa Tech is a web design and app development agency in Baneshwor,
-              Kathmandu Ã¢â‚¬â€ helping businesses get a professional website or
+              Kathmandu — helping businesses get a professional website or
               mobile app.
             </p>
             <ul className="space-y-3 text-sm">

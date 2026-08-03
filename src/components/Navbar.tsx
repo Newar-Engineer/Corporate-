@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { FiMenu, FiX, FiChevronDown } from "react-icons/fi";
 import { ButtonLink } from "@/components/ui/Button";
@@ -103,8 +104,16 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 h-16 lg:h-20">
         <Link
           href="/"
-          className="min-h-[44px] flex items-center gap-2 shrink-0"
+          className="min-h-[44px] flex items-center gap-2.5 shrink-0"
         >
+          <Image
+            src="/logo-removebg-preview.png"
+            alt="Newa Tech logo"
+            width={40}
+            height={40}
+            priority
+            className="h-9 w-9 object-contain"
+          />
           <span className="text-lg font-bold tracking-tight">
             <span className="text-white">Newa</span>
             <span className="gradient-text ml-1">Tech</span>
