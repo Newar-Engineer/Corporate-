@@ -97,10 +97,10 @@ export default function HeroSection() {
 
             <h1
               ref={titleRef}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] xl:text-[5rem] font-bold leading-[1.08] tracking-tight mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold leading-[1.15] tracking-tight mb-6"
             >
               {words.map((word, i) => (
-                <span key={i} className="block overflow-hidden mb-1">
+                <span key={i} className="inline-block overflow-hidden mr-3 sm:mr-4 mb-1">
                   <span className={`word inline-block ${i === 4 ? "gradient-text-gold" : "gradient-text"}`}>{word}</span>
                 </span>
               ))}
