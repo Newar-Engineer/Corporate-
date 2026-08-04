@@ -4,8 +4,8 @@ import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import ServiceDetailClient from "./ServiceDetailClient";
-import ServiceInquiryForm from "@/components/ServiceInquiryForm";
-import SectionHeading from "@/components/SectionHeading";
+import ServiceInquiryForm from "@/features/services/ServiceInquiryForm";
+import SectionHeading from "@/components/sections/SectionHeading";
 import { FiClock, FiArrowRight, FiCheckCircle, FiMonitor, FiSmartphone, FiCode, FiShoppingBag } from "react-icons/fi";
 
 interface PageProps {

@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ServiceCard from "@/components/ServiceCard";
+import ServiceCard from "@/features/services/ServiceCard";
 
 gsap.registerPlugin(ScrollTrigger);
 

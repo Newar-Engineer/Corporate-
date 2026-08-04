@@ -3,7 +3,7 @@ import type { Job } from "@prisma/client";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
-import ApplicationFormInline from "@/components/ApplicationFormInline";
+import ApplicationFormInline from "@/features/careers/ApplicationFormInline";
 import {
   FiArrowLeft, FiMapPin, FiBriefcase,
   FiDollarSign, FiCheckCircle, FiLayers,

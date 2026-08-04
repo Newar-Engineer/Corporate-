@@ -1,5 +1,5 @@
 import { FiSearch, FiPenTool, FiCode, FiSend, FiLifeBuoy } from "react-icons/fi";
-import SectionHeading from "@/components/SectionHeading";
+import SectionHeading from "@/components/sections/SectionHeading";
 
 const steps = [
   {

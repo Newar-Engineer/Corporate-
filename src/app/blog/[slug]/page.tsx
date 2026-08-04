@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { prisma } from "@/lib/prisma";
 import { formatDate } from "@/lib/utils";
-import CTASection from "@/components/CTASection";
+import CtaSection from "@/components/sections/CtaSection";
 import { FiArrowLeft, FiUser, FiClock } from "react-icons/fi";
 
 interface PageProps {
@@ -90,7 +90,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
       </article>
 
-      <CTASection
+      <CtaSection
         title="Have Questions?"
         subtitle="We'd love to discuss how we can help your business grow."
         buttonText="Contact Us"

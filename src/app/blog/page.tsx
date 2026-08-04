@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import type { Post } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
-import SectionHeading from "@/components/SectionHeading";
-import BlogCard from "@/components/BlogCard";
+import SectionHeading from "@/components/sections/SectionHeading";
+import BlogCard from "@/features/blog/BlogCard";
 
 export const metadata: Metadata = {
   title: "Blog — Web Design & App Development Insights | Newa Tech",

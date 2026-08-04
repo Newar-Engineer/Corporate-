@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import ContactFormAdvanced from "@/components/ContactFormAdvanced";
-import FaqAccordion from "@/components/FaqAccordion";
+import ContactFormAdvanced from "@/features/contact/ContactFormAdvanced";
+import FaqAccordion from "@/features/faq/FaqAccordion";
 import ContactInfoCards from "./ContactInfoCards";
-import SectionHeading from "@/components/SectionHeading";
+import SectionHeading from "@/components/sections/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Contact Us — Newa Tech | Website & App Development Quote",

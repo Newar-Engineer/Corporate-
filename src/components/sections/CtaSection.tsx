@@ -1,18 +1,18 @@
 import { ButtonLink } from "@/components/ui/Button";
 
-interface CTASectionProps {
+interface CtaSectionProps {
   title: string;
   subtitle: string;
   buttonText: string;
   buttonLink: string;
 }
 
-export default function CTASection({
+export default function CtaSection({
   title,
   subtitle,
   buttonText,
   buttonLink,
-}: CTASectionProps) {
+}: CtaSectionProps) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-r from-gold via-accent to-gold-dark py-16 sm:py-20">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_50%_50%,rgba(255,255,255,0.15),transparent)] pointer-events-none" />

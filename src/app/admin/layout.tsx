@@ -2,7 +2,7 @@
 
 import { useEffect, useState, ReactNode } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import AdminLayout from "@/components/admin/AdminLayout";
+import AdminLayout from "@/features/admin/AdminLayout";
 import { ToastProvider } from "@/components/ui/Toast";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 

@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import TestimonialCard from "@/components/TestimonialCard";
-import SectionHeading from "@/components/SectionHeading";
+import TestimonialCard from "@/features/testimonials/TestimonialCard";
+import SectionHeading from "@/components/sections/SectionHeading";
 
 interface Testimonial {
   id: string;

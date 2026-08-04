@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
-import SectionHeading from "@/components/SectionHeading";
-import SeamlessVideoHero from "@/components/SeamlessVideoHero";
-import SeamlessVideoSection from "@/components/SeamlessVideoSection";
-import CTASection from "@/components/CTASection";
+import SectionHeading from "@/components/sections/SectionHeading";
+import SeamlessVideoHero from "@/features/hero/SeamlessVideoHero";
+import SeamlessVideoSection from "@/features/services/SeamlessVideoSection";
+import CtaSection from "@/components/sections/CtaSection";
 import {
   FiMonitor, FiSmartphone, FiCode, FiShoppingBag,
 } from "react-icons/fi";
@@ -177,7 +177,7 @@ export default async function ServicesPage() {
         </div>
       </section>
 
-      <CTASection
+      <CtaSection
         title="Ready to Build Your Website or App?"
         subtitle="Tell us about your project and get a free quote."
         buttonText="Get In Touch"

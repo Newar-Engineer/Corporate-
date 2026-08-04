@@ -5,7 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiArrowUpRight } from "react-icons/fi";
-import StatsCounter from "@/components/StatsCounter";
+import StatsCounter from "@/features/about/StatsCounter";
 
 gsap.registerPlugin(ScrollTrigger);
 

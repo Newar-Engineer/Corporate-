@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { FiArrowRight, FiX } from "react-icons/fi";
 import Button from "@/components/ui/Button";
-import ServiceInquiryForm from "@/components/ServiceInquiryForm";
+import ServiceInquiryForm from "@/features/services/ServiceInquiryForm";
 
 interface ServiceDetailClientProps {
   serviceTitle: string;

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import PortfolioHubClient from "./PortfolioHubClient";
-import SeamlessVideoHero from "@/components/SeamlessVideoHero";
-import SeamlessVideoSection from "@/components/SeamlessVideoSection";
+import SeamlessVideoHero from "@/features/hero/SeamlessVideoHero";
+import SeamlessVideoSection from "@/features/services/SeamlessVideoSection";
 
 import { fallbackPortfolio } from "@/lib/data/fallbackPortfolio";
 

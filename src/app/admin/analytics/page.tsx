@@ -9,7 +9,7 @@ import {
   FiUsers,
   FiFileText,
 } from "react-icons/fi";
-import StatsCard from "@/components/admin/StatsCard";
+import StatsCard from "@/features/admin/StatsCard";
 import Card from "@/components/ui/Card";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 

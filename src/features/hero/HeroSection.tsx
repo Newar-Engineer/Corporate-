@@ -4,7 +4,7 @@ import { useEffect, useRef, useCallback } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ButtonLink } from "@/components/ui/Button";
-import HeroDemoMockup from "@/components/HeroDemoMockup";
+import HeroDemoMockup from "@/features/hero/HeroDemoMockup";
 
 gsap.registerPlugin(ScrollTrigger);
 

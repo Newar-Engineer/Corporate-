@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import type { TeamMember } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
-import SeamlessVideoHero from "@/components/SeamlessVideoHero";
-import SeamlessVideoSection from "@/components/SeamlessVideoSection";
-import SectionHeading from "@/components/SectionHeading";
-import TeamCard from "@/components/TeamCard";
-import CTASection from "@/components/CTASection";
+import SeamlessVideoHero from "@/features/hero/SeamlessVideoHero";
+import SeamlessVideoSection from "@/features/services/SeamlessVideoSection";
+import SectionHeading from "@/components/sections/SectionHeading";
+import TeamCard from "@/features/about/TeamCard";
+import CtaSection from "@/components/sections/CtaSection";
 
 export const metadata: Metadata = {
   title: "About Us — Newa Tech | Web Design & App Development Agency",
@@ -123,7 +123,7 @@ export default async function AboutPage() {
         </section>
       )}
 
-      <CTASection
+      <CtaSection
         title="Have a Project in Mind?"
         subtitle="Tell us about your website or app idea — we'd love to build it."
         buttonText="Contact Us"

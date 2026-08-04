@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import DataTable, { Column } from "@/components/admin/DataTable";
+import DataTable, { Column } from "@/features/admin/DataTable";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import Modal from "@/components/ui/Modal";

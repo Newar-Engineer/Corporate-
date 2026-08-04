@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode, useState } from "react";
-import Sidebar from "@/components/admin/Sidebar";
+import Sidebar from "@/features/admin/Sidebar";
 import { FiMenu } from "react-icons/fi";
 
 interface AdminLayoutProps {

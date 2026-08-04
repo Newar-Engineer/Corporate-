@@ -4,14 +4,14 @@ import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import ServicesSection from "@/components/ServicesSection";
-import ProcessSection from "@/components/ProcessSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import TechStackSection from "@/components/TechStackSection";
-import FaqSection from "@/components/FaqSection";
-import LeadBanner from "@/components/LeadBanner";
+import HeroSection from "@/features/hero/HeroSection";
+import AboutSection from "@/features/about/AboutSection";
+import ServicesSection from "@/features/services/ServicesSection";
+import ProcessSection from "@/features/process/ProcessSection";
+import TestimonialsSection from "@/features/testimonials/TestimonialsSection";
+import TechStackSection from "@/features/tech-stack/TechStackSection";
+import FaqSection from "@/features/faq/FaqSection";
+import LeadBanner from "@/components/sections/LeadBanner";
 
 gsap.registerPlugin(ScrollTrigger);
 

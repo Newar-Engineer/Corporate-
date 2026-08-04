@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import Textarea from "@/components/ui/Textarea";
-import ImageUpload from "@/components/admin/ImageUpload";
+import ImageUpload from "@/features/admin/ImageUpload";
 import Card from "@/components/ui/Card";
 import { useToast } from "@/components/ui/Toast";
 

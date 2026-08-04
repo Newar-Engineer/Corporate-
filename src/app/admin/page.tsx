@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { FiUsers, FiBriefcase, FiMessageSquare, FiEye, FiFileText, FiStar } from "react-icons/fi";
-import StatsCard from "@/components/admin/StatsCard";
+import StatsCard from "@/features/admin/StatsCard";
 import Card from "@/components/ui/Card";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 

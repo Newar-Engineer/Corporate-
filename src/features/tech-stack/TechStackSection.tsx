@@ -1,4 +1,4 @@
-import SectionHeading from "@/components/SectionHeading";
+import SectionHeading from "@/components/sections/SectionHeading";
 
 const tech = [
   { name: "React", role: "UI Library" },

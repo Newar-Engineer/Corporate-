@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import DataTable from "@/components/admin/DataTable";
+import DataTable from "@/features/admin/DataTable";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";

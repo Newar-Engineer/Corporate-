@@ -1,5 +1,5 @@
-import SectionHeading from "@/components/SectionHeading";
-import FaqAccordion from "@/components/FaqAccordion";
+import SectionHeading from "@/components/sections/SectionHeading";
+import FaqAccordion from "@/features/faq/FaqAccordion";
 
 const faqs = [
   {

@@ -3,7 +3,7 @@ import type { PortfolioItem } from "@prisma/client";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
-import GalleryViewer from "@/components/GalleryViewer";
+import GalleryViewer from "@/features/portfolio/GalleryViewer";
 import { ButtonLink } from "@/components/ui/Button";
 import { FiArrowRight, FiCalendar, FiUser, FiBarChart2, FiZap, FiTarget, FiCheckCircle, FiExternalLink } from "react-icons/fi";
 

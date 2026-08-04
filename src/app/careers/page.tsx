@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
-import CareersFilterClient from "@/components/CareersFilterClient";
+import CareersFilterClient from "@/features/careers/CareersFilterClient";
 import {
   FiUsers, FiDollarSign, FiShield, FiBookOpen, FiSmile,
 } from "react-icons/fi";
