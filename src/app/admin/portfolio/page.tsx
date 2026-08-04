@@ -248,6 +248,7 @@ export default function AdminPortfolioPage() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <Input
             label="Project Title"
+            name="title"
             value={formData.title}
             onChange={(e) => setFormData({ ...formData, title: e.target.value })}
             placeholder="e.g. Acme E-Commerce Platform"
@@ -256,6 +257,7 @@ export default function AdminPortfolioPage() {
 
           <Select
             label="Category"
+            name="category"
             value={formData.category}
             onChange={(e) => setFormData({ ...formData, category: e.target.value })}
             options={[
@@ -270,6 +272,7 @@ export default function AdminPortfolioPage() {
 
           <Input
             label="Client Name (Optional)"
+            name="client"
             value={formData.client}
             onChange={(e) => setFormData({ ...formData, client: e.target.value })}
             placeholder="e.g. Acme Corp"
@@ -277,6 +280,7 @@ export default function AdminPortfolioPage() {
 
           <Input
             label="Live Website URL (Optional)"
+            name="link"
             value={formData.link}
             onChange={(e) => setFormData({ ...formData, link: e.target.value })}
             placeholder="e.g. https://example.com"
@@ -284,6 +288,7 @@ export default function AdminPortfolioPage() {
 
           <Textarea
             label="Description"
+            name="description"
             value={formData.description}
             onChange={(e) => setFormData({ ...formData, description: e.target.value })}
             placeholder="Brief overview of the project..."
