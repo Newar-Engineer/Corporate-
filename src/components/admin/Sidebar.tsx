@@ -12,6 +12,7 @@ import {
   FiBriefcase,
   FiFileText,
   FiBarChart2,
+  FiFolder,
   FiSettings,
   FiLogOut,
   FiX,
@@ -19,6 +20,7 @@ import {
 
 const sidebarLinks = [
   { href: "/admin", label: "Dashboard", icon: FiHome },
+  { href: "/admin/portfolio", label: "Portfolio", icon: FiFolder },
   { href: "/admin/services", label: "Services", icon: FiServer },
   { href: "/admin/team", label: "Team", icon: FiUsers },
   { href: "/admin/testimonials", label: "Testimonials", icon: FiMessageSquare },

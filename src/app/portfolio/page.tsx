@@ -4,6 +4,8 @@ import PortfolioHubClient from "./PortfolioHubClient";
 import SeamlessVideoHero from "@/components/SeamlessVideoHero";
 import SeamlessVideoSection from "@/components/SeamlessVideoSection";
 
+import { fallbackPortfolio } from "@/lib/data/fallbackPortfolio";
+
 export const metadata: Metadata = {
   title: "Portfolio — Websites & Apps by Newa Tech",
   description:
@@ -32,6 +34,10 @@ export default async function PortfolioPage() {
     }));
   } catch (error) {
     console.error("Error fetching portfolio items:", error);
+  }
+
+  if (items.length === 0) {
+    items = fallbackPortfolio;
   }
 
   return (

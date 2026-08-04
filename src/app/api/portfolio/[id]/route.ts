@@ -46,14 +46,25 @@ export async function PUT(request: NextRequest, { params }: { params: Promise<{ 
     if (body.category !== undefined) data.category = body.category;
     if (body.imageUrl !== undefined) data.imageUrl = body.imageUrl;
     if (body.client !== undefined) data.client = body.client;
-    if (body.completionDate !== undefined) data.completionDate = body.completionDate ? new Date(body.completionDate) : null;
+    if (body.link !== undefined) data.link = body.link;
+    if (body.clientOverview !== undefined) data.clientOverview = body.clientOverview;
+    if (body.problem !== undefined) data.problem = body.problem;
+    if (body.solution !== undefined) data.solution = body.solution;
+    if (body.results !== undefined) data.results = body.results;
+    if (body.metrics !== undefined) data.metrics = body.metrics;
+    if (body.techStack !== undefined) data.techStack = body.techStack;
     if (body.testimonial !== undefined) data.testimonial = body.testimonial;
+    if (body.testimonialAuthor !== undefined) data.testimonialAuthor = body.testimonialAuthor;
+    if (body.testimonialRole !== undefined) data.testimonialRole = body.testimonialRole;
+    if (body.completionDate !== undefined)
+      data.completionDate = body.completionDate ? new Date(body.completionDate) : null;
     if (body.isActive !== undefined) data.isActive = body.isActive;
 
     const portfolioItem = await prisma.portfolioItem.update({ where: { id }, data });
 
     return NextResponse.json({ portfolioItem });
-  } catch {
+  } catch (error) {
+    console.error("Error updating portfolio item:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }

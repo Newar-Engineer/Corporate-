@@ -3,10 +3,13 @@ import { prisma } from "@/lib/prisma";
 import { requireAuth } from "@/lib/auth";
 import { slugify } from "@/lib/utils";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
+    const { searchParams } = new URL(request.url);
+    const includeInactive = searchParams.get("all") === "true";
+
     const portfolioItems = await prisma.portfolioItem.findMany({
-      where: { isActive: true },
+      where: includeInactive ? {} : { isActive: true },
       orderBy: { createdAt: "desc" },
     });
     return NextResponse.json({ portfolioItems });
@@ -23,7 +26,26 @@ export async function POST(request: NextRequest) {
       return auth.error;
     }
 
-    const { title, description, category, imageUrl, client, completionDate, testimonial } = await request.json();
+    const body = await request.json();
+    const {
+      title,
+      description,
+      category,
+      imageUrl,
+      client,
+      link,
+      clientOverview,
+      problem,
+      solution,
+      results,
+      metrics,
+      techStack,
+      testimonial,
+      testimonialAuthor,
+      testimonialRole,
+      completionDate,
+      isActive = true,
+    } = body;
 
     if (!title || !description || !category) {
       return NextResponse.json({ error: "Title, description, and category are required" }, { status: 400 });
@@ -39,13 +61,24 @@ export async function POST(request: NextRequest) {
         category,
         imageUrl,
         client,
-        completionDate: completionDate ? new Date(completionDate) : null,
+        link,
+        clientOverview,
+        problem,
+        solution,
+        results,
+        metrics: metrics || undefined,
+        techStack: techStack || undefined,
         testimonial,
+        testimonialAuthor,
+        testimonialRole,
+        completionDate: completionDate ? new Date(completionDate) : null,
+        isActive,
       },
     });
 
     return NextResponse.json({ portfolioItem }, { status: 201 });
-  } catch {
+  } catch (error) {
+    console.error("Error creating portfolio item:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
