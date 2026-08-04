@@ -5,7 +5,7 @@ import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import GalleryViewer from "@/components/GalleryViewer";
 import { ButtonLink } from "@/components/ui/Button";
-import { FiArrowRight, FiCalendar, FiUser, FiBarChart2, FiZap, FiTarget, FiCheckCircle } from "react-icons/fi";
+import { FiArrowRight, FiCalendar, FiUser, FiBarChart2, FiZap, FiTarget, FiCheckCircle, FiExternalLink } from "react-icons/fi";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -94,9 +94,19 @@ export default async function CaseStudyPage({ params }: PageProps) {
             <h1 className="gradient-text text-3xl sm:text-5xl font-extrabold leading-tight mb-4">
               {item.title}
             </h1>
-            <p className="text-lg text-slate-300 leading-relaxed">
+            <p className="text-lg text-slate-300 leading-relaxed mb-6">
               {item.description}
             </p>
+            {item.link && (
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-primary-light px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all duration-300 hover:brightness-110"
+              >
+                Visit Live Website <FiExternalLink size={16} />
+              </a>
+            )}
           </div>
         </div>
       </section>

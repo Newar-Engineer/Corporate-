@@ -75,8 +75,6 @@ export default function HeroSection() {
     });
   }, []);
 
-  const words = ["We", "Build", "Websites", "&", "Apps", "That", "Grow", "Your", "Business"];
-
   return (
     <section
       ref={containerRef}
@@ -97,13 +95,17 @@ export default function HeroSection() {
 
             <h1
               ref={titleRef}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold leading-[1.15] tracking-tight mb-6"
+              className="flex flex-wrap items-center gap-x-[0.35em] gap-y-1.5 text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] font-bold leading-[1.18] tracking-tight mb-6 text-white"
             >
-              {words.map((word, i) => (
-                <span key={i} className="inline-block overflow-hidden mr-3 sm:mr-4 mb-1">
-                  <span className={`word inline-block ${i === 4 ? "gradient-text-gold" : "gradient-text"}`}>{word}</span>
-                </span>
-              ))}
+              <span className="inline-block overflow-hidden">
+                <span className="word inline-block text-white">We Build</span>
+              </span>
+              <span className="inline-block overflow-hidden">
+                <span className="word inline-block gradient-text">Websites &amp; Apps</span>
+              </span>
+              <span className="inline-block overflow-hidden">
+                <span className="word inline-block text-white">That Grow Your Business</span>
+              </span>
             </h1>
 
             <p

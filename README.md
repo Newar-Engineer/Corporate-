@@ -69,7 +69,7 @@ npm run seed
 This creates:
 - **Admin user**: `admin@newatech.com` / `Admin@123`
 - **Editor user**: `editor@newatech.com` / `Editor@123`
-- 4 services (web development, mobile apps, UI/UX design, e-commerce), 6 team members, 5 testimonials, 9 portfolio items, 4 blog posts, 4 jobs, 13 site settings, 7 page contents
+- 4 services (web development, mobile apps, UI/UX design, e-commerce), 6 team members, 5 testimonials, 5 portfolio items (live client websites), 4 blog posts, 4 jobs, 13 site settings, 7 page contents
 
 ### 4. Run Development Server
 

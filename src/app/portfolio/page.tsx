@@ -24,6 +24,7 @@ export default async function PortfolioPage() {
       description: r.description,
       category: r.category,
       client: r.client,
+      link: r.link,
       metrics: r.metrics,
       techStack: r.techStack,
       testimonial: r.testimonial,

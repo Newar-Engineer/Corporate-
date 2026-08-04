@@ -93,6 +93,7 @@ model PortfolioItem {
   category    String
   imageUrl    String?
   client      String?
+  link        String?    // Live website URL — opens the real project
   clientOverview String?
   problem     String?
   solution    String?

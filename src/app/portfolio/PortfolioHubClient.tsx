@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { FiArrowRight, FiFolder } from "react-icons/fi";
+import { FiArrowRight, FiExternalLink, FiFolder } from "react-icons/fi";
 
 interface Metric {
   label: string;
@@ -21,6 +21,7 @@ interface PortfolioItemData {
   description: string;
   category: string;
   client: string | null;
+  link: string | null;
   metrics: Metric[] | null;
   techStack: TechItem[] | null;
   testimonial: string | null;
@@ -70,74 +71,108 @@ export default function PortfolioHubClient({ items }: { items: PortfolioItemData
             gridTemplateColumns: undefined,
           }}
         >
-          {filtered.map((item, index) => (
-            <Link
-              key={item.id}
-              href={`/portfolio/${item.slug}`}
-              className="group relative overflow-hidden rounded-2xl border border-slate-700/50 bg-slate-800/40 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_0_30px_rgba(99,102,241,0.1)]"
-              style={{
-                animation: `fadeInUp 0.4s ease-out ${index * 0.08}s both`,
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          {filtered.map((item, index) => {
+            const cardClasses = `group relative overflow-hidden rounded-2xl border border-slate-700/50 bg-slate-800/40 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_0_30px_rgba(99,102,241,0.1)]`;
+            const cardStyle = {
+              animation: `fadeInUp 0.4s ease-out ${index * 0.08}s both`,
+            };
+            const cardBody = (
+              <>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-              <div className="relative">
-                {/* Category Badge + Client */}
-                <div className="mb-3 flex items-center justify-between">
-                  <span className="inline-block rounded-md bg-primary/10 px-2.5 py-0.5 text-[11px] font-medium text-primary">
-                    {item.category}
-                  </span>
-                  {item.client && (
-                    <span className="text-[11px] text-slate-400">{item.client}</span>
+                <div className="relative">
+                  {/* Category Badge + Client */}
+                  <div className="mb-3 flex items-center justify-between gap-2">
+                    <span className="inline-block rounded-md bg-primary/10 px-2.5 py-0.5 text-[11px] font-medium text-primary">
+                      {item.category}
+                    </span>
+                    <span className="flex items-center gap-2">
+                      {item.link && (
+                        <span className="flex items-center gap-1 text-[10px] text-emerald-400">
+                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                          Live
+                        </span>
+                      )}
+                      {item.client && (
+                        <span className="text-[11px] text-slate-400">{item.client}</span>
+                      )}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="mb-2 text-lg font-bold text-white group-hover:text-primary transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="mb-4 text-sm text-slate-400 leading-relaxed line-clamp-2">
+                    {item.description}
+                  </p>
+
+                  {/* Metrics */}
+                  {item.metrics && item.metrics.length > 0 && (
+                    <div className="mb-4 grid grid-cols-2 gap-2">
+                      {item.metrics.slice(0, 4).map((m, i) => (
+                        <div key={i} className="rounded-lg bg-slate-800/60 border border-slate-700/30 p-2 text-center">
+                          <div className="text-sm font-bold gradient-text">{m.value}</div>
+                          <div className="text-[10px] text-slate-400 leading-tight">{m.label}</div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Tech Stack Pills */}
+                  {item.techStack && item.techStack.length > 0 && (
+                    <div className="mb-4 flex flex-wrap gap-1.5">
+                      {item.techStack.slice(0, 4).map((t, i) => (
+                        <span
+                          key={i}
+                          className="inline-block rounded-md border border-slate-600/30 px-2 py-0.5 text-[10px] text-slate-400"
+                        >
+                          {t.name}
+                        </span>
+                      ))}
+                      {item.techStack.length > 4 && (
+                        <span className="inline-block rounded-md border border-slate-600/30 px-2 py-0.5 text-[10px] text-slate-400">
+                          +{item.techStack.length - 4}
+                        </span>
+                      )}
+                    </div>
+                  )}
+
+                  {/* CTA */}
+                  {item.link ? (
+                    <div className="flex items-center gap-1.5 text-sm font-medium text-primary opacity-0 translate-x-[-4px] transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+                      Visit Live Website <FiExternalLink size={14} />
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-1 text-sm font-medium text-primary opacity-0 translate-x-[-4px] transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+                      View Case Study <FiArrowRight size={14} />
+                    </div>
                   )}
                 </div>
-
-                {/* Title */}
-                <h3 className="mb-2 text-lg font-bold text-white group-hover:text-primary transition-colors">
-                  {item.title}
-                </h3>
-                <p className="mb-4 text-sm text-slate-400 leading-relaxed line-clamp-2">
-                  {item.description}
-                </p>
-
-                {/* Metrics */}
-                {item.metrics && item.metrics.length > 0 && (
-                  <div className="mb-4 grid grid-cols-2 gap-2">
-                    {item.metrics.slice(0, 4).map((m, i) => (
-                      <div key={i} className="rounded-lg bg-slate-800/60 border border-slate-700/30 p-2 text-center">
-                        <div className="text-sm font-bold gradient-text">{m.value}</div>
-                        <div className="text-[10px] text-slate-400 leading-tight">{m.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* Tech Stack Pills */}
-                {item.techStack && item.techStack.length > 0 && (
-                  <div className="mb-4 flex flex-wrap gap-1.5">
-                    {item.techStack.slice(0, 4).map((t, i) => (
-                      <span
-                        key={i}
-                        className="inline-block rounded-md border border-slate-600/30 px-2 py-0.5 text-[10px] text-slate-400"
-                      >
-                        {t.name}
-                      </span>
-                    ))}
-                    {item.techStack.length > 4 && (
-                      <span className="inline-block rounded-md border border-slate-600/30 px-2 py-0.5 text-[10px] text-slate-400">
-                        +{item.techStack.length - 4}
-                      </span>
-                    )}
-                  </div>
-                )}
-
-                {/* CTA */}
-                <div className="flex items-center gap-1 text-sm font-medium text-primary opacity-0 translate-x-[-4px] transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
-                  View Case Study <FiArrowRight size={14} />
-                </div>
-              </div>
-            </Link>
-          ))}
+              </>
+            );
+            return item.link ? (
+              <a
+                key={item.id}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cardClasses}
+                style={cardStyle}
+              >
+                {cardBody}
+              </a>
+            ) : (
+              <Link
+                key={item.id}
+                href={`/portfolio/${item.slug}`}
+                className={cardClasses}
+                style={cardStyle}
+              >
+                {cardBody}
+              </Link>
+            );
+          })}
         </div>
 
         {filtered.length === 0 && (

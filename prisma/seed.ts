@@ -36,13 +36,13 @@ async function main() {
   await query(
     `INSERT INTO "User" ("id", "email", "password", "name", "role", "updatedAt")
      VALUES ($1, $2, $3, $4, $5, NOW())
-     ON CONFLICT ("email") DO UPDATE SET "name" = EXCLUDED."name", "role" = EXCLUDED."role"`,
+     ON CONFLICT ("id") DO UPDATE SET "email" = EXCLUDED."email", "name" = EXCLUDED."name", "role" = EXCLUDED."role"`,
     ["cm0000000000000000000001", "admin@newatech.com", adminHash, "Super Admin", "super-admin"]
   );
   await query(
     `INSERT INTO "User" ("id", "email", "password", "name", "role", "updatedAt")
      VALUES ($1, $2, $3, $4, $5, NOW())
-     ON CONFLICT ("email") DO UPDATE SET "name" = EXCLUDED."name", "role" = EXCLUDED."role"`,
+     ON CONFLICT ("id") DO UPDATE SET "email" = EXCLUDED."email", "name" = EXCLUDED."name", "role" = EXCLUDED."role"`,
     ["cm0000000000000000000002", "editor@newatech.com", editorHash, "Editor User", "editor"]
   );
   console.log("Created users");
@@ -53,7 +53,7 @@ async function main() {
       id: "svc00000000000000000001",
       title: "Web Development & Engineering",
       slug: "web-development-engineering",
-      description: "We build high-performance web applications using Next.js 16, React 19, and cutting-edge frontend technologies. Our engineering team specializes in server-side rendering, static generation, API routes, and edge functions — delivering blazing-fast experiences that rank higher on search engines and convert better.",
+      description: "We build high-performance web applications using Next.js 16, React 19, and cutting-edge frontend technologies. Our engineering team specializes in server-side rendering, static generation, API routes, and edge functions â€” delivering blazing-fast experiences that rank higher on search engines and convert better.",
       icon: "FiMonitor",
       order: 1,
       features: JSON.stringify([
@@ -90,7 +90,7 @@ async function main() {
       id: "svc00000000000000000002",
       title: "Mobile App Engineering",
       slug: "mobile-app-engineering",
-      description: "Native-quality cross-platform mobile applications built with React Native and Expo. From fintech to e-commerce, our apps deliver smooth 60fps experiences with offline support, push notifications, and deep platform integration — all from a single TypeScript codebase.",
+      description: "Native-quality cross-platform mobile applications built with React Native and Expo. From fintech to e-commerce, our apps deliver smooth 60fps experiences with offline support, push notifications, and deep platform integration â€” all from a single TypeScript codebase.",
       icon: "FiSmartphone",
       order: 2,
       features: JSON.stringify([
@@ -125,7 +125,7 @@ async function main() {
       id: "svc00000000000000000003",
       title: "UI/UX & Product Design",
       slug: "uiux-product-design",
-      description: "Data-driven product design that converts. Our design team combines user research, interaction design, and visual craftsmanship to create interfaces that are intuitive, accessible, and beautiful. Every pixel is purposeful — optimized for engagement, retention, and business growth.",
+      description: "Data-driven product design that converts. Our design team combines user research, interaction design, and visual craftsmanship to create interfaces that are intuitive, accessible, and beautiful. Every pixel is purposeful â€” optimized for engagement, retention, and business growth.",
       icon: "FiMonitor",
       order: 3,
       features: JSON.stringify([
@@ -158,7 +158,7 @@ async function main() {
       id: "svc00000000000000000004",
       title: "E-Commerce Websites",
       slug: "ecommerce-platforms",
-      description: "Revenue-generating e-commerce platforms with Nepal's preferred payment gateways — eSewa, Khalti, and COD. We build custom storefronts, marketplace platforms, and subscription-based e-commerce systems optimized for conversion and mobile-first shopping behavior.",
+      description: "Revenue-generating e-commerce platforms with Nepal's preferred payment gateways â€” eSewa, Khalti, and COD. We build custom storefronts, marketplace platforms, and subscription-based e-commerce systems optimized for conversion and mobile-first shopping behavior.",
       icon: "FiShoppingBag",
       order: 4,
       features: JSON.stringify([
@@ -220,7 +220,7 @@ async function main() {
 
   // Create testimonials
   const testimonials = [
-    { id: "tt00000000000000000001", clientName: "Rabi Shakya", company: "ShopNepal Pvt. Ltd.", message: "Newa Tech delivered our mobile app in record time without compromising quality. The eSewa and Khalti payment integration was flawless, and the AI recommendations have been a game-changer for our sales. They truly understand both the technology and the Nepal market — a rare combination.", rating: 5, approved: true },
+    { id: "tt00000000000000000001", clientName: "Rabi Shakya", company: "ShopNepal Pvt. Ltd.", message: "Newa Tech delivered our mobile app in record time without compromising quality. The eSewa and Khalti payment integration was flawless, and the AI recommendations have been a game-changer for our sales. They truly understand both the technology and the Nepal market â€” a rare combination.", rating: 5, approved: true },
     { id: "tt00000000000000000002", clientName: "Amit Pradhan", company: "FinFlow Technologies", message: "The analytics dashboard transformed how we run our business. What used to take half a day of Excel work now loads in under 30 seconds. The fraud detection module alone paid for the entire project within weeks of deployment.", rating: 5, approved: true },
     { id: "tt00000000000000000003", clientName: "Dr. Sunita KC", company: "HealthFirst Nepal", message: "The healthcare booking platform has been a lifesaver for our patients and staff. Patient wait times dropped from 45 minutes to just 12 minutes, and the telemedicine integration was seamless. Newa Tech understood healthcare compliance requirements from day one.", rating: 5, approved: true },
     { id: "tt00000000000000000004", clientName: "Kiran Basnet", company: "Himalayan Group of Companies", message: "NepalERP transformed our business operations across all 7 departments. The month-end closing that used to take 15 days of manual work now happens automatically in 2 days. The VAT automation alone has saved us lakhs in potential penalties.", rating: 5, approved: true },
@@ -235,315 +235,137 @@ async function main() {
   console.log(`Created ${testimonials.length} testimonials`);
 
   // Create portfolio items with rich case study content
-  const portfolio = [
+  const portfolio: Array<{
+    id: string;
+    title: string;
+    slug: string;
+    description: string;
+    category: string;
+    client: string;
+    link?: string;
+    clientOverview?: string;
+    problem?: string;
+    solution?: string;
+    results?: string;
+    metrics?: string;
+    techStack?: string;
+    gallery?: string;
+    testimonial?: string;
+    testimonialAuthor?: string;
+    testimonialRole?: string;
+    completionDate?: string;
+  }> = [
     {
       id: "pf00000000000000000001",
-      title: "ShopNepal — Multi-Vendor E-Commerce Mobile App",
-      slug: "shopnepal-ecommerce-app",
-      description: "A cross-platform mobile marketplace connecting 500+ vendors with 50,000+ customers across Nepal. Features real-time order tracking, eSewa/Khalti payment, and AI-powered product recommendations.",
-      category: "Mobile App",
-      client: "ShopNepal Pvt. Ltd.",
-      clientOverview: "ShopNepal is a Kathmandu-based startup aiming to build Nepal's largest mobile-first marketplace. With 500+ registered vendors and a target of 100,000 active users within the first year, they needed a performant cross-platform mobile app that could handle high traffic volumes and complex payment workflows.",
-      problem: "The existing web-only platform had poor mobile conversion rates (under 2%). Developing separate native iOS and Android apps was cost-prohibitive. They needed a single codebase solution that delivered native-quality experiences on both platforms, integrated with eSewa and Khalti for real-time payments, supported offline browsing, and scaled to handle flash sale traffic spikes of 10,000+ concurrent users.",
-      solution: "We built a React Native + Expo application with a GraphQL backend on Node.js. Implemented eSewa and Khalti SDK integration for one-tap payments, built an offline-first architecture using WatermelonDB for product browsing without connectivity, deployed AI-based product recommendations using TensorFlow Lite on-device, and designed a scalable backend on AWS Lambda with auto-scaling for traffic spikes.",
-      results: "App launched in 10 weeks on both App Store and Google Play. Achieved 4.7-star rating with 15,000+ downloads in the first month. Mobile conversion rate improved from 2% to 8.5%. Average order value increased by 35% through AI recommendations. Vendor onboarding grew 3x within 2 months of launch.",
+      title: "Personal Portfolio Website",
+      slug: "manoj-portfolio",
+      description: "A modern personal portfolio website built with Next.js â€” clean design, smooth GSAP animations, project showcase, and a contact section. Shows exactly the level of polish we deliver for personal brands.",
+      category: "Portfolio Website",
+      client: "Manoj Joshi",
+      link: "https://manoj-portfolio-eta.vercel.app/",
       metrics: JSON.stringify([
-        { label: "App Store Rating", value: "4.7 stars" },
-        { label: "Conversion Rate", value: "8.5%" },
-        { label: "First Month Downloads", value: "15,000+" },
-        { label: "Vendor Growth", value: "3x in 2 months" },
+        { label: "Custom Build", value: "100%" },
+        { label: "Fully Responsive", value: "100%" },
+        { label: "Smooth Animations", value: "GSAP" },
+        { label: "Deployed On", value: "Vercel" },
       ]),
       techStack: JSON.stringify([
-        { name: "React Native", type: "Frontend" },
-        { name: "Expo SDK", type: "Frontend" },
-        { name: "TypeScript", type: "Language" },
-        { name: "Node.js", type: "Backend" },
-        { name: "GraphQL", type: "Backend" },
-        { name: "PostgreSQL", type: "Database" },
-        { name: "eSewa API", type: "Payment" },
-        { name: "Khalti API", type: "Payment" },
-        { name: "TensorFlow Lite", type: "ML" },
-        { name: "AWS Lambda", type: "Cloud" },
+        { name: "Next.js", type: "Frontend" },
+        { name: "React", type: "Frontend" },
+        { name: "Tailwind CSS", type: "Design" },
+        { name: "Vercel", type: "Platform" },
       ]),
-      gallery: JSON.stringify([
-        { url: "/images/gallery/shopnepal-1.jpg", caption: "Homepage with AI-curated product feed" },
-        { url: "/images/gallery/shopnepal-2.jpg", caption: "eSewa and Khalti checkout flow" },
-        { url: "/images/gallery/shopnepal-3.jpg", caption: "Vendor dashboard with real-time sales analytics" },
-      ]),
-      testimonial: "Newa Tech delivered our app in record time without compromising quality. The payment integration was flawless and the AI recommendations have been a game-changer for our sales. They truly understand the Nepal market.",
-      testimonialAuthor: "Rabi Shakya",
-      testimonialRole: "CEO, ShopNepal Pvt. Ltd.",
-      completionDate: "2026-06-15",
     },
     {
       id: "pf00000000000000000002",
-      title: "FinFlow — FinTech Analytics Dashboard",
-      slug: "finflow-fintech-dashboard",
-      description: "Real-time financial analytics and reporting dashboard for a leading Nepal-based fintech company. Processes 500,000+ transactions daily with sub-second query performance.",
-      category: "Web App",
-      client: "FinFlow Technologies",
-      clientOverview: "FinFlow Technologies operates a digital lending platform processing over 500,000 transactions daily across Nepal. Their analytics team needed a modern dashboard to replace an Excel-based reporting system that was taking 4+ hours to generate daily reports and couldn't handle real-time data.",
-      problem: "The legacy reporting system involved manual data exports from PostgreSQL, Excel pivot tables, and email-based distribution. Generating the daily executive report took 4-6 hours. There was no real-time view of transaction volumes, default rates, or portfolio health. The C-suite couldn't make data-driven decisions in time. The system also had no role-based access control, meaning sensitive financial data was visible to all users.",
-      solution: "We built a Next.js analytics dashboard with server-side rendering for instant page loads on large datasets. Implemented PostgreSQL materialized views and Redis caching for sub-second query performance on 50M+ row datasets. Designed role-based dashboards for executives, operations, and risk teams. Built real-time data pipelines using Apache Kafka for streaming transaction data with <100ms latency.",
-      results: "Report generation time dropped from 4-6 hours to under 30 seconds. Executive decision-making improved with real-time data visibility. The platform identified 3 fraud patterns within the first month, saving an estimated NPR 2.5 Cr in potential losses. System handles 500,000+ daily transactions with 99.9% uptime.",
+      title: "Milton International College",
+      slug: "milton-international-college",
+      description: "An admissions-focused website for Milton International College â€” program listings, admission information, and a clean institutional design that builds trust with students and parents.",
+      category: "Education",
+      client: "Milton International College",
+      link: "https://milton-teal.vercel.app/",
       metrics: JSON.stringify([
-        { label: "Report Generation", value: "30 seconds" },
-        { label: "Daily Transactions", value: "500,000+" },
-        { label: "Fraud Losses Prevented", value: "NPR 2.5 Cr" },
-        { label: "System Uptime", value: "99.9%" },
+        { label: "Programs Showcased", value: "15+" },
+        { label: "Fully Responsive", value: "100%" },
+        { label: "Admission-Focused", value: "Yes" },
+        { label: "Deployed On", value: "Vercel" },
       ]),
       techStack: JSON.stringify([
         { name: "Next.js", type: "Frontend" },
         { name: "React", type: "Frontend" },
-        { name: "TypeScript", type: "Language" },
-        { name: "Node.js", type: "Backend" },
-        { name: "PostgreSQL", type: "Database" },
-        { name: "Redis", type: "Cache" },
-        { name: "Apache Kafka", type: "Data" },
-        { name: "Metabase", type: "Analytics" },
-        { name: "AWS", type: "Cloud" },
+        { name: "Tailwind CSS", type: "Design" },
+        { name: "Vercel", type: "Platform" },
       ]),
-      gallery: JSON.stringify([
-        { url: "/images/gallery/finflow-1.jpg", caption: "Executive dashboard with real-time KPIs" },
-        { url: "/images/gallery/finflow-2.jpg", caption: "Transaction volume and trend analysis view" },
-        { url: "/images/gallery/finflow-3.jpg", caption: "Risk management dashboard with fraud alerts" },
-      ]),
-      testimonial: "The dashboard transformed how we run our business. What used to take half a day now loads in seconds. The fraud detection module alone paid for the entire project within weeks.",
-      testimonialAuthor: "Amit Pradhan",
-      testimonialRole: "CTO, FinFlow Technologies",
-      completionDate: "2026-04-20",
     },
     {
       id: "pf00000000000000000003",
-      title: "CargoLink — Corporate Logistics Portal",
-      slug: "cargologistics-portal",
-      description: "A comprehensive logistics management platform for a Fortune 500 logistics company operating across South Asia. Manages 10,000+ shipments daily with real-time tracking and route optimization.",
-      category: "Enterprise System",
-      client: "CargoLink International",
-      clientOverview: "CargoLink International is a major logistics provider operating across Nepal, India, and Bangladesh, handling 10,000+ shipments daily. Their operations relied on a 15-year-old legacy system that was increasingly unstable and couldn't scale with business growth.",
-      problem: "The legacy DOS-based system crashed weekly, causing shipment delays and data loss. There was no real-time tracking for customers, no integration with Nepal customs EDI, and no mobile access for field staff. Dispatchers used whiteboards and phone calls to manage 100+ drivers daily. Customer complaints about lost shipments and late deliveries were at an all-time high.",
-      solution: "We designed and built a modern logistics portal with Next.js frontend and Node.js microservices backend. Implemented real-time GPS tracking with ETAs using Google Maps Platform, built a mobile-first driver app with React Native for proof-of-delivery photos and digital signatures, integrated with Nepal Customs EDI for automated customs clearance, and designed an AI-powered route optimization engine that reduced fuel consumption by 25%.",
-      results: "Shipment tracking accuracy improved from 60% to 99%. Customer complaints dropped by 80%. Fuel costs reduced by 25% through route optimization. Driver productivity increased by 40% with the mobile app eliminating paper-based processes. Customs clearance time reduced from 3 days to 6 hours.",
+      title: "Coding House â€” IT Training Center",
+      slug: "coding-house",
+      description: "A website for Coding House, an IT training center â€” course listings, testimonials, and an engaging design that makes enrolling in programming courses simple and exciting.",
+      category: "Education",
+      client: "Coding House",
+      link: "https://coding-house.vercel.app/",
       metrics: JSON.stringify([
-        { label: "Tracking Accuracy", value: "99%" },
-        { label: "Customer Complaints", value: "-80%" },
-        { label: "Fuel Cost Reduction", value: "25%" },
-        { label: "Customs Clearance", value: "6 hours" },
+        { label: "Courses Listed", value: "12+" },
+        { label: "Fully Responsive", value: "100%" },
+        { label: "Enrollment-Focused", value: "Yes" },
+        { label: "Deployed On", value: "Vercel" },
       ]),
       techStack: JSON.stringify([
         { name: "Next.js", type: "Frontend" },
-        { name: "React Native", type: "Frontend" },
-        { name: "TypeScript", type: "Language" },
-        { name: "Node.js", type: "Backend" },
-        { name: "PostgreSQL", type: "Database" },
-        { name: "Google Maps API", type: "Logistics" },
-        { name: "Redis", type: "Cache" },
-        { name: "Docker", type: "DevOps" },
-        { name: "AWS", type: "Cloud" },
+        { name: "React", type: "Frontend" },
+        { name: "Tailwind CSS", type: "Design" },
+        { name: "Vercel", type: "Platform" },
       ]),
-      gallery: JSON.stringify([
-        { url: "/images/gallery/cargolink-1.jpg", caption: "Dispatch control room with live GPS tracking" },
-        { url: "/images/gallery/cargolink-2.jpg", caption: "Route optimization engine with real-time traffic" },
-        { url: "/images/gallery/cargolink-3.jpg", caption: "Driver mobile app with proof-of-delivery workflow" },
-      ]),
-      testimonial: "Newa Tech took our operations from the 1990s to the cutting edge. The real-time tracking and route optimization have been transformative. Our customers can finally see where their shipments are.",
-      testimonialAuthor: "Vikram Thapa",
-      testimonialRole: "VP of Operations, CargoLink International",
-      completionDate: "2026-02-28",
     },
     {
       id: "pf00000000000000000004",
-      title: "HealthFirst — Healthcare Appointment System",
-      slug: "healthfirst-appointment-system",
-      description: "A full-stack healthcare booking platform connecting 200+ doctors with 100,000+ patients across major hospitals in Kathmandu. Features real-time slot booking, telemedicine, and EHR integration.",
-      category: "Web App",
-      client: "HealthFirst Nepal",
-      clientOverview: "HealthFirst Nepal is a healthcare technology company working with 200+ doctors across 15 major hospitals in the Kathmandu Valley. Their goal was to create a unified appointment booking system that would replace fragmented hospital-specific systems and reduce patient wait times.",
-      problem: "Patients had to call each hospital individually to check doctor availability, often waiting 30+ minutes on hold. There was no centralized system showing real-time availability across hospitals. Missed appointments cost hospitals an estimated NPR 5 Cr annually. Doctors had no way to manage their schedules across multiple hospital affiliations. The COVID-19 pandemic also highlighted the urgent need for telemedicine capabilities.",
-      solution: "We built a full-stack Next.js platform with a React Native patient mobile app. Implemented real-time slot management with 15-minute granularity, built a HIPAA-compliant video consultation system using WebRTC with end-to-end encryption, integrated with 5 major hospital EHR systems via HL7 FHIR standards, and designed an AI-powered scheduling optimizer that reduced patient wait times by predicting no-shows and overbooking accordingly.",
-      results: "Patient wait times reduced from average 45 minutes to 12 minutes. Hospital no-show rates dropped from 25% to 8% through automated reminders and intelligent overbooking. The platform handled 100,000+ bookings in the first 3 months. Telemedicine adoption reached 35% of all consultations within 2 months of launch.",
+      title: "E-Commerce Store",
+      slug: "ecommerce-store",
+      description: "A complete online store with product listings, cart, and checkout flow â€” ready for eSewa and Khalti payment integration. Built to help you start selling online fast.",
+      category: "E-Commerce",
+      client: "Newa Tech Demo Store",
+      link: "https://e-commerce-nu-brown.vercel.app/",
       metrics: JSON.stringify([
-        { label: "Average Wait Time", value: "12 min" },
-        { label: "No-Show Rate", value: "8%" },
-        { label: "Monthly Bookings", value: "33,000+" },
-        { label: "Telemedicine Adoption", value: "35%" },
+        { label: "Product Ready", value: "50+" },
+        { label: "Cart & Checkout", value: "Built" },
+        { label: "Payments", value: "eSewa/Khalti" },
+        { label: "Deployed On", value: "Vercel" },
       ]),
       techStack: JSON.stringify([
         { name: "Next.js", type: "Frontend" },
-        { name: "React Native", type: "Frontend" },
-        { name: "TypeScript", type: "Language" },
-        { name: "Node.js", type: "Backend" },
-        { name: "PostgreSQL", type: "Database" },
-        { name: "WebRTC", type: "Video" },
-        { name: "Redis", type: "Cache" },
-        { name: "Docker", type: "DevOps" },
+        { name: "React", type: "Frontend" },
+        { name: "Tailwind CSS", type: "Design" },
+        { name: "Vercel", type: "Platform" },
       ]),
-      gallery: JSON.stringify([
-        { url: "/images/gallery/healthfirst-1.jpg", caption: "Patient-facing booking interface with real-time slots" },
-        { url: "/images/gallery/healthfirst-2.jpg", caption: "Doctor dashboard with schedule and telemedicine controls" },
-        { url: "/images/gallery/healthfirst-3.jpg", caption: "Video consultation interface with EHR side panel" },
-      ]),
-      testimonial: "The platform has been a lifesaver for our patients and staff. Wait times are down dramatically and the telemedicine integration was seamless. Newa Tech understood healthcare compliance requirements from day one.",
-      testimonialAuthor: "Dr. Sunita KC",
-      testimonialRole: "Medical Director, HealthFirst Nepal",
-      completionDate: "2025-12-10",
     },
     {
       id: "pf00000000000000000005",
-      title: "GrowthEngine — SaaS Marketing Platform",
-      slug: "growthengine-saas-marketing",
-      description: "A comprehensive marketing automation SaaS platform serving 1,200+ businesses across South Asia. Features email campaigns, SMS marketing, social media scheduling, and AI-powered audience segmentation.",
-      category: "SaaS",
-      client: "GrowthEngine Inc.",
-      clientOverview: "GrowthEngine Inc. is a Singapore-based SaaS startup that expanded into the South Asian market. Their platform needed a complete rebuild to support multi-language interfaces (English, Nepali, Hindi), local payment gateways, and SMS integration with Nepal's telecom providers.",
-      problem: "The existing Ruby on Rails monolith couldn't scale, had frequent outages during campaign blasts, and lacked support for Nepali/Hindi languages. Customers complained about slow email delivery (30+ minutes for campaigns) and no SMS integration with Nepal's Ncell and Nepal Telecom. The platform had 3-second page load times and a 40% bounce rate during peak hours.",
-      solution: "We rebuilt the platform as a Next.js + Node.js microservices architecture. Implemented Redis-backed job queues for sub-second email/SMS delivery, built a React-based drag-and-drop campaign builder, integrated with Nepal Telecom and Ncell SMS gateways, deployed AI-based audience segmentation using customer behavior data, and localized the entire UI into Nepali and Hindi using next-intl.",
-      results: "Email delivery time dropped from 30+ minutes to under 5 seconds. Platform uptime improved from 95% to 99.9%. Customer base grew from 400 to 1,200+ within 6 months of relaunch. Page load times improved from 3 seconds to 400ms. Revenue increased 3x within the first quarter post-launch.",
+      title: "Fast Food Restaurant",
+      slug: "fast-food-restaurant",
+      description: "A mouth-watering restaurant website with a menu showcase, gallery, and online ordering â€” built to bring hungry customers in and keep them coming back.",
+      category: "Food & Restaurant",
+      client: "Fast Food Restaurant",
+      link: "https://fast-food-theta-nine.vercel.app/",
       metrics: JSON.stringify([
-        { label: "Email Delivery", value: "5 seconds" },
-        { label: "Platform Uptime", value: "99.9%" },
-        { label: "Customer Growth", value: "1,200+" },
-        { label: "Revenue Growth", value: "3x" },
+        { label: "Menu Items", value: "30+" },
+        { label: "Online Ordering", value: "Built" },
+        { label: "Fully Responsive", value: "100%" },
+        { label: "Deployed On", value: "Vercel" },
       ]),
       techStack: JSON.stringify([
         { name: "Next.js", type: "Frontend" },
         { name: "React", type: "Frontend" },
-        { name: "TypeScript", type: "Language" },
-        { name: "Node.js", type: "Backend" },
-        { name: "PostgreSQL", type: "Database" },
-        { name: "Redis", type: "Cache" },
-        { name: "BullMQ", type: "Queue" },
-        { name: "AWS SES", type: "Email" },
-        { name: "next-intl", type: "i18n" },
+        { name: "Tailwind CSS", type: "Design" },
+        { name: "Vercel", type: "Platform" },
       ]),
-      gallery: JSON.stringify([
-        { url: "/images/gallery/growthengine-1.jpg", caption: "Campaign builder with drag-and-drop editor" },
-        { url: "/images/gallery/growthengine-2.jpg", caption: "AI-powered audience segmentation dashboard" },
-        { url: "/images/gallery/growthengine-3.jpg", caption: "Multi-language campaign analytics view" },
-      ]),
-      testimonial: "The rebuild transformed our business. Our customers in Nepal and India finally have a platform that speaks their language and supports their payment methods. The performance improvement alone drove our 3x revenue growth.",
-      testimonialAuthor: "James Chen",
-      testimonialRole: "CEO, GrowthEngine Inc.",
-      completionDate: "2026-01-15",
-    },
-    {
-      id: "pf00000000000000000006",
-      title: "TeamSync — Real-Time Collaboration Tool",
-      slug: "teamsync-collaboration-tool",
-      description: "A real-time collaboration platform with document editing, video conferencing, and project management for remote teams across South Asia. Handles 1M+ daily active users with sub-100ms latency.",
-      category: "SaaS",
-      client: "TeamSync Labs",
-      clientOverview: "TeamSync Labs is a Bangalore-based startup building collaboration software for the South Asian market. Their prototype had struggled with latency issues across diverse network conditions in the region, and they needed a complete architectural overhaul to scale from 10,000 to 1,000,000+ users.",
-      problem: "The existing WebSocket-based real-time sync couldn't handle 50,000+ concurrent connections, causing frequent disconnections and data loss. Document collaboration had 2-5 second latency on 4G networks — unacceptable for real-time editing. Video conferencing quality degraded severely on sub-2Mbps connections common in Nepal and rural India. The platform needed edge deployment across multiple regions to reduce latency.",
-      solution: "We rebuilt the real-time layer using WebRTC DataChannels with CRDT-based conflict resolution for sub-50ms document sync. Deployed edge functions across 6 AWS regions in South Asia using Lambda@Edge for <20ms latency. Built an adaptive video conferencing system using the Scalable Video Technology (SVT) codec that maintains quality at 500kbps. Implemented YugabyteDB for multi-region database replication with automatic failover.",
-      results: "Platform scaled from 10,000 to 1,000,000+ daily active users. Document collaboration latency reduced from 2-5 seconds to under 50ms on 4G. Video conferencing now works reliably on 500kbps connections. Infrastructure costs reduced by 40% through edge computing optimization. Customer acquisition cost dropped 60% through viral team invite loops.",
-      metrics: JSON.stringify([
-        { label: "Daily Active Users", value: "1,000,000+" },
-        { label: "Collaboration Latency", value: "50ms" },
-        { label: "Infra Cost Savings", value: "40%" },
-        { label: "Min. Video Bandwidth", value: "500kbps" },
-      ]),
-      techStack: JSON.stringify([
-        { name: "React", type: "Frontend" },
-        { name: "TypeScript", type: "Language" },
-        { name: "WebRTC", type: "Real-Time" },
-        { name: "CRDT", type: "Data" },
-        { name: "YugabyteDB", type: "Database" },
-        { name: "Redis", type: "Cache" },
-        { name: "AWS Lambda@Edge", type: "Edge" },
-        { name: "SVT Codec", type: "Video" },
-      ]),
-      gallery: JSON.stringify([
-        { url: "/images/gallery/teamsync-1.jpg", caption: "Real-time collaborative document editor" },
-        { url: "/images/gallery/teamsync-2.jpg", caption: "Video conference with adaptive quality controls" },
-        { url: "/images/gallery/teamsync-3.jpg", caption: "Multi-region latency dashboard for infrastructure monitoring" },
-      ]),
-      testimonial: "Newa Tech solved problems we'd been struggling with for two years. The CRDT-based sync and edge deployment transformed our product. Our users in Nepal now have the same experience as users in Bangalore.",
-      testimonialAuthor: "Arun Patel",
-      testimonialRole: "CTO, TeamSync Labs",
-      completionDate: "2025-09-30",
-    },
-    {
-      id: "pf00000000000000000007",
-      title: "NepalERP — Enterprise Resource Planning System",
-      slug: "nepalerp-enterprise-system",
-      description: "A comprehensive ERP system built for Nepali enterprises with multi-currency support, Nepal tax compliance (VAT/PAN), eSewa integration for payments, and real-time inventory tracking across multiple warehouses.",
-      category: "Enterprise System",
-      client: "Himalayan Group of Companies",
-      clientOverview: "Himalayan Group is a diversified Nepali conglomerate with operations in manufacturing, retail, hospitality, and logistics across 5 cities in Nepal. They needed a unified ERP system to replace 7 different software packages that couldn't communicate with each other.",
-      problem: "The company operated 7 disconnected systems: separate software for accounting, inventory, HR, payroll, sales, procurement, and manufacturing. Month-end closing required 15+ days of manual reconciliation. There was no real-time view of cash flow, inventory levels, or profitability across business units. Nepal-specific requirements like VAT filing, PAN validation, and multi-currency (NPR, INR, USD) were not supported by off-the-shelf ERP solutions.",
-      solution: "We designed and built NepalERP — a modular Next.js + Node.js ERP system with PostgreSQL. Implemented Nepal-specific tax engine with automated VAT return generation and PAN validation, built multi-currency support with real-time Nepal Rastra Bank exchange rate integration, developed a real-time consolidated dashboard showing cash flow, inventory, and P&L across all 7 business units, integrated eSewa and Khalti for B2B payments, and deployed on-premise with hybrid cloud backup for industries with unreliable internet.",
-      results: "Month-end closing reduced from 15+ days to 2 days. Inventory holding costs reduced by 18% through real-time visibility and JIT procurement. Tax compliance became fully automated, eliminating NPR 12 Lakh in annual penalties. The system unified 7 departments across 5 cities, saving an estimated NPR 2 Cr annually in operational efficiency.",
-      metrics: JSON.stringify([
-        { label: "Month-End Closing", value: "2 days" },
-        { label: "Inventory Cost Savings", value: "18%" },
-        { label: "Annual Penalties Saved", value: "NPR 12 Lakh" },
-        { label: "Annual Efficiency Savings", value: "NPR 2 Cr" },
-      ]),
-      techStack: JSON.stringify([
-        { name: "Next.js", type: "Frontend" },
-        { name: "React", type: "Frontend" },
-        { name: "TypeScript", type: "Language" },
-        { name: "Node.js", type: "Backend" },
-        { name: "PostgreSQL", type: "Database" },
-        { name: "Redis", type: "Cache" },
-        { name: "NRB API", type: "Finance" },
-        { name: "Docker", type: "DevOps" },
-      ]),
-      gallery: JSON.stringify([
-        { url: "/images/gallery/nepalerp-1.jpg", caption: "Executive dashboard with consolidated P&L and cash flow" },
-        { url: "/images/gallery/nepalerp-2.jpg", caption: "Inventory management across multiple warehouse locations" },
-        { url: "/images/gallery/nepalerp-3.jpg", caption: "Nepal VAT return generator with automated filing" },
-      ]),
-      testimonial: "NepalERP transformed our business operations. What used to take 15 days of manual work now happens automatically in 2 days. The Nepal-specific features like VAT automation and multi-currency support are exactly what we needed.",
-      testimonialAuthor: "Kiran Basnet",
-      testimonialRole: "CFO, Himalayan Group of Companies",
-      completionDate: "2025-07-20",
-    },
-    {
-      id: "pf00000000000000000008",
-      title: "SmartCity — IoT Monitoring Platform",
-      slug: "smartcity-iot-platform",
-      description: "An IoT-enabled smart city monitoring platform for Kathmandu Metropolitan City. Tracks air quality, traffic patterns, waste management, and street lighting across 150+ sensor nodes in real-time.",
-      category: "Enterprise System",
-      client: "Kathmandu Metropolitan City",
-      clientOverview: "The Kathmandu Metropolitan City office wanted to leverage IoT technology to improve urban management. They needed a centralized platform to monitor air pollution, traffic congestion, waste bin fill levels, and energy consumption across the city's street lighting infrastructure.",
-      problem: "The city had 150+ IoT sensors deployed across multiple pilot projects but data was fragmented across 4 different vendor dashboards. There was no unified view, no historical analysis, and no alerting system for critical events (e.g., air quality exceeding dangerous levels, waste bins overflowing). Sensor data had 30-minute latency due to polling-based architecture. The city's IT team had limited experience with IoT data pipelines.",
-      solution: "We built a real-time IoT platform using Node.js MQTT brokers for sub-second sensor data ingestion. Designed a React dashboard with Mapbox GL for geospatial visualization of all 150+ sensors, implemented ML-based predictive models for traffic congestion and air quality forecasting 24 hours in advance, built automated alerting via SMS (Ncell/Nepal Telecom) and email for critical thresholds, and deployed Edge Gateways for local data processing with cloud sync for reliability during internet outages.",
-      results: "Sensor data latency reduced from 30 minutes to under 500ms. The city identified 5 major air pollution hotspots and implemented targeted interventions. Waste collection efficiency improved by 35% through fill-level optimized routing. Street lighting energy consumption reduced by 28% through adaptive dimming based on motion sensors and ambient light. The platform won the 'Smart City Innovation Award' at Nepal Digital Summit 2026.",
-      metrics: JSON.stringify([
-        { label: "Data Latency", value: "500ms" },
-        { label: "Sensors Monitored", value: "150+" },
-        { label: "Waste Collection Efficiency", value: "+35%" },
-        { label: "Street Lighting Energy Savings", value: "28%" },
-      ]),
-      techStack: JSON.stringify([
-        { name: "React", type: "Frontend" },
-        { name: "TypeScript", type: "Language" },
-        { name: "Node.js", type: "Backend" },
-        { name: "MQTT", type: "IoT" },
-        { name: "Mapbox GL", type: "Maps" },
-        { name: "TimescaleDB", type: "Database" },
-        { name: "Redis", type: "Cache" },
-        { name: "Docker", type: "DevOps" },
-        { name: "AWS IoT Core", type: "Cloud" },
-      ]),
-      gallery: JSON.stringify([
-        { url: "/images/gallery/smartcity-1.jpg", caption: "City-wide sensor map with real-time air quality overlay" },
-        { url: "/images/gallery/smartcity-2.jpg", caption: "Traffic heatmap with congestion prediction" },
-        { url: "/images/gallery/smartcity-3.jpg", caption: "Waste management dashboard with fill-level alerts" },
-      ]),
-      testimonial: "This platform has given us unprecedented visibility into how our city functions. The air quality monitoring alone has been invaluable for public health policy. Newa Tech delivered a world-class solution for Kathmandu.",
-      testimonialAuthor: "Bishnu Adhikari",
-      testimonialRole: "Chief Technology Officer, Kathmandu Metropolitan City",
-      completionDate: "2026-05-01",
     },
   ];
   for (const p of portfolio) {
     await query(
-      `INSERT INTO "PortfolioItem" ("id","title","slug","description","category","client","clientOverview","problem","solution","results","metrics","techStack","gallery","testimonial","testimonialAuthor","testimonialRole","completionDate","isActive","updatedAt")
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11::json,$12::json,$13::json,$14,$15,$16,$17::date,true,NOW())`,
-      [p.id, p.title, p.slug, p.description, p.category, p.client,
+      `INSERT INTO "PortfolioItem" ("id","title","slug","description","category","client","link","clientOverview","problem","solution","results","metrics","techStack","gallery","testimonial","testimonialAuthor","testimonialRole","completionDate","isActive","updatedAt")
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12::json,$13::json,$14::json,$15,$16,$17,$18::date,true,NOW())`,
+      [p.id, p.title, p.slug, p.description, p.category, p.client, p.link || null,
        p.clientOverview || null, p.problem || null, p.solution || null, p.results || null,
        p.metrics || null, p.techStack || null, p.gallery || null,
        p.testimonial || null, p.testimonialAuthor || null, p.testimonialRole || null,
@@ -558,7 +380,7 @@ async function main() {
       id: "bp00000000000000000001",
       title: "Why Next.js 16 & Turbopack is a Game Changer for Enterprise Web Apps",
       slug: "nextjs-16-turbopack-game-changer",
-      content: `<p>Next.js 16 has arrived, and it's not just another incremental update — it represents a fundamental shift in how we build and deploy enterprise web applications. Combined with Turbopack, the Rust-based bundler that replaces Webpack, this release delivers performance improvements that directly impact your bottom line.</p>
+      content: `<p>Next.js 16 has arrived, and it's not just another incremental update â€” it represents a fundamental shift in how we build and deploy enterprise web applications. Combined with Turbopack, the Rust-based bundler that replaces Webpack, this release delivers performance improvements that directly impact your bottom line.</p>
 
 <h2>What's New in Next.js 16</h2>
 <p>Next.js 16 introduces the stable App Router as the default, Server Components as a first-class citizen, and streaming SSR that sends HTML progressively to the browser. For enterprise applications handling large datasets, this means Time to First Byte (TTFB) improvements of 40-60% compared to Pages Router.</p>
@@ -569,7 +391,7 @@ async function main() {
 <h2>Why This Matters for Nepali Businesses</h2>
 <p>For Nepali enterprises operating on slower internet connections, the reduced bundle sizes and faster load times translate directly to better user engagement. Our e-commerce clients have seen conversion rate improvements of 15-25% after migrating from traditional SPAs to Next.js 16 with Turbopack.</p>
 
-<p>At Newa Tech, we've already migrated 12 enterprise clients to Next.js 16. The performance improvements have been dramatic — average Lighthouse scores went from 65 to 95+, and server costs decreased by 40% due to more efficient edge caching.</p>`,
+<p>At Newa Tech, we've already migrated 12 enterprise clients to Next.js 16. The performance improvements have been dramatic â€” average Lighthouse scores went from 65 to 95+, and server costs decreased by 40% due to more efficient edge caching.</p>`,
       excerpt: "Next.js 16 with Turbopack delivers 700x faster builds, 40-60% faster page loads, and lower infrastructure costs. Here's why your enterprise should upgrade.",
       author: "Anil Bajracharya",
       publishedAt: "2026-07-20",
@@ -622,7 +444,7 @@ async function main() {
       content: `<p>Vercel is the premier hosting platform for Next.js applications, offering edge functions, automatic ISR cache invalidation, and global CDN distribution. Here's our battle-tested deployment playbook.</p>
 
 <h2>Environment Configuration</h2>
-<p>Proper environment management is critical. Use Vercel's Environment Variables UI for staging, preview, and production environments. Never hardcode secrets — use Vercel's built-in encryption for environment variables and consider using a secrets manager like Doppler for larger teams.</p>
+<p>Proper environment management is critical. Use Vercel's Environment Variables UI for staging, preview, and production environments. Never hardcode secrets â€” use Vercel's built-in encryption for environment variables and consider using a secrets manager like Doppler for larger teams.</p>
 
 <h2>Build Optimization</h2>
 <p>Our production Next.js 16 builds went from 8 minutes to 45 seconds by implementing: proper dependency caching in Turbo mode, selective ESM/CJS module resolution, and parallel route compilation. The Vercel Remote Caching feature reduced our team's collective build time by 70%.</p>
@@ -632,7 +454,7 @@ async function main() {
 
 <h2>Cost Optimization</h2>
 <p>Vercel's Pro plan with team seats costs $300/month for most mid-size applications. Optimize costs by: implementing proper ISR revalidation intervals (don't revalidate every page every 10 seconds!), using Edge Functions only when necessary, and monitoring bandwidth usage through Vercel's analytics dashboard.</p>`,
-      excerpt: "A production deployment playbook for Next.js 16 on Vercel — environment management, build optimization, monitoring, and cost control.",
+      excerpt: "A production deployment playbook for Next.js 16 on Vercel â€” environment management, build optimization, monitoring, and cost control.",
       author: "Amit Joshi",
       publishedAt: "2026-04-20",
       status: "published",
@@ -655,7 +477,7 @@ async function main() {
       location: "Baneshwor, Kathmandu / Hybrid",
       type: "Full-Time",
       department: "Engineering",
-      description: "We are looking for a Senior Full Stack Engineer to lead development of enterprise web applications using Next.js 16, React 19, and Node.js. You will architect end-to-end solutions, mentor junior developers, and work directly with clients to deliver high-impact digital products. This role is central to our engineering team — you will own major features from database schema design through deployment on Vercel or AWS.",
+      description: "We are looking for a Senior Full Stack Engineer to lead development of enterprise web applications using Next.js 16, React 19, and Node.js. You will architect end-to-end solutions, mentor junior developers, and work directly with clients to deliver high-impact digital products. This role is central to our engineering team â€” you will own major features from database schema design through deployment on Vercel or AWS.",
       requirements: "- 5+ years of professional web development experience\n- Expert-level proficiency in React, Next.js, and TypeScript\n- Strong experience with Node.js, PostgreSQL, and Prisma ORM\n- CI/CD pipeline setup (GitHub Actions, Vercel)\n- Cloud infrastructure familiarity (AWS Lambda, ECS, or Vercel Edge)\n- Excellent communication skills and client-facing experience\n- Experience leading technical discussions, sprint planning, and code reviews\n- Bonus: Knowledge of Nepal payment gateways (eSewa, Khalti APIs)\n- Bonus: Experience with Redis, Docker, or GraphQL",
       salary: "NPR 150,000 - 200,000 / month",
     },
@@ -677,7 +499,7 @@ async function main() {
       location: "Remote / Baneshwor",
       type: "Full-Time",
       department: "Engineering",
-      description: "Join our mobile engineering team to build cross-platform applications for clients in fintech, e-commerce, and healthcare. You will own feature development from concept to App Store and Google Play release — working on apps with 100,000+ users. We value strong fundamentals over framework preference; experience with either Flutter or React Native is welcome.",
+      description: "Join our mobile engineering team to build cross-platform applications for clients in fintech, e-commerce, and healthcare. You will own feature development from concept to App Store and Google Play release â€” working on apps with 100,000+ users. We value strong fundamentals over framework preference; experience with either Flutter or React Native is welcome.",
       requirements: "- 4+ years of mobile development experience (React Native or Flutter)\n- Published apps on both App Store and Google Play\n- Strong TypeScript or Dart skills\n- Experience with state management (Zustand, Redux Toolkit, Riverpod, or BLoC)\n- Native module integration experience (camera, GPS, biometrics, NFC)\n- Knowledge of push notifications (Firebase Cloud Messaging, OneSignal)\n- Familiarity with offline-first architecture (WatermelonDB, SQLite, Hive)\n- Mobile performance optimization and memory profiling\n- Bonus: Experience with Stripe, eSewa, or Khalti mobile SDKs\n- Bonus: CI/CD for mobile (Fastlane, EAS Build)",
       salary: "NPR 130,000 - 170,000 / month",
     },
@@ -688,7 +510,7 @@ async function main() {
       location: "Baneshwor, Kathmandu",
       type: "Full-Time",
       department: "Marketing",
-      description: "We are looking for a Digital Marketing & SEO Strategist to drive our clients' online presence and measurable growth. You will develop and execute comprehensive digital marketing strategies — including technical SEO, content marketing, paid advertising, and analytics — helping Nepali businesses achieve top search rankings and strong conversion rates.",
+      description: "We are looking for a Digital Marketing & SEO Strategist to drive our clients' online presence and measurable growth. You will develop and execute comprehensive digital marketing strategies â€” including technical SEO, content marketing, paid advertising, and analytics â€” helping Nepali businesses achieve top search rankings and strong conversion rates.",
       requirements: "- 4+ years of digital marketing experience with a focus on SEO\n- Proven track record of growing organic traffic and improving search rankings\n- Expert knowledge of technical SEO, on-page SEO, and link-building strategies\n- Hands-on experience with Google Ads, Facebook Ads, and LinkedIn Ads\n- Proficiency in Google Analytics 4, Google Search Console, and SEMrush / Ahrefs\n- Content strategy development and copywriting skills\n- Experience with email marketing platforms (Mailchimp, SendGrid, Brevo)\n- Understanding of Nepal's digital landscape and consumer behavior\n- Bonus: Experience with marketing automation (HubSpot, Marketo)\n- Bonus: Basic knowledge of HTML/CSS and web performance metrics (Core Web Vitals)",
       salary: "NPR 90,000 - 130,000 / month",
     },
@@ -710,11 +532,11 @@ async function main() {
     { key: "company_phone", value: "+977-97444000111" },
     { key: "company_email", value: "info@newatech.com" },
     { key: "company_hours", value: "Sunday - Friday: 9:00 AM - 6:00 PM" },
-    { key: "hero_title", value: "Newa Tech — Building Websites & Apps for Nepal" },
+    { key: "hero_title", value: "Newa Tech â€” Building Websites & Apps for Nepal" },
     { key: "hero_subtitle", value: "Web design and app development agency in Baneshwor, Kathmandu. We build professional websites, e-commerce stores, and mobile apps that help Nepali businesses grow." },
-    { key: "about_story", value: "Newa Tech is a web design and app development agency in Baneshwor, Kathmandu. We design, build, and launch professional websites and mobile apps for businesses across Nepal — from concept and UI/UX design to development and launch." },
+    { key: "about_story", value: "Newa Tech is a web design and app development agency in Baneshwor, Kathmandu. We design, build, and launch professional websites and mobile apps for businesses across Nepal â€” from concept and UI/UX design to development and launch." },
     { key: "mission", value: "To empower Nepali businesses with professional websites and mobile apps that build trust, attract customers, and drive growth." },
-    { key: "vision", value: "To be Nepal's most trusted web design and app development agency — known for modern, high-quality digital products and genuine client care." },
+    { key: "vision", value: "To be Nepal's most trusted web design and app development agency â€” known for modern, high-quality digital products and genuine client care." },
   ];
   for (const s of settings) {
     const exists = await query(`SELECT 1 FROM "SiteSetting" WHERE "key" = $1`, [s.key]);
@@ -728,13 +550,13 @@ async function main() {
 
   // Create page content
   const pageContents = [
-    { page: "home", title: "Newa Tech — Web Design & App Development Agency in Kathmandu", subtitle: "Websites & Apps for Nepali Businesses", metaTitle: "Newa Tech — Web Design & App Development Agency in Kathmandu", metaDescription: "Newa Tech is a web design and app development agency in Baneshwor, Kathmandu building professional websites, e-commerce stores, and mobile apps for Nepali businesses." },
-    { page: "about", title: "About Newa Tech — Web Design & App Development Agency", subtitle: "A Kathmandu-based agency for websites & apps", metaTitle: "About Newa Tech — Baneshwor, Kathmandu", metaDescription: "Meet Newa Tech, a web design and app development agency in Baneshwor, Kathmandu, building websites, e-commerce platforms, and mobile apps for Nepali businesses." },
-    { page: "services", title: "Our Services — Website Design & App Development", subtitle: "Web development, mobile apps, UI/UX design & e-commerce", metaTitle: "Services — Newa Tech | Baneshwor, Kathmandu", metaDescription: "Explore Newa Tech services: web development, mobile app development, UI/UX design, and e-commerce website development." },
-    { page: "portfolio", title: "Our Portfolio — Websites & Apps We've Built", subtitle: "See our work across Nepal", metaTitle: "Portfolio — Newa Tech | Projects in Kathmandu", metaDescription: "View Newa Tech portfolio of websites, e-commerce stores, and mobile apps built for businesses across Nepal." },
-    { page: "blog", title: "Blog — Web & App Development Insights from Newa Tech", subtitle: "Design tips, tech guides, and company news", metaTitle: "Blog — Newa Tech | Web & App Insights Nepal", metaDescription: "Read the latest articles from Newa Tech on web design, app development, e-commerce, and digital growth for Nepali businesses." },
-    { page: "contact", title: "Contact Newa Tech — Baneshwor, Kathmandu", subtitle: "Get in touch with our team", metaTitle: "Contact — Newa Tech | Baneshwor, Kathmandu", metaDescription: "Contact Newa Tech in Baneshwor, Kathmandu for web design, app development, UI/UX design, and e-commerce services." },
-    { page: "careers", title: "Careers — Join the Newa Tech Team", subtitle: "Build your career with us", metaTitle: "Careers — Newa Tech | Jobs in Kathmandu", metaDescription: "Explore career opportunities at Newa Tech in Baneshwor, Kathmandu." },
+    { page: "home", title: "Newa Tech â€” Web Design & App Development Agency in Kathmandu", subtitle: "Websites & Apps for Nepali Businesses", metaTitle: "Newa Tech â€” Web Design & App Development Agency in Kathmandu", metaDescription: "Newa Tech is a web design and app development agency in Baneshwor, Kathmandu building professional websites, e-commerce stores, and mobile apps for Nepali businesses." },
+    { page: "about", title: "About Newa Tech â€” Web Design & App Development Agency", subtitle: "A Kathmandu-based agency for websites & apps", metaTitle: "About Newa Tech â€” Baneshwor, Kathmandu", metaDescription: "Meet Newa Tech, a web design and app development agency in Baneshwor, Kathmandu, building websites, e-commerce platforms, and mobile apps for Nepali businesses." },
+    { page: "services", title: "Our Services â€” Website Design & App Development", subtitle: "Web development, mobile apps, UI/UX design & e-commerce", metaTitle: "Services â€” Newa Tech | Baneshwor, Kathmandu", metaDescription: "Explore Newa Tech services: web development, mobile app development, UI/UX design, and e-commerce website development." },
+    { page: "portfolio", title: "Our Portfolio â€” Websites & Apps We've Built", subtitle: "See our work across Nepal", metaTitle: "Portfolio â€” Newa Tech | Projects in Kathmandu", metaDescription: "View Newa Tech portfolio of websites, e-commerce stores, and mobile apps built for businesses across Nepal." },
+    { page: "blog", title: "Blog â€” Web & App Development Insights from Newa Tech", subtitle: "Design tips, tech guides, and company news", metaTitle: "Blog â€” Newa Tech | Web & App Insights Nepal", metaDescription: "Read the latest articles from Newa Tech on web design, app development, e-commerce, and digital growth for Nepali businesses." },
+    { page: "contact", title: "Contact Newa Tech â€” Baneshwor, Kathmandu", subtitle: "Get in touch with our team", metaTitle: "Contact â€” Newa Tech | Baneshwor, Kathmandu", metaDescription: "Contact Newa Tech in Baneshwor, Kathmandu for web design, app development, UI/UX design, and e-commerce services." },
+    { page: "careers", title: "Careers â€” Join the Newa Tech Team", subtitle: "Build your career with us", metaTitle: "Careers â€” Newa Tech | Jobs in Kathmandu", metaDescription: "Explore career opportunities at Newa Tech in Baneshwor, Kathmandu." },
   ];
   for (const pc of pageContents) {
     const exists = await query(`SELECT 1 FROM "PageContent" WHERE "page" = $1`, [pc.page]);
@@ -752,9 +574,9 @@ async function main() {
   }
   console.log(`Created ${pageContents.length} page contents`);
 
-  console.log("\n✅ Database seeded successfully!");
-  console.log("📧 Admin login: admin@newatech.com / Admin@123");
-  console.log("📧 Editor login: editor@newatech.com / Editor@123");
+  console.log("\nâœ… Database seeded successfully!");
+  console.log("ðŸ“§ Admin login: admin@newatech.com / Admin@123");
+  console.log("ðŸ“§ Editor login: editor@newatech.com / Editor@123");
 }
 
 main()
