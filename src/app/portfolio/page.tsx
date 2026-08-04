@@ -57,6 +57,7 @@ export default async function PortfolioPage() {
         title="High Performance & Beautiful Digital Products"
         subtitle="Every website and app we craft is engineered for speed, intuitive UX, and measurable business growth."
         themeGradient="from-cyan-300 via-sky-400 to-blue-500"
+        videoSrc="/videos/video.portfolio.mp4"
       />
 
       <div id="projects" className="py-12">

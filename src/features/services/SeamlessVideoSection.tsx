@@ -9,6 +9,7 @@ interface SeamlessVideoSectionProps {
   children?: React.ReactNode;
   themeGradient?: string;
   reverseLayout?: boolean;
+  videoSrc?: string;
 }
 
 export default function SeamlessVideoSection({
@@ -18,6 +19,7 @@ export default function SeamlessVideoSection({
   children,
   themeGradient = "from-emerald-400 to-teal-200",
   reverseLayout = false,
+  videoSrc,
 }: SeamlessVideoSectionProps) {
   return (
     <section className="relative py-16 sm:py-24 overflow-hidden">
@@ -47,6 +49,19 @@ export default function SeamlessVideoSection({
           {/* Media Frame Column — gradient art consistent with the brand palette */}
           <div className={`lg:col-span-7 ${reverseLayout ? "lg:order-1" : "lg:order-2"}`}>
             <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900 shadow-2xl shadow-black/80 aspect-video group">
+              {videoSrc && (
+                <video
+                  className="absolute inset-0 h-full w-full object-cover"
+                  src={videoSrc}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
+                  aria-hidden="true"
+                  tabIndex={-1}
+                />
+              )}
               <div aria-hidden="true" className="absolute inset-0">
                 <div className={`absolute inset-0 bg-gradient-to-br ${themeGradient} opacity-25`} />
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(30,95,217,0.4),transparent_60%)]" />
