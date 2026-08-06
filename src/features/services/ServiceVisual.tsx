@@ -1,6 +1,6 @@
 export default function ServiceVisual() {
   return (
-    <div className="stage" style={{ height: "100%" }}>
+    <div className="stage">
       <div className="glow" />
       <div className="base" />
 
@@ -47,10 +47,8 @@ export default function ServiceVisual() {
         .stage {
           position: relative;
           width: 100%;
-          max-width: 460px;
-          height: 440px;
+          height: 100%;
           font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
-          margin: 0 auto;
         }
         .glow {
           position: absolute;
