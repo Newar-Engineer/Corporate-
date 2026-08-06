@@ -68,8 +68,8 @@ export default function ServicesSection() {
             </p>
 
             <h2 ref={headingRef} className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
-              <span className="block overflow-hidden"><span className="line inline-block text-white">Websites & Apps</span></span>
-              <span className="block overflow-hidden"><span className="line inline-block gradient-text-blue">That Convert</span></span>
+              <span className="block overflow-hidden"><span className="line inline-block text-white">Our Services</span></span>
+              <span className="block overflow-hidden"><span className="line inline-block gradient-text-blue">Websites & Apps</span></span>
             </h2>
 
             <p className="text-sm sm:text-base text-slate-400 leading-relaxed mb-8 max-w-lg">

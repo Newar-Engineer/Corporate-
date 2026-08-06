@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { FiSmartphone, FiCreditCard, FiDollarSign } from "react-icons/fi";
+import { FiSmartphone, FiSend, FiCreditCard, FiDollarSign } from "react-icons/fi";
 import PaymentCopyButton from "./PaymentCopyButton";
 
 export const metadata: Metadata = {
   title: "Payments — Newa Tech",
   description:
-    "Pay Newa Tech directly via eSewa, Global IME Bank, or Siddhartha Bank. Use the account details below to complete your payment.",
+    "Pay Newa Tech directly via eSewa, Khalti, Global IME Bank, or Siddhartha Bank. Use the account details below to complete your payment.",
 };
 
 const paymentMethods = [
@@ -16,6 +16,14 @@ const paymentMethods = [
     type: "Wallet",
     description:
       "Pay directly into our eSewa wallet. Open eSewa, go to Send Money, and use this mobile number.",
+  },
+  {
+    name: "Khalti",
+    icon: FiSend,
+    number: "9766453836",
+    type: "Wallet",
+    description:
+      "Pay directly into our Khalti wallet. Open Khalti, go to Send Money, and use this mobile number.",
   },
   {
     name: "Global IME Bank",
@@ -60,7 +68,7 @@ export default function PaymentPage() {
 
       <section className="relative pb-20 sm:pb-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {paymentMethods.map((method) => (
               <div
                 key={method.name}
