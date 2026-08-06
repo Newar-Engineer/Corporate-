@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import ServiceVisual from "./ServiceVisual";
 
 interface SeamlessVideoSectionProps {
   badge?: string;
@@ -67,6 +68,9 @@ export default function SeamlessVideoSection({
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(30,95,217,0.4),transparent_60%)]" />
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(255,201,60,0.15),transparent_55%)]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/30" />
+              </div>
+              <div aria-hidden="true" className="absolute inset-0 hidden sm:block">
+                <ServiceVisual />
               </div>
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-3xl pointer-events-none" />
             </div>
