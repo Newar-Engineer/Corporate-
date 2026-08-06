@@ -1,19 +1,35 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiArrowUpRight } from "react-icons/fi";
 import StatsCounter from "@/features/about/StatsCounter";
+import AboutVisual from "@/features/about/AboutVisual";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const rotatingWords = [
+  "Website Design",
+  "Mobile Apps",
+  "E-Commerce Stores",
+  "UI/UX Experiences",
+];
 
 export default function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
+  const [wordIndex, setWordIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setWordIndex((i) => (i + 1) % rotatingWords.length);
+    }, 2800);
+    return () => clearInterval(id);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -71,10 +87,17 @@ export default function AboutSection() {
               About Newa Tech
             </p>
 
-            <h2 ref={headingRef} className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-8">
+            <h2 ref={headingRef} className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-4">
               <span className="block overflow-hidden"><span className="line inline-block text-white">Your Agency</span></span>
               <span className="block overflow-hidden"><span className="line inline-block gradient-text-blue">For Web & Apps</span></span>
             </h2>
+
+            <p className="flex flex-wrap items-baseline gap-x-2 text-lg sm:text-xl font-semibold mb-8" aria-live="polite">
+              <span className="text-slate-400">Crafting</span>
+              <span key={wordIndex} className="animate-word-in inline-block gradient-text-blue bg-clip-text text-transparent">
+                {rotatingWords[wordIndex]}
+              </span>
+            </p>
 
             <div ref={contentRef} className="space-y-4 mb-10">
               <p className="anim-text text-base sm:text-lg text-slate-300 leading-relaxed">
@@ -90,10 +113,10 @@ export default function AboutSection() {
               className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10"
             >
               {[
-                { value: 150, label: "Projects", suffix: "+" },
-                { value: 200, label: "Clients", suffix: "+" },
-                { value: 25, label: "Experts", suffix: "+" },
-                { value: 10, label: "Years", suffix: "+" },
+                { value: 10, label: "Projects", suffix: "+" },
+                { value: 5, label: "Clients", suffix: "+" },
+                { value: 5, label: "Experts", suffix: "+" },
+                { value: 2, label: "Years", suffix: "+" },
               ].map((s, i) => (
                 <div key={i} className="stat-item">
                   <StatsCounter value={s.value} label={s.label} suffix={s.suffix} />
@@ -110,7 +133,9 @@ export default function AboutSection() {
             </Link>
           </div>
 
-          <div className="hidden lg:block" />
+          <div className="hidden md:block">
+            <AboutVisual />
+          </div>
         </div>
       </div>
     </section>

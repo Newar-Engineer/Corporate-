@@ -8,10 +8,10 @@ import ServiceCard from "@/features/services/ServiceCard";
 gsap.registerPlugin(ScrollTrigger);
 
 const services = [
-  { icon: "web", title: "Web Development", slug: "web-development-engineering", desc: "Custom websites & web apps with React, Next.js & Node.js", price: "NPR 25,000" },
-  { icon: "mobile", title: "Mobile App Development", slug: "mobile-app-engineering", desc: "iOS & Android apps with eSewa, Khalti & payment integration", price: "NPR 80,000" },
-  { icon: "ecommerce", title: "E-Commerce Websites", slug: "ecommerce-platforms", desc: "Online stores with inventory, orders & payment gateways", price: "NPR 45,000" },
-  { icon: "design", title: "UI/UX Design", slug: "uiux-product-design", desc: "User research, wireframing & modern design systems", price: "NPR 20,000" },
+  { icon: "web", title: "Web Development", slug: "web-development-engineering", desc: "Custom business websites & web apps with React, Next.js & Node.js — mobile-first and fast on Nepali internet", price: "NPR 25,000" },
+  { icon: "mobile", title: "Mobile App Development", slug: "mobile-app-engineering", desc: "iOS & Android apps for your business with eSewa, Khalti & Fonepay payments built in", price: "NPR 80,000" },
+  { icon: "ecommerce", title: "E-Commerce Websites", slug: "ecommerce-platforms", desc: "Online stores with eSewa/Khalti checkout, inventory, order management & COD", price: "NPR 45,000" },
+  { icon: "design", title: "UI/UX Design", slug: "uiux-product-design", desc: "User research, wireframes & modern interfaces your customers will love using", price: "NPR 20,000" },
 ];
 
 export default function ServicesSection() {

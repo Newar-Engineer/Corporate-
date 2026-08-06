@@ -51,7 +51,7 @@ export default async function AboutPage() {
               Our team of designers, developers, and project managers has delivered websites and apps across e-commerce, education, healthcare, hospitality, and services. From UI/UX design and front-end development to back-end systems and payment gateway integration, we handle the entire journey.
             </p>
             <p>
-              Today, Newa Tech employs a dedicated team of over 25 professionals and has successfully completed hundreds of digital projects across Nepal. We keep pace with modern technology so your website or app stays fast, secure, and beautiful.
+              Today, Newa Tech&apos;s focused team of 5+ designers and engineers has spent 2+ years delivering 10+ digital projects across Nepal. We keep pace with modern technology so your website or app stays fast, secure, and beautiful.
             </p>
           </div>
         </div>
@@ -65,11 +65,11 @@ export default async function AboutPage() {
       >
         <div className="grid grid-cols-2 gap-4 mt-6">
           <div className="p-4 rounded-2xl bg-blue-950/40 border border-primary/20">
-            <span className="text-2xl font-bold text-primary-light">150+</span>
+            <span className="text-2xl font-bold text-primary-light">10+</span>
             <p className="text-xs text-slate-400 mt-1">Websites & Apps Delivered</p>
           </div>
           <div className="p-4 rounded-2xl bg-blue-950/40 border border-gold/20">
-            <span className="text-2xl font-bold text-gold">200+</span>
+            <span className="text-2xl font-bold text-gold">5+</span>
             <p className="text-xs text-slate-400 mt-1">Businesses Served</p>
           </div>
         </div>
