@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { FiSmartphone, FiSend, FiCreditCard, FiDollarSign } from "react-icons/fi";
-import PaymentCopyButton from "./PaymentCopyButton";
+import PaymentMethodCard from "./PaymentMethodCard";
 
 export const metadata: Metadata = {
   title: "Payments — Newa Tech",
   description:
-    "Pay Newa Tech directly via eSewa, Khalti, Global IME Bank, or Siddhartha Bank. Use the account details below to complete your payment.",
+    "Pay Newa Tech directly via eSewa, Khalti, Global IME Bank, or Siddhartha Bank. Scan the QR code or use the account details below.",
 };
 
 const paymentMethods = [
@@ -14,14 +14,16 @@ const paymentMethods = [
     icon: FiSmartphone,
     number: "9766453836",
     type: "Wallet",
+    qrPath: "/esewa.jpeg",
     description:
-      "Pay directly into our eSewa wallet. Open eSewa, go to Send Money, and use this mobile number.",
+      "Scan the QR code with the eSewa app to pay directly, or open eSewa, go to Send Money, and use this mobile number.",
   },
   {
     name: "Khalti",
     icon: FiSend,
     number: "9766453836",
     type: "Wallet",
+    qrPath: null,
     description:
       "Pay directly into our Khalti wallet. Open Khalti, go to Send Money, and use this mobile number.",
   },
@@ -30,14 +32,16 @@ const paymentMethods = [
     icon: FiCreditCard,
     number: "9744400011",
     type: "Bank Transfer",
+    qrPath: "/global.jpeg",
     description:
-      "Transfer directly to our Global IME Bank account using this account number.",
+      "Scan the QR code with your banking app to pay directly, or transfer to our Global IME Bank account.",
   },
   {
     name: "Siddhartha Bank",
     icon: FiDollarSign,
     number: "9766453836",
     type: "Bank Transfer",
+    qrPath: null,
     description:
       "Transfer directly to our Siddhartha Bank account using this account number.",
   },
@@ -70,33 +74,15 @@ export default function PaymentPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {paymentMethods.map((method) => (
-              <div
+              <PaymentMethodCard
                 key={method.name}
-                className="group relative overflow-hidden rounded-2xl border border-slate-700/50 bg-slate-800/40 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(30,95,217,0.15)]"
-              >
-                <div className="flex items-center justify-between mb-5">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 text-primary-light">
-                    <method.icon size={22} />
-                  </div>
-                  <span className="rounded-full border border-slate-600/60 bg-slate-900/60 px-3 py-1 text-xs font-medium text-slate-300">
-                    {method.type}
-                  </span>
-                </div>
-
-                <h2 className="text-lg font-bold text-white mb-1.5">{method.name}</h2>
-                <p className="text-sm text-slate-400 leading-relaxed mb-5">
-                  {method.description}
-                </p>
-
-                <div className="flex items-center justify-between gap-3 rounded-xl border border-slate-700/60 bg-slate-900/60 px-4 py-3 mb-4">
-                  <span className="text-sm text-slate-400">Account Number</span>
-                  <span className="text-base font-mono font-bold text-primary-light tracking-wider">
-                    {method.number}
-                  </span>
-                </div>
-
-                <PaymentCopyButton accountNumber={method.number} />
-              </div>
+                name={method.name}
+                icon={method.icon}
+                number={method.number}
+                type={method.type}
+                description={method.description}
+                qrPath={method.qrPath}
+              />
             ))}
           </div>
 
