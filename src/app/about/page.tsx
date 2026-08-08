@@ -62,6 +62,7 @@ export default async function AboutPage() {
         title="Modern Design, Reliable Engineering"
         subtitle="Our websites and apps are built with modern stacks, clean UI, and performance — grounded in the real needs of the Nepali market."
         themeGradient="from-cyan-300 via-sky-400 to-blue-500"
+        visual="about"
       >
         <div className="grid grid-cols-2 gap-4 mt-6">
           <div className="p-4 rounded-2xl bg-blue-950/40 border border-primary/20">

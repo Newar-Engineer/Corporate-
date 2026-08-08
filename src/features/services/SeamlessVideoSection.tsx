@@ -2,6 +2,7 @@
 
 import React from "react";
 import ServiceVisual from "./ServiceVisual";
+import AboutShowcase from "@/features/about/AboutShowcase";
 
 interface SeamlessVideoSectionProps {
   badge?: string;
@@ -11,6 +12,7 @@ interface SeamlessVideoSectionProps {
   themeGradient?: string;
   reverseLayout?: boolean;
   videoSrc?: string;
+  visual?: "services" | "about";
 }
 
 export default function SeamlessVideoSection({
@@ -21,6 +23,7 @@ export default function SeamlessVideoSection({
   themeGradient = "from-emerald-400 to-teal-200",
   reverseLayout = false,
   videoSrc,
+  visual = "services",
 }: SeamlessVideoSectionProps) {
   return (
     <section className="relative py-16 sm:py-24 overflow-hidden">
@@ -64,7 +67,7 @@ export default function SeamlessVideoSection({
                 )}
                 {!videoSrc && (
                   <div className="absolute inset-0 hidden sm:block">
-                    <ServiceVisual />
+                    {visual === "about" ? <AboutShowcase /> : <ServiceVisual />}
                   </div>
                 )}
                 <div className={`absolute inset-0 bg-gradient-to-br ${themeGradient} opacity-25`} />
