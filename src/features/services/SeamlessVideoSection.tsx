@@ -50,27 +50,27 @@ export default function SeamlessVideoSection({
           {/* Media Frame Column — gradient art consistent with the brand palette */}
           <div className={`lg:col-span-7 ${reverseLayout ? "lg:order-1" : "lg:order-2"}`}>
             <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-slate-900 shadow-2xl shadow-black/80 aspect-video group">
-              {videoSrc && (
-                <video
-                  className="absolute inset-0 h-full w-full object-cover"
-                  src={videoSrc}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="auto"
-                  aria-hidden="true"
-                  tabIndex={-1}
-                />
-              )}
               <div aria-hidden="true" className="absolute inset-0">
+                {videoSrc && (
+                  <video
+                    className="absolute inset-0 h-full w-full object-cover"
+                    src={videoSrc}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                  />
+                )}
+                {!videoSrc && (
+                  <div className="absolute inset-0 hidden sm:block">
+                    <ServiceVisual />
+                  </div>
+                )}
                 <div className={`absolute inset-0 bg-gradient-to-br ${themeGradient} opacity-25`} />
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(30,95,217,0.4),transparent_60%)]" />
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(255,201,60,0.15),transparent_55%)]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/30" />
-              </div>
-              <div aria-hidden="true" className="absolute inset-0 hidden sm:block">
-                <ServiceVisual />
               </div>
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-3xl pointer-events-none" />
             </div>
