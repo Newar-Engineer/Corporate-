@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { FiSmartphone, FiSend, FiCreditCard, FiDollarSign } from "react-icons/fi";
+import { paymentMethods } from "@/lib/payment-methods";
 import PaymentMethodCard from "./PaymentMethodCard";
 
 export const metadata: Metadata = {
@@ -7,45 +7,6 @@ export const metadata: Metadata = {
   description:
     "Pay Newa Tech directly via eSewa, Khalti, Global IME Bank, or Siddhartha Bank. Scan the QR code or use the account details below.",
 };
-
-const paymentMethods = [
-  {
-    name: "eSewa",
-    icon: FiSmartphone,
-    number: "9766453836",
-    type: "Wallet",
-    qrPath: "/esewa.jpeg",
-    description:
-      "Scan the QR code with the eSewa app to pay directly, or open eSewa, go to Send Money, and use this mobile number.",
-  },
-  {
-    name: "Khalti",
-    icon: FiSend,
-    number: "9766453836",
-    type: "Wallet",
-    qrPath: null,
-    description:
-      "Pay directly into our Khalti wallet. Open Khalti, go to Send Money, and use this mobile number.",
-  },
-  {
-    name: "Global IME Bank",
-    icon: FiCreditCard,
-    number: "9744400011",
-    type: "Bank Transfer",
-    qrPath: "/global.jpeg",
-    description:
-      "Scan the QR code with your banking app to pay directly, or transfer to our Global IME Bank account.",
-  },
-  {
-    name: "Siddhartha Bank",
-    icon: FiDollarSign,
-    number: "9766453836",
-    type: "Bank Transfer",
-    qrPath: null,
-    description:
-      "Transfer directly to our Siddhartha Bank account using this account number.",
-  },
-];
 
 export default function PaymentPage() {
   return (
@@ -82,6 +43,7 @@ export default function PaymentPage() {
                 type={method.type}
                 description={method.description}
                 qrPath={method.qrPath}
+                href={`/payment/${method.slug}`}
               />
             ))}
           </div>

@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { FiArrowRight, FiCheckCircle } from "react-icons/fi";
 
-const methods = ["eSewa", "Khalti", "Global IME Bank", "Siddhartha Bank"];
+const methods = [
+  { label: "eSewa", href: "/payment/esewa" },
+  { label: "Khalti", href: "/payment/khalti" },
+  { label: "Global IME Bank", href: "/payment/global-ime" },
+  { label: "Siddhartha Bank", href: "/payment/siddhartha" },
+];
 
 export default function PaymentStrip() {
   return (
@@ -26,13 +31,14 @@ export default function PaymentStrip() {
           <div className="flex-1">
             <div className="flex flex-wrap gap-3">
               {methods.map((m) => (
-                <span
-                  key={m}
-                  className="inline-flex items-center gap-2 rounded-xl border border-slate-700/60 bg-slate-800/40 px-4 py-2.5 text-sm font-semibold text-slate-200 backdrop-blur-md"
+                <Link
+                  key={m.label}
+                  href={m.href}
+                  className="inline-flex items-center gap-2 rounded-xl border border-slate-700/60 bg-slate-800/40 px-4 py-2.5 text-sm font-semibold text-slate-200 backdrop-blur-md transition-colors hover:border-gold/40 hover:text-gold"
                 >
                   <FiCheckCircle size={15} className="text-gold" />
-                  {m}
-                </span>
+                  {m.label}
+                </Link>
               ))}
             </div>
             <Link
