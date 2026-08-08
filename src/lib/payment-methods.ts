@@ -19,7 +19,7 @@ export const paymentMethods: PaymentMethod[] = [
     icon: FiSmartphone,
     number: "9766453836",
     type: "Wallet",
-    qrPath: "/esewa.jpeg",
+    qrPath: "/esewaqr.jpeg",
     description:
       "Scan the QR code with the eSewa app to pay directly into our eSewa wallet, or send money to our number.",
     steps: [
@@ -53,7 +53,7 @@ export const paymentMethods: PaymentMethod[] = [
     icon: FiCreditCard,
     number: "9744400011",
     type: "Bank Transfer",
-    qrPath: "/global.jpeg",
+    qrPath: "/Globalg.jpeg",
     description:
       "Scan the QR code with your Global IME banking app or transfer directly to our Global IME Bank account.",
     steps: [
@@ -70,12 +70,12 @@ export const paymentMethods: PaymentMethod[] = [
     icon: FiDollarSign,
     number: "9766453836",
     type: "Bank Transfer",
-    qrPath: null,
+    qrPath: "/siddhartha.jpeg",
     description:
-      "Transfer directly to our Siddhartha Bank account using the account number below.",
+      "Scan the QR code with your Siddhartha banking app or transfer directly to our Siddhartha Bank account.",
     steps: [
       "Open your Siddhartha Bank mobile or internet banking.",
-      "Go to Fund Transfer and select the account to transfer from.",
+      "Go to Fund Transfer and choose our account or scan the QR code.",
       "Enter our Siddhartha Bank account number 9766453836 as the payee.",
       "Enter the amount and authorize with your OTP/SMS code.",
       "Send the transfer screenshot to our contact channels so we can confirm it right away.",
