@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
+import { fallbackServices } from "@/lib/data/fallbackServices";
 import SectionHeading from "@/components/sections/SectionHeading";
 import SeamlessVideoHero from "@/features/hero/SeamlessVideoHero";
 import SeamlessVideoSection from "@/features/services/SeamlessVideoSection";
@@ -82,6 +83,19 @@ export default async function ServicesPage() {
     }));
   } catch (error) {
     console.error("Error fetching services:", error);
+  }
+
+  if (services.length === 0) {
+    services = fallbackServices.map((s) => ({
+      id: s.id,
+      title: s.title,
+      slug: s.slug,
+      description: s.description,
+      icon: s.icon,
+      features: s.features,
+      techStack: s.techStack,
+      timeline: s.timeline,
+    }));
   }
 
   return (

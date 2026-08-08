@@ -1,9 +1,21 @@
 import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
+import { fallbackJobs } from "@/lib/data/fallbackJobs";
 import CareersFilterClient from "@/features/careers/CareersFilterClient";
 import {
   FiUsers, FiDollarSign, FiShield, FiBookOpen, FiSmile,
 } from "react-icons/fi";
+
+interface JobItem {
+  id: string;
+  title: string;
+  slug: string;
+  location: string;
+  type: string;
+  department: string;
+  salary: string | null;
+  description: string;
+}
 
 export const metadata: Metadata = {
   title: "Careers — Newa Tech | Web & App Development Jobs in Kathmandu",
@@ -35,7 +47,7 @@ const perks = [
 ];
 
 export default async function CareersPage() {
-  let jobs: any[] = [];
+  let jobs: JobItem[] = [];
   try {
     const raw = await prisma.job.findMany({
       where: { isActive: true },
@@ -53,6 +65,19 @@ export default async function CareersPage() {
     }));
   } catch (error) {
     console.error("Error fetching jobs:", error);
+  }
+
+  if (jobs.length === 0) {
+    jobs = fallbackJobs.map((j) => ({
+      id: j.id,
+      title: j.title,
+      slug: j.slug,
+      location: j.location,
+      type: j.type,
+      department: j.department,
+      salary: j.salary,
+      description: j.description,
+    }));
   }
 
   return (

@@ -3,6 +3,7 @@ import type { Job } from "@prisma/client";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { getFallbackJobBySlug } from "@/lib/data/fallbackJobs";
 import ApplicationFormInline from "@/features/careers/ApplicationFormInline";
 import {
   FiArrowLeft, FiMapPin, FiBriefcase,
@@ -15,11 +16,17 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const job = await prisma.job.findUnique({ where: { slug, isActive: true } });
+  let job = null;
+  try {
+    job = await prisma.job.findUnique({ where: { slug, isActive: true } });
+  } catch (error) {
+    console.error("Error fetching job metadata:", error);
+  }
+  if (!job) job = getFallbackJobBySlug(slug) ?? null;
   if (!job) return { title: "Position Not Found — Newa Tech Careers" };
   return {
     title: `Apply: ${job.title} — Newa Tech Careers`,
-    description: `Apply for the ${job.title} position at Newa Tech in ${job.location || "Baneshwor, Kathmandu"}.`,
+    description: `Apply for the ${job.title} position at Newa Tech in ${(job as any).location || "Baneshwor, Kathmandu"}.`,
   };
 }
 
@@ -32,7 +39,13 @@ const departmentIcons: Record<string, React.ReactNode> = {
 
 export default async function JobApplyPage({ params }: PageProps) {
   const { slug } = await params;
-  const job = await prisma.job.findUnique({ where: { slug, isActive: true } });
+  let job = null;
+  try {
+    job = await prisma.job.findUnique({ where: { slug, isActive: true } });
+  } catch (error) {
+    console.error("Error fetching job:", error);
+  }
+  if (!job) job = getFallbackJobBySlug(slug) ?? null;
   if (!job) notFound();
 
   const reqList = (job.requirements || "")

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { PortfolioItem, Service } from "@prisma/client";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
+import { fallbackServices, getFallbackServiceBySlug } from "@/lib/data/fallbackServices";
 import Link from "next/link";
 import ServiceDetailClient from "./ServiceDetailClient";
 import ServiceInquiryForm from "@/features/services/ServiceInquiryForm";
@@ -59,16 +60,20 @@ function getTypeColor(type: string): string {
 }
 
 export async function generateStaticParams() {
+  let slugs: string[] = [];
   try {
     const services = await prisma.service.findMany({
       where: { isActive: true },
       select: { slug: true },
     });
-    return services.map((s) => ({ slug: s.slug }));
+    slugs = services.map((s) => s.slug);
   } catch (error) {
     console.error("Error in generateStaticParams:", error);
-    return [];
   }
+  for (const s of fallbackServices) {
+    if (!slugs.includes(s.slug)) slugs.push(s.slug);
+  }
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -79,6 +84,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   } catch (error) {
     console.error("Error fetching service metadata:", error);
   }
+  if (!service) service = getFallbackServiceBySlug(slug) ?? null;
   if (!service) return { title: "Service Not Found — Newa Tech" };
   return {
     title: `${service.title} — Newa Tech`,
@@ -111,7 +117,29 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     console.error("Error fetching service detail:", error);
   }
 
+  const fallback = getFallbackServiceBySlug(slug);
+
+  if (!service) {
+    if (fallback) {
+      service = fallback as any;
+    } else {
+      notFound();
+    }
+  }
   if (!service) notFound();
+
+  if (relatedServices.length === 0) {
+    relatedServices = fallbackServices
+      .filter((s) => s.slug !== slug)
+      .map((s) => ({
+        id: s.id,
+        title: s.title,
+        slug: s.slug,
+        description: s.description,
+        icon: s.icon,
+        timeline: s.timeline,
+      }));
+  }
 
   const features: ServiceFeature[] = (service.features as ServiceFeature[]) || [];
   const techStack: TechStackItem[] = (service.techStack as TechStackItem[]) || [];
