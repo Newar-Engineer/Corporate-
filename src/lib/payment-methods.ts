@@ -1,10 +1,12 @@
-import type { IconType } from "react-icons";
+﻿import type { IconType } from "react-icons";
 import { FiSmartphone, FiSend, FiCreditCard, FiDollarSign } from "react-icons/fi";
+
+export type PaymentIconName = "smartphone" | "send" | "creditcard" | "dollar";
 
 export interface PaymentMethod {
   slug: string;
   name: string;
-  icon: IconType;
+  icon: PaymentIconName;
   number: string;
   type: "Wallet" | "Bank Transfer";
   qrPath: string | null;
@@ -12,11 +14,22 @@ export interface PaymentMethod {
   steps: string[];
 }
 
+const iconComponents: Record<PaymentIconName, IconType> = {
+  smartphone: FiSmartphone,
+  send: FiSend,
+  creditcard: FiCreditCard,
+  dollar: FiDollarSign,
+};
+
+export function getIconByName(icon: PaymentIconName): IconType {
+  return iconComponents[icon];
+}
+
 export const paymentMethods: PaymentMethod[] = [
   {
     slug: "esewa",
     name: "eSewa",
-    icon: FiSmartphone,
+    icon: "smartphone",
     number: "9766453836",
     type: "Wallet",
     qrPath: "/esewaqr.jpeg",
@@ -33,7 +46,7 @@ export const paymentMethods: PaymentMethod[] = [
   {
     slug: "khalti",
     name: "Khalti",
-    icon: FiSend,
+    icon: "send",
     number: "9766453836",
     type: "Wallet",
     qrPath: null,
@@ -50,7 +63,7 @@ export const paymentMethods: PaymentMethod[] = [
   {
     slug: "global-ime",
     name: "Global IME Bank",
-    icon: FiCreditCard,
+    icon: "creditcard",
     number: "9744400011",
     type: "Bank Transfer",
     qrPath: "/Globalg.jpeg",
@@ -67,7 +80,7 @@ export const paymentMethods: PaymentMethod[] = [
   {
     slug: "siddhartha",
     name: "Siddhartha Bank",
-    icon: FiDollarSign,
+    icon: "dollar",
     number: "9766453836",
     type: "Bank Transfer",
     qrPath: "/siddhartha.jpeg",

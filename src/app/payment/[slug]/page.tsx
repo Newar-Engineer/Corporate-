@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { FiArrowLeft, FiCheckCircle } from "react-icons/fi";
-import { paymentMethods, getPaymentMethodBySlug } from "@/lib/payment-methods";
+import { paymentMethods, getPaymentMethodBySlug, getIconByName } from "@/lib/payment-methods";
 import PaymentCopyButton from "../PaymentCopyButton";
 
 interface Props {
@@ -29,7 +29,7 @@ export default async function PaymentMethodPage({ params }: Props) {
   const method = getPaymentMethodBySlug(slug);
   if (!method) notFound();
 
-  const Icon = method.icon;
+  const Icon = getIconByName(method.icon);
 
   return (
     <div className="bg-black min-h-screen text-slate-100 selection:bg-gold selection:text-black">

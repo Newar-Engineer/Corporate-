@@ -2,9 +2,16 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import type { IconType } from "react-icons";
-import { FiArrowRight, FiMaximize2 } from "react-icons/fi";
+import { FiArrowRight, FiMaximize2, FiSmartphone, FiSend, FiCreditCard, FiDollarSign } from "react-icons/fi";
+import type { PaymentIconName } from "@/lib/payment-methods";
 import PaymentCopyButton from "./PaymentCopyButton";
+
+const iconMap: Record<PaymentIconName, React.ComponentType<{ size?: number; className?: string }>> = {
+  smartphone: FiSmartphone,
+  send: FiSend,
+  creditcard: FiCreditCard,
+  dollar: FiDollarSign,
+};
 
 interface PaymentMethodCardProps {
   name: string;
@@ -12,7 +19,7 @@ interface PaymentMethodCardProps {
   type: string;
   description: string;
   qrPath?: string | null;
-  icon: IconType;
+  icon: PaymentIconName;
   href: string;
 }
 
@@ -22,9 +29,10 @@ export default function PaymentMethodCard({
   type,
   description,
   qrPath,
-  icon: Icon,
+  icon,
   href,
 }: PaymentMethodCardProps) {
+  const Icon = iconMap[icon];
   return (
     <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-700/50 bg-slate-800/40 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(30,95,217,0.15)]">
       <div className="flex items-center justify-between mb-5">
