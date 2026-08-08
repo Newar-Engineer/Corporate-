@@ -44,10 +44,10 @@ const categoryIconMap: Record<string, React.ReactNode> = {
 };
 
 const startingPrices: Record<string, string> = {
-  "web-development-engineering": "NPR 25,000",
-  "mobile-app-engineering": "NPR 80,000",
-  "ecommerce-platforms": "NPR 45,000",
-  "uiux-product-design": "NPR 20,000",
+  "web-development-engineering": "NPR 14,999",
+  "mobile-app-engineering": "NPR 24,999",
+  "ecommerce-platforms": "NPR 24,999",
+  "uiux-product-design": "NPR 4,999",
 };
 
 const typeColors: Record<string, string> = {
