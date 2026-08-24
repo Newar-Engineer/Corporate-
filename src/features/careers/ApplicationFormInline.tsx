@@ -167,7 +167,7 @@ export default function ApplicationFormInline({ jobSlug, jobTitle }: Application
 
       <p className="text-[10px] text-slate-400 text-center">
         We treat your data with care. Read our{" "}
-        <a href="/contact" className="text-primary hover:underline">Privacy Policy</a>.
+        <a href="/privacy-policy" className="text-primary hover:underline">Privacy Policy</a>.
       </p>
     </form>
   );

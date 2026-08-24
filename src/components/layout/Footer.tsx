@@ -173,7 +173,7 @@ export default function Footer() {
           <p>&copy; {new Date().getFullYear()} Newa Tech. All rights reserved. Baneshwor, Kathmandu, Nepal.</p>
           <div className="flex gap-4">
             <Link href="/privacy-policy" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
-            <Link href="/" className="hover:text-slate-300 transition-colors">Terms of Service</Link>
+            <Link href="/terms-of-service" className="hover:text-slate-300 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
